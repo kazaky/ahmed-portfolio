@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ahmed Elshahawi — Bento Portfolio
 
-## Getting Started
+A static recreation of the [bento.me/shahawi](https://web.archive.org/web/20240522205750/https://bento.me/shahawi) layout — left profile sidebar, sectioned bento grids, and link cards.
 
-First, run the development server:
+## Quick start
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Edit content
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+All content lives in [`content/site.ts`](content/site.ts):
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Profile** — name, avatar, roles
+- **Sections** — titled groups (`Apps I worked on`, `Artistic Side`, `Photographs I took`)
+- **Items** — link cards, location cards, or photo placeholders
 
-## Learn More
+### Block sizes (6-column grid)
 
-To learn more about Next.js, take a look at the following resources:
+| Size | Layout |
+|------|--------|
+| `1x1` | Small |
+| `2x1` | Wide (2/3 width) |
+| `1x2` | Tall |
+| `2x2` | Large |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Add photos
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Replace photo placeholders in the `photographs` section:
 
-## Deploy on Vercel
+```ts
+{ type: "photo", id: "p1", size: "1x1", image: "/photos/street-1.jpg", alt: "..." }
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Drop images in `public/photos/`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Deploy to Cloudflare Pages
+
+```bash
+npm run build
+npx wrangler pages deploy out --project-name ahmed-portfolio
+```
+
+Build settings: `npm run build`, output `out/`.

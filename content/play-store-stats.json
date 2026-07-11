@@ -1,0 +1,18 @@
+{
+  "kleinanzeigen": {
+    "downloads": "50M+",
+    "label": "50M+ downloads"
+  },
+  "leboncoin": {
+    "downloads": "10M+",
+    "label": "10M+ downloads"
+  },
+  "yaoota": {
+    "downloads": "Delisted",
+    "label": "Delisted from Play Store"
+  },
+  "zad": {
+    "downloads": "100K+",
+    "label": "100K+ downloads · delisted"
+  }
+}
