@@ -44,3 +44,8 @@ npx wrangler pages deploy out --project-name ahmed-portfolio
 ```
 
 Build settings: `npm run build`, output `out/`.
+
+Live: https://ahmed-portfolio-mmi.pages.dev  
+Repo: https://github.com/kazaky/ahmed-portfolio
+
+To attach a personal domain, see [docs/custom-domain.md](docs/custom-domain.md) and update `metadataBase` in `src/app/layout.tsx`.
