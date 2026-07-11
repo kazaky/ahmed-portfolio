@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { ArrowUpRight, Mail } from "lucide-react";
-import type { Profile, ProfileRoleLink } from "@/lib/types";
+import type { Profile, ProfileCta, ProfileRoleLink } from "@/lib/types";
 
 interface ProfileSidebarProps {
   profile: Profile;
@@ -8,6 +8,40 @@ interface ProfileSidebarProps {
 
 function isLink(part: string | ProfileRoleLink): part is ProfileRoleLink {
   return typeof part === "object" && "url" in part;
+}
+
+const focusRing =
+  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-2";
+
+function CtaButton({
+  cta,
+  variant,
+}: {
+  cta: ProfileCta;
+  variant: "primary" | "secondary";
+}) {
+  const isMail = cta.url.startsWith("mailto:");
+  const isInternal = cta.url.startsWith("/");
+  return (
+    <a
+      href={cta.url}
+      target={isMail || isInternal ? undefined : "_blank"}
+      rel={isMail || isInternal ? undefined : "noopener noreferrer"}
+      className={[
+        "inline-flex items-center gap-1.5 rounded-full px-4 py-2.5 text-sm font-semibold transition-colors",
+        focusRing,
+        variant === "primary"
+          ? "bg-neutral-900 text-white shadow-sm hover:-translate-y-0.5 hover:bg-neutral-800 transition-transform"
+          : "border border-neutral-300 bg-white text-neutral-800 hover:bg-neutral-50",
+      ].join(" ")}
+    >
+      {isMail ? <Mail className="h-4 w-4" strokeWidth={2.25} aria-hidden /> : null}
+      {cta.label}
+      {!isMail && variant === "primary" ? (
+        <ArrowUpRight className="h-4 w-4" strokeWidth={2.25} aria-hidden />
+      ) : null}
+    </a>
+  );
 }
 
 export function ProfileSidebar({ profile }: ProfileSidebarProps) {
@@ -32,37 +66,20 @@ export function ProfileSidebar({ profile }: ProfileSidebarProps) {
         </p>
       )}
       <div className="mt-5 flex flex-wrap gap-2">
-        {profile.cta && (
-          <a
-            href={profile.cta.url}
-            target={profile.cta.url.startsWith("mailto:") ? undefined : "_blank"}
-            rel={
-              profile.cta.url.startsWith("mailto:")
-                ? undefined
-                : "noopener noreferrer"
-            }
-            className="inline-flex items-center gap-1.5 rounded-full bg-neutral-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-transform hover:-translate-y-0.5 hover:bg-neutral-800"
-          >
-            {profile.cta.label}
-            <ArrowUpRight className="h-4 w-4" strokeWidth={2.25} />
-          </a>
-        )}
+        {profile.cta && <CtaButton cta={profile.cta} variant="primary" />}
         {profile.ctaSecondary && (
-          <a
-            href={profile.ctaSecondary.url}
-            className="inline-flex items-center gap-1.5 rounded-full border border-neutral-300 bg-white px-4 py-2.5 text-sm font-semibold text-neutral-800 transition-colors hover:bg-neutral-50"
-          >
-            {profile.ctaSecondary.url.startsWith("mailto:") ? (
-              <Mail className="h-4 w-4" strokeWidth={2.25} />
-            ) : null}
-            {profile.ctaSecondary.label}
-          </a>
+          <CtaButton cta={profile.ctaSecondary} variant="secondary" />
+        )}
+        {profile.ctaTertiary && (
+          <CtaButton cta={profile.ctaTertiary} variant="secondary" />
         )}
       </div>
       <ul className="mt-8 space-y-4 text-[14px] leading-relaxed text-neutral-800 sm:text-[15px]">
         {profile.roles.map((role, roleIndex) => (
           <li key={role.label}>
-            <span className="text-neutral-400">✦</span>{" "}
+            <span className="text-neutral-400" aria-hidden>
+              ✦
+            </span>{" "}
             <span
               className={
                 roleIndex === 0
@@ -82,9 +99,15 @@ export function ProfileSidebar({ profile }: ProfileSidebarProps) {
                           <a
                             key={`${part.label}-${i}`}
                             href={part.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="font-medium text-neutral-700 underline decoration-neutral-300 underline-offset-2 transition-colors hover:text-neutral-950 hover:decoration-neutral-500"
+                            target={
+                              part.url.startsWith("/") ? undefined : "_blank"
+                            }
+                            rel={
+                              part.url.startsWith("/")
+                                ? undefined
+                                : "noopener noreferrer"
+                            }
+                            className={`font-medium text-neutral-700 underline decoration-neutral-300 underline-offset-2 transition-colors hover:text-neutral-950 hover:decoration-neutral-500 ${focusRing} rounded-sm`}
                           >
                             {part.label}
                           </a>

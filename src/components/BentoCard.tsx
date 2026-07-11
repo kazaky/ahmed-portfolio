@@ -39,7 +39,9 @@ export function BentoCard({
         "group relative h-full overflow-hidden rounded-3xl border border-neutral-200/70 bg-white",
         isMedia ? "" : "min-h-0",
         variant === "map" ? "max-h-[140px] sm:max-h-[148px]" : "",
-        href ? "cursor-pointer transition-shadow hover:shadow-md" : "",
+        href
+          ? "cursor-pointer transition-shadow hover:shadow-md focus-within:shadow-md"
+          : "",
       ].join(" ")}
     >
       {href && (
@@ -56,7 +58,7 @@ export function BentoCard({
               : "noopener noreferrer"
           }
           aria-label={ariaLabel}
-          className="absolute inset-0 z-10 rounded-3xl"
+          className="absolute inset-0 z-10 rounded-3xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-2"
         />
       )}
       <div className="relative h-full">{children}</div>

@@ -34,8 +34,9 @@ function renderItem(item: SectionItem) {
 
 function getItemHref(item: SectionItem): string | undefined {
   if (item.type === "link") {
-    if (item.comingSoon) return undefined;
-    if (item.caseStudy) return item.caseStudy;
+    // Prefer live product/app URL so the card opens the real site;
+    // "View work" is a separate link inside LinkCard.
+    if (item.comingSoon) return item.work;
     return item.url;
   }
   if (item.type === "photo" && item.url) return item.url;

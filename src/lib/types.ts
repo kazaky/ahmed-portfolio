@@ -12,13 +12,15 @@ export type BrandIconId =
   | "leboncoin"
   | "yaoota"
   | "zad"
+  | "hitchhiker"
   | "misho"
   | "tawazun"
   | "iqrar-dayn"
   | "loqmaan"
   | "arabic-watch"
   | "falah"
-  | "basira";
+  | "basira"
+  | "ebay";
 
 export interface ProfileRoleLink {
   label: string;
@@ -33,21 +35,22 @@ export interface ProfileRole {
   detailParts?: Array<string | ProfileRoleLink>;
 }
 
+export interface ProfileCta {
+  label: string;
+  url: string;
+}
+
 export interface Profile {
   name: string;
   avatar: string;
   /** Short one-line bio under the name */
   bio?: string;
   /** Primary call-to-action */
-  cta?: {
-    label: string;
-    url: string;
-  };
+  cta?: ProfileCta;
   /** Secondary CTA (e.g. email) */
-  ctaSecondary?: {
-    label: string;
-    url: string;
-  };
+  ctaSecondary?: ProfileCta;
+  /** Tertiary CTA (e.g. GitHub) */
+  ctaTertiary?: ProfileCta;
   roles: ProfileRole[];
 }
 
@@ -60,12 +63,12 @@ export interface LinkItem {
   size: CardSize;
   icon?: BrandIconId;
   follow?: boolean;
-  /** Short 3–4 word blurb */
+  /** Short outcome-led blurb */
   blurb?: string;
   /** Product/app screenshot preview */
   preview?: string;
-  /** Internal case study path, e.g. /work/misho */
-  caseStudy?: string;
+  /** Internal work page, e.g. /work/misho */
+  work?: string;
   /** e.g. Play Store download count */
   downloads?: string;
   downloadsLabel?: string;

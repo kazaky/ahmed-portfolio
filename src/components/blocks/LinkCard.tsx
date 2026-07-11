@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Download, Link2 } from "lucide-react";
 import type { LinkItem } from "@/lib/types";
 import { iconSrc } from "@/lib/icons";
@@ -9,6 +10,7 @@ const FULL_BLEED_ICONS = new Set([
   "leboncoin",
   "yaoota",
   "zad",
+  "hitchhiker",
   "misho",
   "tawazun",
   "iqrar-dayn",
@@ -16,6 +18,7 @@ const FULL_BLEED_ICONS = new Set([
   "arabic-watch",
   "falah",
   "basira",
+  "ebay",
 ]);
 
 const SOCIAL_ICONS = new Set([
@@ -29,6 +32,32 @@ const SOCIAL_ICONS = new Set([
 
 interface LinkCardProps {
   item: LinkItem;
+}
+
+function ActionRow({ item }: { item: LinkItem }) {
+  if (!item.work) return null;
+  return (
+    <span className="relative z-20 mt-2 flex flex-wrap items-center gap-x-3 gap-y-1">
+      <Link
+        href={item.work}
+        className="text-xs font-semibold text-neutral-800 underline decoration-neutral-300 underline-offset-2 transition-colors hover:decoration-neutral-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-2 rounded-sm"
+        onClick={(e) => e.stopPropagation()}
+      >
+        View work
+      </Link>
+      {!item.comingSoon && (
+        <a
+          href={item.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-xs font-medium text-neutral-500 underline decoration-neutral-200 underline-offset-2 transition-colors hover:text-neutral-800 hover:decoration-neutral-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-2 rounded-sm"
+          onClick={(e) => e.stopPropagation()}
+        >
+          Visit site
+        </a>
+      )}
+    </span>
+  );
 }
 
 export function LinkCard({ item }: LinkCardProps) {
@@ -71,19 +100,23 @@ export function LinkCard({ item }: LinkCardProps) {
                   }
                 />
               ) : (
-                <Link2 className="h-4 w-4 text-neutral-500" strokeWidth={2} />
+                <Link2
+                  className="h-4 w-4 text-neutral-500"
+                  strokeWidth={2}
+                  aria-hidden
+                />
               )}
             </div>
-            <div className="flex flex-wrap items-center justify-end gap-1.5">
+            <div className="pointer-events-none flex flex-wrap items-center justify-end gap-1.5">
               {item.comingSoon && (
-                <span className="relative z-20 rounded-full bg-neutral-200/70 px-2 py-0.5 text-[10px] font-medium text-neutral-500">
+                <span className="rounded-full bg-neutral-200/70 px-2 py-0.5 text-[10px] font-medium text-neutral-500">
                   Coming Soon
                 </span>
               )}
               {isApp && item.downloads && !item.comingSoon && (
                 <span
                   className={[
-                    "relative z-20 inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-semibold sm:text-[11px]",
+                    "inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-semibold sm:text-[11px]",
                     isDelisted
                       ? "bg-neutral-100 text-neutral-500"
                       : "bg-emerald-50 text-emerald-700 ring-1 ring-emerald-100",
@@ -91,7 +124,11 @@ export function LinkCard({ item }: LinkCardProps) {
                   title={item.downloadsLabel ?? item.downloads}
                 >
                   {!isDelisted && (
-                    <Download className="h-3 w-3" strokeWidth={2.5} />
+                    <Download
+                      className="h-3 w-3"
+                      strokeWidth={2.5}
+                      aria-hidden
+                    />
                   )}
                   {item.downloads}
                 </span>
@@ -105,11 +142,7 @@ export function LinkCard({ item }: LinkCardProps) {
             <p className="mt-1 text-xs leading-snug text-neutral-500 line-clamp-2 sm:text-sm">
               {item.blurb ?? item.domain}
             </p>
-            {item.caseStudy && (
-              <span className="relative z-20 mt-2 inline-block text-xs font-semibold text-neutral-800 underline decoration-neutral-300 underline-offset-2">
-                View case study
-              </span>
-            )}
+            <ActionRow item={item} />
           </div>
         </div>
         <div
@@ -122,7 +155,7 @@ export function LinkCard({ item }: LinkCardProps) {
         >
           <Image
             src={item.preview}
-            alt=""
+            alt={`${item.title} preview`}
             fill
             className="object-cover object-top"
             sizes="(max-width: 640px) 100vw, 280px"
@@ -160,31 +193,37 @@ export function LinkCard({ item }: LinkCardProps) {
               }
             />
           ) : (
-            <Link2 className="h-4 w-4 text-neutral-500" strokeWidth={2} />
+            <Link2
+              className="h-4 w-4 text-neutral-500"
+              strokeWidth={2}
+              aria-hidden
+            />
           )}
         </div>
-        <div className="flex max-w-[55%] flex-wrap items-center justify-end gap-1.5">
+        <div className="pointer-events-none flex max-w-[55%] flex-wrap items-center justify-end gap-1.5">
           {item.comingSoon && (
-            <span className="relative z-20 rounded-full bg-neutral-200/70 px-2 py-0.5 text-[10px] font-medium text-neutral-500 sm:text-[11px]">
+            <span className="rounded-full bg-neutral-200/70 px-2 py-0.5 text-[10px] font-medium text-neutral-500 sm:text-[11px]">
               Coming Soon
             </span>
           )}
           {isApp && item.downloads && !item.comingSoon && (
             <span
               className={[
-                "relative z-20 inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-semibold sm:text-[11px]",
+                "inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-semibold sm:text-[11px]",
                 isDelisted
                   ? "bg-neutral-100 text-neutral-500"
                   : "bg-emerald-50 text-emerald-700 ring-1 ring-emerald-100",
               ].join(" ")}
               title={item.downloadsLabel ?? item.downloads}
             >
-              {!isDelisted && <Download className="h-3 w-3" strokeWidth={2.5} />}
+              {!isDelisted && (
+                <Download className="h-3 w-3" strokeWidth={2.5} aria-hidden />
+              )}
               {item.downloads}
             </span>
           )}
           {item.follow && !item.comingSoon && (
-            <span className="relative z-20 rounded-full border border-neutral-200 bg-white px-2 py-0.5 text-[10px] font-medium text-neutral-700 sm:text-[11px]">
+            <span className="rounded-full border border-neutral-200 bg-white px-2 py-0.5 text-[10px] font-medium text-neutral-700 sm:text-[11px]">
               Follow
             </span>
           )}
@@ -211,6 +250,7 @@ export function LinkCard({ item }: LinkCardProps) {
               ? "Coming soon"
               : (item.downloadsLabel ?? item.domain))}
         </p>
+        <ActionRow item={item} />
       </div>
     </div>
   );

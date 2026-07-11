@@ -13,6 +13,7 @@ export const iconSrc: Record<BrandIconId, string> = {
   leboncoin: "/icons/leboncoin.png",
   yaoota: "/icons/yaoota.png",
   zad: "/icons/zad.png",
+  hitchhiker: "/icons/hitchhiker.png",
   misho: "/icons/misho.svg",
   tawazun: "/icons/tawazun.svg",
   "iqrar-dayn": "/icons/iqrar-dayn.svg",
@@ -20,4 +21,5 @@ export const iconSrc: Record<BrandIconId, string> = {
   "arabic-watch": "/icons/arabic-watch.svg",
   falah: "/icons/falah.png",
   basira: "/icons/basira.svg",
+  ebay: "/icons/ebay.png",
 };
