@@ -1,6 +1,6 @@
 "use client";
 
-import type { PhotoItem, Section, SectionItem } from "@/lib/types";
+import type { LinkItem, PhotoItem, Section, SectionItem } from "@/lib/types";
 import { BentoCard } from "@/components/BentoCard";
 import { LinkCard } from "@/components/blocks/LinkCard";
 import { LocationCard } from "@/components/blocks/LocationCard";
@@ -10,6 +10,7 @@ import { PhotoGallery } from "@/components/PhotoGallery";
 import { ShotGallery } from "@/components/ShotGallery";
 import { DribbbleWidget } from "@/components/DribbbleWidget";
 import { InstagramWidget } from "@/components/InstagramWidget";
+import { ExperienceTimeline } from "@/components/ExperienceTimeline";
 import type { ShotItem } from "@/lib/types";
 
 interface BentoSectionProps {
@@ -34,8 +35,6 @@ function renderItem(item: SectionItem) {
 
 function getItemHref(item: SectionItem): string | undefined {
   if (item.type === "link") {
-    // Prefer live product/app URL so the card opens the real site;
-    // "View work" is a separate link inside LinkCard.
     if (item.comingSoon) return item.work;
     return item.url;
   }
@@ -53,11 +52,15 @@ function getVariant(item: SectionItem): "content" | "photo" | "map" {
 export function BentoSection({ section, startIndex = 0 }: BentoSectionProps) {
   const isPhotoGallery = section.id === "photographs";
   const isDribbble = section.id === "dribbble";
+  const isExperience = section.id === "experience";
   const photos = isPhotoGallery
     ? (section.items.filter((i) => i.type === "photo") as PhotoItem[])
     : [];
   const shots = isDribbble
     ? (section.items.filter((i) => i.type === "shot") as ShotItem[])
+    : [];
+  const experienceItems = isExperience
+    ? (section.items.filter((i) => i.type === "link") as LinkItem[])
     : [];
 
   return (
@@ -80,6 +83,8 @@ export function BentoSection({ section, startIndex = 0 }: BentoSectionProps) {
           <ShotGallery shots={shots} startIndex={startIndex} />
           <DribbbleWidget />
         </>
+      ) : isExperience ? (
+        <ExperienceTimeline items={experienceItems} startIndex={startIndex} />
       ) : (
         <div className="grid auto-rows-[152px] grid-cols-6 grid-flow-dense gap-2.5 sm:auto-rows-[164px] sm:gap-3">
           {section.items.map((item, index) => (

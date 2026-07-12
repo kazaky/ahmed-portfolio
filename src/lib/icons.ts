@@ -21,5 +21,5 @@ export const iconSrc: Record<BrandIconId, string> = {
   "arabic-watch": "/icons/arabic-watch.svg",
   falah: "/icons/falah.png",
   basira: "/icons/basira.svg",
-  ebay: "/icons/ebay.png",
+  ebay: "/icons/ebay.svg",
 };

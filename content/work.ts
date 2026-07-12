@@ -12,6 +12,8 @@ export interface WorkEntry {
   icon: string;
   preview: string;
   comingSoon?: boolean;
+  /** Display period, e.g. "May 2018 – Present" */
+  period?: string;
   /** Context / challenge */
   context: string;
   /** What you did */
@@ -32,8 +34,9 @@ export const workEntries: WorkEntry[] = [
       "Staff Software Engineer on marketplace product surfaces used by millions of buyers and sellers.",
     url: "https://www.ebayinc.com",
     domain: "ebayinc.com",
-    icon: "/icons/ebay.png",
+    icon: "/icons/ebay.svg",
     preview: "/previews/ebay.jpg",
+    period: "2022 – Present",
     context:
       "eBay’s marketplace spans discovery, listing, trust, and checkout at global scale. Shipping features here means coordinating across platforms, careful rollout, and deep product sense from years in classifieds.",
     did: "Staff Software Engineer on marketplace product engineering. Partner with design and product on reliability and experience improvements across the eBay ecosystem — continuing from Senior Android work on eBay Kleinanzeigen (Kotlin, Jetpack, CI).",
@@ -51,6 +54,7 @@ export const workEntries: WorkEntry[] = [
     domain: "kleinanzeigen.de",
     icon: "/icons/kleinanzeigen.png",
     preview: "/previews/kleinanzeigen.jpg",
+    period: "May 2018 – 2022",
     context:
       "Kleinanzeigen is how millions of people in Germany buy and sell locally. The Android app must feel fast and trustworthy under huge catalog and traffic load.",
     did: "Senior Android Engineer at eBay Kleinanzeigen GmbH (from May 2018). Shipped native Android with Kotlin, MVVM / Jetpack, automated tests, and CI through the Adevinta / eBay Kleinanzeigen era.",
@@ -68,6 +72,7 @@ export const workEntries: WorkEntry[] = [
     domain: "leboncoin.fr",
     icon: "/icons/leboncoin.png",
     preview: "/previews/leboncoin.jpg",
+    period: "2019 – 2022",
     context:
       "leboncoin sets the bar for second-hand UX in France. Reliability and craft on mobile and web are non-negotiable at that scale.",
     did: "Software engineering within Adevinta’s classifieds group on leboncoin product surfaces — buyer/seller journeys alongside related Kleinanzeigen work in the same organization.",
@@ -85,6 +90,7 @@ export const workEntries: WorkEntry[] = [
     domain: "play.google.com",
     icon: "/icons/yaoota.png",
     preview: "/previews/yaoota.jpg",
+    period: "Sep 2017 – Aug 2018",
     context:
       "Shopping across stores was fragmented. Shoppers needed clear price comparison; merchants needed modern mobile tools like installment payments.",
     did: "Senior Android Developer (Sep 2017 – Aug 2018). Built a secure payment-by-installment app from scratch — MVVM, Espresso & JUnit, Kotlin, Agile. Maintained and scaled Yaoota’s shopping search Android app.",
@@ -102,6 +108,7 @@ export const workEntries: WorkEntry[] = [
     domain: "play.google.com",
     icon: "/icons/zad.png",
     preview: "/previews/zad.jpg",
+    period: "Jan 2014 – Jan 2016",
     context:
       "Arabic audiences wanted culturally native mood content — not a thin localization of a Western quotes app.",
     did: "Junior Android Developer (Jan 2014 – Jan 2016). Learned Android core components with seniors. Shipped on Zad (Emotion Assistant), FocusMusic.fm streaming, a context-aware TODO app, and the Eleven FlashWatch widget for Egypt.",
@@ -119,6 +126,7 @@ export const workEntries: WorkEntry[] = [
     domain: "hitchhiker.app",
     icon: "/icons/hitchhiker.png",
     preview: "/previews/hitchhiker.jpg",
+    period: "Jun 2016 – Aug 2017",
     context:
       "Travel and shipping apps lose trust fast when memory leaks, threading bugs, and weak architecture surface under real use.",
     did: "Senior Android Developer (Jun 2016 – Aug 2017). Fixed leaks and threading with LeakCanary and RxJava; tightened MVP separation of concerns. Built an offline-first, Dagger2-modularized reactive MVVM stack with Data Binding, Kotlin, tests, and automated deployment.",

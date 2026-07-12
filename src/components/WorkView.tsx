@@ -17,8 +17,9 @@ export function WorkView({ work }: WorkViewProps) {
     .filter((w) => w.slug !== work.slug && w.kind === work.kind)
     .slice(0, 4);
 
-  const backHref = work.kind === "role" ? "/#apps" : "/#products";
-  const backLabel = work.kind === "role" ? "Back to apps" : "Back to products";
+  const backHref = work.kind === "role" ? "/#experience" : "/#products";
+  const backLabel =
+    work.kind === "role" ? "Back to experience" : "Back to products";
   const kindLabel = work.kind === "role" ? "Role" : "Project";
 
   return (

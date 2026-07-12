@@ -73,6 +73,10 @@ export interface LinkItem {
   downloads?: string;
   downloadsLabel?: string;
   comingSoon?: boolean;
+  /** Job title for experience timeline cards */
+  roleTitle?: string;
+  /** Display period, e.g. "May 2018 – Present" */
+  period?: string;
 }
 
 export interface ShotItem {
