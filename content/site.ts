@@ -1,5 +1,5 @@
-import type { CardSize, LinkItem, SiteConfig } from "@/lib/types";
-import { contactEmail } from "./site-url";
+import type { BrandIconId, CardSize, LinkItem, SiteConfig } from "@/lib/types";
+import me from "./me.json";
 import { getWork } from "./work";
 import instagramPosts from "./instagram-posts.json";
 import dribbbleShots from "./dribbble-shots.json";
@@ -36,30 +36,30 @@ function appDownloads(id: keyof typeof playStoreStats) {
   };
 }
 
-/** Home bento card fields derived from work entry + presentation overrides. */
-function workLink(
-  slug: string,
-  overrides: Pick<LinkItem, "size" | "icon"> &
-    Partial<Pick<LinkItem, "blurb" | "url" | "domain" | "title">> & {
-      downloadsKey?: keyof typeof playStoreStats;
-    },
-): LinkItem {
-  const w = getWork(slug);
-  if (!w) throw new Error(`Missing work entry: ${slug}`);
-  const downloads = overrides.downloadsKey
-    ? appDownloads(overrides.downloadsKey)
-    : {};
+type HomeCardRef = {
+  slug: string;
+  size: CardSize;
+  icon: BrandIconId;
+};
+
+function workLink(ref: HomeCardRef): LinkItem {
+  const w = getWork(ref.slug);
+  if (!w) throw new Error(`Missing work entry: ${ref.slug}`);
+  const downloads =
+    w.playStoreId && w.playStoreId in playStoreStats
+      ? appDownloads(w.playStoreId as keyof typeof playStoreStats)
+      : {};
   return {
     type: "link",
-    id: slug,
-    title: overrides.title ?? w.title,
-    url: overrides.url ?? w.url,
-    domain: overrides.domain ?? w.domain,
-    size: overrides.size,
-    icon: overrides.icon,
-    blurb: overrides.blurb ?? w.tagline,
+    id: ref.slug,
+    title: w.title,
+    url: w.homeUrl ?? w.url,
+    domain: w.homeDomain ?? w.domain,
+    size: ref.size,
+    icon: ref.icon,
+    blurb: w.homeBlurb ?? w.tagline,
     preview: w.preview,
-    work: `/work/${slug}`,
+    work: `/work/${ref.slug}`,
     comingSoon: w.comingSoon,
     roleTitle: w.roleTitle,
     period: w.period,
@@ -67,190 +67,93 @@ function workLink(
   };
 }
 
+function buildSidebarRoles(): SiteConfig["profile"]["roles"] {
+  return me.sidebarRoles.map((role) => {
+    if (!("currently" in role) && !("previously" in role)) {
+      return { label: role.label };
+    }
+
+    const detailParts: Array<string | { label: string; url: string }> = [];
+    if (role.currently?.length) {
+      detailParts.push("Currently ");
+      role.currently.forEach((link, i) => {
+        if (i > 0) detailParts.push(" ");
+        detailParts.push(link);
+      });
+    }
+    if (role.previously?.length) {
+      detailParts.push("\nPreviously ");
+      role.previously.forEach((link, i) => {
+        if (i > 0) detailParts.push(" ");
+        detailParts.push(link);
+      });
+    }
+    return { label: role.label, detailParts };
+  });
+}
+
 export const site: SiteConfig = {
   profile: {
-    name: "Ahmed Elshahawy",
-    avatar: "/avatar.jpg",
-    bio: "Staff engineer at eBay. Building Arabic & Islamic tools on the side — from Berlin.",
-    cta: {
-      label: "Connect on LinkedIn",
-      url: "https://www.linkedin.com/in/shahawi",
-    },
+    name: me.name,
+    avatar: me.avatar,
+    bio: me.bio,
+    cta: me.cta,
     ctaSecondary: {
-      label: "Email",
-      url: `mailto:${contactEmail}`,
+      label: me.ctaSecondary.label,
+      url: me.ctaSecondary.url.startsWith("mailto:")
+        ? me.ctaSecondary.url
+        : `mailto:${me.email}`,
     },
-    ctaTertiary: {
-      label: "GitHub",
-      url: "https://github.com/kazaky",
-    },
-    roles: [
-      {
-        label: "Staff Software Engineer",
-        detailParts: [
-          "Currently ",
-          { label: "@eBay", url: "/work/ebay" },
-          "\nPreviously ",
-          { label: "@Adevinta", url: "https://www.adevinta.com" },
-          " ",
-          { label: "@Kleinanzeigen", url: "/work/kleinanzeigen" },
-          " ",
-          { label: "@leboncoin", url: "/work/leboncoin" },
-          " ",
-          { label: "@Yaoota", url: "/work/yaoota" },
-          " ",
-          { label: "@HitchHiker", url: "/work/hitchhiker" },
-        ],
-      },
-      { label: "UI / UX Designer" },
-      { label: "Street photographer" },
-    ],
+    ctaTertiary: me.ctaTertiary,
+    roles: buildSidebarRoles(),
   },
   sections: [
     {
       id: "links",
       items: [
-        {
-          type: "link",
-          id: "linkedin",
-          title: "Linkedin profile",
-          url: "https://www.linkedin.com/in/shahawi",
-          domain: "linkedin.com",
-          size: "half",
-          icon: "linkedin",
-        },
-        {
-          type: "link",
-          id: "medium",
-          title: "My Medium articles",
-          url: "https://medium.com/@shahawi",
-          domain: "medium.com",
-          size: "half",
-          icon: "medium",
-        },
-        {
-          type: "link",
-          id: "tweets",
-          title: "My tweets on X",
-          url: "https://x.com/shahawi_",
-          domain: "x.com",
-          size: "half",
-          icon: "x",
-        },
-        {
-          type: "link",
-          id: "github",
-          title: "Github projects",
-          url: "https://github.com/kazaky",
-          domain: "github.com",
-          size: "half",
-          icon: "github",
-          follow: true,
-        },
+        ...me.links.map((link) => ({
+          type: "link" as const,
+          id: link.id,
+          title: link.title,
+          url: link.url,
+          domain: link.domain,
+          size: "half" as const,
+          icon: link.icon as BrandIconId,
+          follow: "follow" in link ? Boolean(link.follow) : undefined,
+        })),
         {
           type: "location",
           id: "location",
-          title: "Berlin, Germany",
+          title: me.locationTitle,
           size: "map",
-          lat: 52.52,
-          lng: 13.405,
-          mapImage: "/map-berlin.jpg",
+          lat: me.location.lat,
+          lng: me.location.lng,
+          mapImage: me.location.mapImage,
         },
       ],
     },
     {
       id: "products",
-      title: "Products I've built",
-      items: [
-        workLink("misho", {
-          size: "2x1",
-          icon: "misho",
-          blurb: "Salah-first daily planner — live beta",
-        }),
-        workLink("tawazun", {
-          size: "1x2",
-          icon: "tawazun",
-          blurb: "Calm wellness without the streaks",
-        }),
-        workLink("iqrar-dayn", {
-          size: "half",
-          icon: "iqrar-dayn",
-          blurb: "Document interest-free loans clearly",
-        }),
-        workLink("loqmaan", {
-          size: "half",
-          icon: "loqmaan",
-          blurb: "Browse Arabic wisdom in one place",
-        }),
-        workLink("arabic-watch", {
-          size: "half",
-          icon: "arabic-watch",
-          blurb: "Heritage timekeeping, modern UI",
-        }),
-        workLink("falah", {
-          size: "half",
-          icon: "falah",
-          blurb: "Islamic tools suite — in progress",
-        }),
-        workLink("basira", {
-          size: "half",
-          icon: "basira",
-          blurb: "Clarity-first insight — in progress",
-        }),
-      ],
+      title: me.sections.products.title,
+      items: me.sections.products.order.map((ref) =>
+        workLink(ref as HomeCardRef),
+      ),
     },
     {
       id: "experience",
-      title: "Work Experience",
-      items: [
-        workLink("ebay", {
-          size: "full",
-          icon: "ebay",
-          blurb: "Marketplace product engineering at global scale",
-        }),
-        workLink("kleinanzeigen", {
-          size: "full",
-          icon: "kleinanzeigen",
-          blurb: "Native Android for Germany’s top classifieds app",
-          url: "https://play.google.com/store/apps/details?id=com.ebay.kleinanzeigen",
-          domain: "play.google.com",
-          downloadsKey: "kleinanzeigen",
-        }),
-        workLink("leboncoin", {
-          size: "full",
-          icon: "leboncoin",
-          blurb: "Classifieds product within the Adevinta family",
-          url: "https://play.google.com/store/apps/details?id=fr.leboncoin",
-          domain: "play.google.com",
-          downloadsKey: "leboncoin",
-        }),
-        workLink("yaoota", {
-          size: "full",
-          icon: "yaoota",
-          blurb: "Installment payments app + search ~250K users",
-          downloadsKey: "yaoota",
-        }),
-        workLink("hitchhiker", {
-          size: "full",
-          icon: "hitchhiker",
-          blurb: "Stabilized travel/shipping Android architecture",
-        }),
-        workLink("zad", {
-          size: "full",
-          icon: "zad",
-          blurb: "Arabic Emotion Assistant · ~250K MAU · 4.7★",
-          downloadsKey: "zad",
-        }),
-      ],
+      title: me.sections.experience.title,
+      items: me.sections.experience.order.map((ref) =>
+        workLink(ref as HomeCardRef),
+      ),
     },
     {
       id: "dribbble",
-      title: "Design work on Dribbble",
+      title: me.sections.dribbble.title,
       items: dribbbleItems,
     },
     {
       id: "photographs",
-      title: "Photographs I took",
+      title: me.sections.photographs.title,
       items: photographItems,
     },
   ],

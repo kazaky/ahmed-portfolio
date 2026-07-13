@@ -11,11 +11,14 @@ npm run dev
 
 ## Edit content
 
-All content lives in [`content/site.ts`](content/site.ts):
+**Edit plain JSON — see [`content/README.md`](content/README.md).**
 
-- **Profile** — name, avatar, roles
-- **Sections** — titled groups (`Apps I worked on`, `Artistic Side`, `Photographs I took`)
-- **Items** — link cards, location cards, or photo placeholders
+| File | Edit this for… |
+|------|----------------|
+| [`content/me.json`](content/me.json) | Bio, email, CTAs, section titles, card order |
+| [`content/work.json`](content/work.json) | Jobs & products: dates, Context / Did / Impact, blurbs |
+
+Do not edit `content/work.ts` or `content/site.ts` for copy — they only load the JSON.
 
 ### Block sizes (6-column grid)
 
@@ -25,16 +28,12 @@ All content lives in [`content/site.ts`](content/site.ts):
 | `2x1` | Wide (2/3 width) |
 | `1x2` | Tall |
 | `2x2` | Large |
+| `half` | Half width |
+| `full` | Full width (experience cards) |
 
 ## Add photos
 
-Replace photo placeholders in the `photographs` section:
-
-```ts
-{ type: "photo", id: "p1", size: "1x1", image: "/photos/street-1.jpg", alt: "..." }
-```
-
-Drop images in `public/photos/`.
+Photos come from Instagram fetch into `content/instagram-posts.json`, or add files under `public/photos/`.
 
 ## Deploy to Cloudflare Pages
 

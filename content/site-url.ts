@@ -1,4 +1,7 @@
-/** Canonical site origin — update when a custom domain is live (see docs/custom-domain.md). */
-export const siteUrl = "https://ahmed-portfolio-mmi.pages.dev";
+import me from "./me.json";
 
-export const contactEmail = "shosho.super.star@gmail.com";
+/** Canonical site origin — edit in me.json */
+export const siteUrl = me.siteUrl;
+
+/** Public contact email — edit in me.json */
+export const contactEmail = me.email;

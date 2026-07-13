@@ -1,0 +1,178 @@
+{
+  "siteUrl": "https://ahmed-portfolio-mmi.pages.dev",
+  "email": "shosho.super.star@gmail.com",
+  "name": "Ahmed Elshahawy",
+  "avatar": "/avatar.jpg",
+  "bio": "Staff engineer at eBay. Building Arabic & Islamic tools on the side.",
+  "locationTitle": "Berlin, Germany",
+  "location": {
+    "lat": 52.52,
+    "lng": 13.405,
+    "mapImage": "/map-berlin.jpg"
+  },
+  "cta": {
+    "label": "Connect on LinkedIn",
+    "url": "https://www.linkedin.com/in/shahawi"
+  },
+  "ctaSecondary": {
+    "label": "Email",
+    "url": "mailto:shosho.super.star@gmail.com"
+  },
+  "ctaTertiary": {
+    "label": "GitHub",
+    "url": "https://github.com/kazaky"
+  },
+  "sidebarRoles": [
+    {
+      "label": "Staff Software Engineer",
+      "currently": [
+        {
+          "label": "@eBay",
+          "url": "/work/ebay"
+        }
+      ],
+      "previously": [
+        {
+          "label": "@Adevinta",
+          "url": "https://www.adevinta.com"
+        },
+        {
+          "label": "@Kleinanzeigen",
+          "url": "/work/kleinanzeigen"
+        },
+        {
+          "label": "@leboncoin",
+          "url": "/work/leboncoin"
+        },
+        {
+          "label": "@Yaoota",
+          "url": "/work/yaoota"
+        },
+        {
+          "label": "@HitchHiker",
+          "url": "/work/hitchhiker"
+        }
+      ]
+    },
+    {
+      "label": "UI / UX Designer"
+    },
+    {
+      "label": "Street photographer"
+    }
+  ],
+  "links": [
+    {
+      "id": "linkedin",
+      "title": "Linkedin profile",
+      "url": "https://www.linkedin.com/in/shahawi",
+      "domain": "linkedin.com",
+      "icon": "linkedin"
+    },
+    {
+      "id": "medium",
+      "title": "My Medium articles",
+      "url": "https://medium.com/@shahawi",
+      "domain": "medium.com",
+      "icon": "medium"
+    },
+    {
+      "id": "tweets",
+      "title": "My tweets on X",
+      "url": "https://x.com/shahawi_",
+      "domain": "x.com",
+      "icon": "x"
+    },
+    {
+      "id": "github",
+      "title": "Github projects",
+      "url": "https://github.com/kazaky",
+      "domain": "github.com",
+      "icon": "github",
+      "follow": true
+    }
+  ],
+  "sections": {
+    "products": {
+      "title": "Products I've built",
+      "order": [
+        {
+          "slug": "misho",
+          "size": "2x1",
+          "icon": "misho"
+        },
+        {
+          "slug": "tawazun",
+          "size": "1x2",
+          "icon": "tawazun"
+        },
+        {
+          "slug": "iqrar-dayn",
+          "size": "half",
+          "icon": "iqrar-dayn"
+        },
+        {
+          "slug": "loqmaan",
+          "size": "half",
+          "icon": "loqmaan"
+        },
+        {
+          "slug": "arabic-watch",
+          "size": "half",
+          "icon": "arabic-watch"
+        },
+        {
+          "slug": "falah",
+          "size": "half",
+          "icon": "falah"
+        },
+        {
+          "slug": "basira",
+          "size": "half",
+          "icon": "basira"
+        }
+      ]
+    },
+    "experience": {
+      "title": "Work Experience",
+      "order": [
+        {
+          "slug": "ebay",
+          "size": "full",
+          "icon": "ebay"
+        },
+        {
+          "slug": "kleinanzeigen",
+          "size": "full",
+          "icon": "kleinanzeigen"
+        },
+        {
+          "slug": "leboncoin",
+          "size": "full",
+          "icon": "leboncoin"
+        },
+        {
+          "slug": "yaoota",
+          "size": "full",
+          "icon": "yaoota"
+        },
+        {
+          "slug": "hitchhiker",
+          "size": "full",
+          "icon": "hitchhiker"
+        },
+        {
+          "slug": "zad",
+          "size": "full",
+          "icon": "zad"
+        }
+      ]
+    },
+    "dribbble": {
+      "title": "Design work on Dribbble"
+    },
+    "photographs": {
+      "title": "Photographs I took"
+    }
+  }
+}
