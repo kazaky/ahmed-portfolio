@@ -86,7 +86,14 @@ export function BentoSection({ section, startIndex = 0 }: BentoSectionProps) {
       ) : isExperience ? (
         <ExperienceTimeline items={experienceItems} startIndex={startIndex} />
       ) : (
-        <div className="grid auto-rows-[152px] grid-cols-6 grid-flow-dense gap-2.5 sm:auto-rows-[164px] sm:gap-3">
+        <div
+          className={[
+            "grid grid-cols-6 grid-flow-dense gap-2.5 sm:gap-3",
+            section.id === "links"
+              ? "auto-rows-[96px] sm:auto-rows-[104px]"
+              : "auto-rows-[152px] sm:auto-rows-[164px]",
+          ].join(" ")}
+        >
           {section.items.map((item, index) => (
             <BentoCard
               key={item.id}

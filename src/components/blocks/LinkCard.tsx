@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Download, Link2 } from "lucide-react";
 import type { LinkItem } from "@/lib/types";
 import { iconSrc } from "@/lib/icons";
+import { GithubProjectsCard } from "@/components/blocks/GithubProjectsCard";
 
 /** App / product marks that already include a full square background */
 const FULL_BLEED_ICONS = new Set([
@@ -66,6 +67,8 @@ export function LinkCard({ item }: LinkCardProps) {
   const isSocial = item.icon ? SOCIAL_ICONS.has(item.icon) : false;
   const isFeatured =
     item.size === "2x1" || item.size === "2x2" || item.size === "full";
+  const isCompact = item.size === "compact";
+  const showHeatmap = item.size === "heatmap" && item.icon === "github";
   const hasPreview =
     Boolean(item.preview) &&
     (isFeatured || item.size === "1x2" || item.size === "1x1");
@@ -73,6 +76,10 @@ export function LinkCard({ item }: LinkCardProps) {
   const isDelisted =
     item.downloadsLabel?.toLowerCase().includes("delisted") ||
     item.downloads === "Delisted";
+
+  if (showHeatmap) {
+    return <GithubProjectsCard item={item} />;
+  }
 
   if (hasPreview && item.preview) {
     const isTall = item.size === "1x2" || item.size === "1x1";
@@ -168,33 +175,47 @@ export function LinkCard({ item }: LinkCardProps) {
   return (
     <div
       className={[
-        "flex h-full min-h-0 flex-col justify-between gap-2",
-        isFeatured ? "p-4 sm:p-5" : "p-3.5 sm:p-4",
+        "flex h-full min-h-0 flex-col justify-between",
+        isCompact
+          ? "gap-1 p-2.5 sm:p-3"
+          : isFeatured
+            ? "gap-2 p-4 sm:p-5"
+            : "gap-2 p-3.5 sm:p-4",
         item.comingSoon ? "opacity-90" : "",
       ].join(" ")}
     >
       <div className="flex shrink-0 items-start justify-between gap-2">
         <div
           className={[
-            "relative flex shrink-0 items-center justify-center overflow-hidden rounded-xl bg-neutral-50 ring-1 ring-neutral-200/80",
-            isFeatured ? "h-11 w-11" : "h-9 w-9",
+            "relative flex shrink-0 items-center justify-center overflow-hidden bg-neutral-50 ring-1 ring-neutral-200/80",
+            isCompact
+              ? "h-7 w-7 rounded-lg"
+              : isFeatured
+                ? "h-11 w-11 rounded-xl"
+                : "h-9 w-9 rounded-xl",
           ].join(" ")}
         >
           {src ? (
             <Image
               src={src}
               alt=""
-              width={isFeatured ? 44 : 36}
-              height={isFeatured ? 44 : 36}
+              width={isFeatured ? 44 : isCompact ? 28 : 36}
+              height={isFeatured ? 44 : isCompact ? 28 : 36}
               className={
                 fullBleed
                   ? "h-full w-full object-cover"
-                  : "h-5 w-5 object-contain"
+                  : isCompact
+                    ? "h-3.5 w-3.5 object-contain"
+                    : "h-5 w-5 object-contain"
               }
             />
           ) : (
             <Link2
-              className="h-4 w-4 text-neutral-500"
+              className={
+                isCompact
+                  ? "h-3 w-3 text-neutral-500"
+                  : "h-4 w-4 text-neutral-500"
+              }
               strokeWidth={2}
               aria-hidden
             />
@@ -233,16 +254,24 @@ export function LinkCard({ item }: LinkCardProps) {
         <p
           className={[
             "font-semibold leading-snug text-neutral-900 line-clamp-2",
-            isFeatured ? "text-base sm:text-lg" : "text-sm sm:text-[15px]",
+            isCompact
+              ? "text-xs sm:text-[13px]"
+              : isFeatured
+                ? "text-base sm:text-lg"
+                : "text-sm sm:text-[15px]",
           ].join(" ")}
         >
           {item.title}
         </p>
         <p
           className={[
-            "mt-0.5 leading-snug text-neutral-500 line-clamp-2",
-            isFeatured ? "text-xs sm:text-sm" : "text-[11px] sm:text-xs",
-            isSocial && !item.blurb ? "text-neutral-400" : "",
+            "mt-0.5 leading-snug line-clamp-2",
+            isCompact
+              ? "text-[10px] text-neutral-400"
+              : isFeatured
+                ? "text-xs text-neutral-500 sm:text-sm"
+                : "text-[11px] text-neutral-500 sm:text-xs",
+            isSocial && !item.blurb && !isCompact ? "text-neutral-400" : "",
           ].join(" ")}
         >
           {item.blurb ??

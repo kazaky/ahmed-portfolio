@@ -1,4 +1,13 @@
-export type CardSize = "1x1" | "2x1" | "1x2" | "2x2" | "half" | "full" | "map";
+export type CardSize =
+  | "1x1"
+  | "2x1"
+  | "1x2"
+  | "2x2"
+  | "half"
+  | "full"
+  | "map"
+  | "compact"
+  | "heatmap";
 
 export type BrandIconId =
   | "linkedin"

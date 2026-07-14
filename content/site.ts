@@ -117,7 +117,9 @@ export const site: SiteConfig = {
           title: link.title,
           url: link.url,
           domain: link.domain,
-          size: "half" as const,
+          size: ("size" in link && link.size
+            ? link.size
+            : "half") as CardSize,
           icon: link.icon as BrandIconId,
           follow: "follow" in link ? Boolean(link.follow) : undefined,
         })),

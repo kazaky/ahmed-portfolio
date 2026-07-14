@@ -67,21 +67,24 @@
       "title": "Linkedin profile",
       "url": "https://www.linkedin.com/in/shahawi",
       "domain": "linkedin.com",
-      "icon": "linkedin"
+      "icon": "linkedin",
+      "size": "compact"
     },
     {
       "id": "medium",
       "title": "My Medium articles",
       "url": "https://medium.com/@shahawi",
       "domain": "medium.com",
-      "icon": "medium"
+      "icon": "medium",
+      "size": "compact"
     },
     {
       "id": "tweets",
       "title": "My tweets on X",
       "url": "https://x.com/shahawi_",
       "domain": "x.com",
-      "icon": "x"
+      "icon": "x",
+      "size": "compact"
     },
     {
       "id": "github",
@@ -89,6 +92,7 @@
       "url": "https://github.com/kazaky",
       "domain": "github.com",
       "icon": "github",
+      "size": "heatmap",
       "follow": true
     }
   ],

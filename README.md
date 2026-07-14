@@ -24,12 +24,14 @@ Do not edit `content/work.ts` or `content/site.ts` for copy — they only load t
 
 | Size | Layout |
 |------|--------|
+| `compact` | Narrow (1/3 width) — social links |
 | `1x1` | Small |
 | `2x1` | Wide (2/3 width) |
 | `1x2` | Tall |
 | `2x2` | Large |
 | `half` | Half width |
 | `full` | Full width (experience cards) |
+| `heatmap` | Full-width GitHub activity chart |
 
 ## Add photos
 
