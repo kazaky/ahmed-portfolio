@@ -106,7 +106,6 @@ export const site: SiteConfig = {
         ? me.ctaSecondary.url
         : `mailto:${me.email}`,
     },
-    ctaTertiary: me.ctaTertiary,
     roles: buildSidebarRoles(),
     languages: me.languages,
   },

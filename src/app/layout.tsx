@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { DM_Sans } from "next/font/google";
+import { Cormorant_Garamond, DM_Sans } from "next/font/google";
 import { siteUrl, contactEmail } from "@content/site-url";
 import "./globals.css";
 
@@ -7,6 +7,12 @@ const dmSans = DM_Sans({
   variable: "--font-dm-sans",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+});
+
+const awardSerif = Cormorant_Garamond({
+  variable: "--font-cormorant",
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
 });
 
 const description =
@@ -89,7 +95,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${dmSans.variable} h-full antialiased`}>
+    <html
+      lang="en"
+      className={`${dmSans.variable} ${awardSerif.variable} h-full antialiased`}
+    >
       <body className="min-h-full font-sans">
         <script
           type="application/ld+json"

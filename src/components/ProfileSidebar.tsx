@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ArrowUpRight, Languages, Mail } from "lucide-react";
+import { ArrowUpRight, Mail } from "lucide-react";
 import type {
   Profile,
   ProfileCta,
@@ -18,6 +18,32 @@ function isLink(part: string | ProfileRoleLink): part is ProfileRoleLink {
 const focusRing =
   "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-2";
 
+const languageMeta: Record<
+  string,
+  { flag: string; tint: string; ring: string }
+> = {
+  EN: {
+    flag: "/icons/flags/gb.svg",
+    tint: "bg-[#012169]/8",
+    ring: "ring-[#012169]/20",
+  },
+  AR: {
+    flag: "/icons/flags/eg.svg",
+    tint: "bg-[#CE1126]/8",
+    ring: "ring-[#CE1126]/20",
+  },
+  DE: {
+    flag: "/icons/flags/de.svg",
+    tint: "bg-[#FFCC00]/12",
+    ring: "ring-[#DD0000]/18",
+  },
+  FR: {
+    flag: "/icons/flags/fr.svg",
+    tint: "bg-[#002395]/8",
+    ring: "ring-[#ED2939]/18",
+  },
+};
+
 function CtaButton({
   cta,
   variant,
@@ -33,36 +59,53 @@ function CtaButton({
       target={isMail || isInternal ? undefined : "_blank"}
       rel={isMail || isInternal ? undefined : "noopener noreferrer"}
       className={[
-        "inline-flex items-center gap-1.5 rounded-full px-4 py-2.5 text-sm font-semibold transition-colors",
+        "inline-flex items-center gap-1.5 rounded-full px-3.5 py-2 text-[13px] font-semibold transition-colors",
         focusRing,
         variant === "primary"
           ? "bg-neutral-900 text-white shadow-sm hover:-translate-y-0.5 hover:bg-neutral-800 transition-transform"
           : "border border-neutral-300 bg-white text-neutral-800 hover:bg-neutral-50",
       ].join(" ")}
     >
-      {isMail ? <Mail className="h-4 w-4" strokeWidth={2.25} aria-hidden /> : null}
+      {isMail ? <Mail className="h-3.5 w-3.5" strokeWidth={2.25} aria-hidden /> : null}
       {cta.label}
       {!isMail && variant === "primary" ? (
-        <ArrowUpRight className="h-4 w-4" strokeWidth={2.25} aria-hidden />
+        <ArrowUpRight className="h-3.5 w-3.5" strokeWidth={2.25} aria-hidden />
       ) : null}
     </a>
   );
 }
 
 function LanguageRow({ language }: { language: ProfileLanguage }) {
+  const meta = languageMeta[language.code] ?? {
+    flag: "",
+    tint: "bg-neutral-100",
+    ring: "ring-neutral-200",
+  };
+
   return (
-    <li className="flex items-center gap-2.5">
-      <span
-        className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-neutral-900 text-[10px] font-bold tracking-wide text-white"
-        aria-hidden
-      >
-        {language.code}
-      </span>
+    <li
+      className={[
+        "flex items-center gap-2 rounded-xl px-2 py-1.5 ring-1",
+        meta.tint,
+        meta.ring,
+      ].join(" ")}
+    >
+      {meta.flag ? (
+        <span className="relative h-5 w-7 shrink-0 overflow-hidden rounded-sm shadow-sm ring-1 ring-black/10">
+          <Image
+            src={meta.flag}
+            alt=""
+            width={28}
+            height={20}
+            className="h-full w-full object-cover"
+          />
+        </span>
+      ) : null}
       <span className="min-w-0 flex-1">
-        <span className="block text-[13px] font-medium leading-tight text-neutral-800">
+        <span className="block text-[12px] font-semibold leading-tight text-neutral-900">
           {language.name}
         </span>
-        <span className="block text-[12px] leading-tight text-neutral-500">
+        <span className="block text-[11px] leading-tight text-neutral-500">
           {language.level}
         </span>
       </span>
@@ -73,34 +116,31 @@ function LanguageRow({ language }: { language: ProfileLanguage }) {
 export function ProfileSidebar({ profile }: ProfileSidebarProps) {
   return (
     <aside className="lg:sticky lg:top-10 lg:self-start">
-      <div className="mb-7 h-28 w-28 overflow-hidden rounded-full bg-neutral-200 ring-1 ring-black/5 sm:mb-8 sm:h-32 sm:w-32">
+      <div className="mb-4 h-24 w-24 overflow-hidden rounded-full bg-neutral-200 ring-1 ring-black/5 sm:mb-5 sm:h-28 sm:w-28">
         <Image
           src={profile.avatar}
           alt={profile.name}
-          width={128}
-          height={128}
+          width={112}
+          height={112}
           className="h-full w-full object-cover"
           priority
         />
       </div>
-      <h1 className="text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl">
+      <h1 className="text-3xl font-bold tracking-tight text-neutral-900 sm:text-[2rem] sm:leading-tight">
         {profile.name}
       </h1>
       {profile.bio && (
-        <p className="mt-3 max-w-[18rem] text-[15px] leading-relaxed text-neutral-600">
+        <p className="mt-2 max-w-[18rem] text-[14px] leading-snug text-neutral-600">
           {profile.bio}
         </p>
       )}
-      <div className="mt-5 flex flex-wrap gap-2">
+      <div className="mt-3.5 flex flex-wrap gap-1.5">
         {profile.cta && <CtaButton cta={profile.cta} variant="primary" />}
         {profile.ctaSecondary && (
           <CtaButton cta={profile.ctaSecondary} variant="secondary" />
         )}
-        {profile.ctaTertiary && (
-          <CtaButton cta={profile.ctaTertiary} variant="secondary" />
-        )}
       </div>
-      <ul className="mt-8 space-y-4 text-[14px] leading-relaxed text-neutral-800 sm:text-[15px]">
+      <ul className="mt-5 space-y-2 text-[13px] leading-snug text-neutral-800 sm:text-[14px]">
         {profile.roles.map((role, roleIndex) => (
           <li key={role.label}>
             <span className="text-neutral-400" aria-hidden>
@@ -118,7 +158,7 @@ export function ProfileSidebar({ profile }: ProfileSidebarProps) {
             {(role.detailParts?.length || role.detail) && (
               <>
                 <br />
-                <span className="text-neutral-500">
+                <span className="text-[12px] text-neutral-500 sm:text-[13px]">
                   {role.detailParts?.length
                     ? role.detailParts.map((part, i) =>
                         isLink(part) ? (
@@ -156,18 +196,11 @@ export function ProfileSidebar({ profile }: ProfileSidebarProps) {
         ))}
       </ul>
       {profile.languages?.length ? (
-        <div className="mt-7 max-w-[18rem]">
-          <div className="mb-3 flex items-center gap-2">
-            <Languages
-              className="h-3.5 w-3.5 text-neutral-400"
-              strokeWidth={2.25}
-              aria-hidden
-            />
-            <h2 className="text-xs font-semibold uppercase tracking-[0.14em] text-neutral-400">
-              Languages
-            </h2>
-          </div>
-          <ul className="grid grid-cols-2 gap-x-3 gap-y-3">
+        <div className="mt-5 max-w-[18rem]">
+          <h2 className="mb-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-neutral-400">
+            Languages
+          </h2>
+          <ul className="grid grid-cols-2 gap-1.5">
             {profile.languages.map((language) => (
               <LanguageRow key={language.code} language={language} />
             ))}

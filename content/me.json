@@ -18,10 +18,6 @@
     "label": "Email",
     "url": "mailto:shosho.super.star@gmail.com"
   },
-  "ctaTertiary": {
-    "label": "GitHub",
-    "url": "https://github.com/kazaky"
-  },
   "sidebarRoles": [
     {
       "label": "Staff Software Engineer",
