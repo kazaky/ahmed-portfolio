@@ -7,7 +7,8 @@ export type CardSize =
   | "full"
   | "map"
   | "compact"
-  | "heatmap";
+  | "heatmap"
+  | "halfTall";
 
 export type BrandIconId =
   | "linkedin"

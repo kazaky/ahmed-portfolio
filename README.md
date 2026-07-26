@@ -30,6 +30,7 @@ Do not edit `content/work.ts` or `content/site.ts` for copy — they only load t
 | `1x2` | Tall |
 | `2x2` | Large |
 | `half` | Half width |
+| `halfTall` | Half width, two rows (product cards with preview) |
 | `full` | Full width (experience cards) |
 | `heatmap` | Full-width GitHub activity chart |
 

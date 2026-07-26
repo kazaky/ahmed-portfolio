@@ -4,6 +4,7 @@ const sizeClasses: Record<CardSize, string> = {
   "1x1": "col-span-3 sm:col-span-2 row-span-1",
   compact: "col-span-2 row-span-1",
   half: "col-span-3 row-span-1",
+  halfTall: "col-span-3 row-span-2",
   full: "col-span-6 row-span-1",
   map: "col-span-6 row-span-1",
   heatmap: "col-span-6 row-span-1",

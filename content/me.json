@@ -120,27 +120,27 @@
         },
         {
           "slug": "iqrar-dayn",
-          "size": "half",
+          "size": "halfTall",
           "icon": "iqrar-dayn"
         },
         {
           "slug": "loqmaan",
-          "size": "half",
+          "size": "halfTall",
           "icon": "loqmaan"
         },
         {
           "slug": "arabic-watch",
-          "size": "half",
+          "size": "halfTall",
           "icon": "arabic-watch"
         },
         {
           "slug": "falah",
-          "size": "half",
+          "size": "halfTall",
           "icon": "falah"
         },
         {
           "slug": "basira",
-          "size": "half",
+          "size": "halfTall",
           "icon": "basira"
         }
       ]
