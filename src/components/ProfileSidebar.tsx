@@ -1,6 +1,11 @@
 import Image from "next/image";
-import { ArrowUpRight, Mail } from "lucide-react";
-import type { Profile, ProfileCta, ProfileRoleLink } from "@/lib/types";
+import { ArrowUpRight, Languages, Mail } from "lucide-react";
+import type {
+  Profile,
+  ProfileCta,
+  ProfileLanguage,
+  ProfileRoleLink,
+} from "@/lib/types";
 
 interface ProfileSidebarProps {
   profile: Profile;
@@ -41,6 +46,27 @@ function CtaButton({
         <ArrowUpRight className="h-4 w-4" strokeWidth={2.25} aria-hidden />
       ) : null}
     </a>
+  );
+}
+
+function LanguageRow({ language }: { language: ProfileLanguage }) {
+  return (
+    <li className="flex items-center gap-2.5">
+      <span
+        className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-neutral-900 text-[10px] font-bold tracking-wide text-white"
+        aria-hidden
+      >
+        {language.code}
+      </span>
+      <span className="min-w-0 flex-1">
+        <span className="block text-[13px] font-medium leading-tight text-neutral-800">
+          {language.name}
+        </span>
+        <span className="block text-[12px] leading-tight text-neutral-500">
+          {language.level}
+        </span>
+      </span>
+    </li>
   );
 }
 
@@ -129,8 +155,27 @@ export function ProfileSidebar({ profile }: ProfileSidebarProps) {
           </li>
         ))}
       </ul>
+      {profile.languages?.length ? (
+        <div className="mt-7 max-w-[18rem]">
+          <div className="mb-3 flex items-center gap-2">
+            <Languages
+              className="h-3.5 w-3.5 text-neutral-400"
+              strokeWidth={2.25}
+              aria-hidden
+            />
+            <h2 className="text-xs font-semibold uppercase tracking-[0.14em] text-neutral-400">
+              Languages
+            </h2>
+          </div>
+          <ul className="grid grid-cols-2 gap-x-3 gap-y-3">
+            {profile.languages.map((language) => (
+              <LanguageRow key={language.code} language={language} />
+            ))}
+          </ul>
+        </div>
+      ) : null}
       {profile.awards?.length ? (
-        <div className="mt-8">
+        <div className="mt-8 max-w-[18rem]">
           <h2 className="text-xs font-semibold uppercase tracking-[0.14em] text-neutral-400">
             Awards
           </h2>
@@ -144,16 +189,6 @@ export function ProfileSidebar({ profile }: ProfileSidebarProps) {
               </li>
             ))}
           </ul>
-        </div>
-      ) : null}
-      {profile.languages ? (
-        <div className="mt-6">
-          <h2 className="text-xs font-semibold uppercase tracking-[0.14em] text-neutral-400">
-            Languages
-          </h2>
-          <p className="mt-2.5 text-[13px] leading-relaxed text-neutral-600">
-            {profile.languages}
-          </p>
         </div>
       ) : null}
     </aside>

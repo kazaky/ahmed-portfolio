@@ -66,7 +66,12 @@
     "2nd prize — Baidu MoboMarket Apps competition, MENA 2016",
     "3rd place — Samsung App Store competition, MENA 2014"
   ],
-  "languages": "English (fluent) · Arabic (native) · German (B1) · French (A2)",
+  "languages": [
+    { "name": "English", "level": "Fluent", "code": "EN" },
+    { "name": "Arabic", "level": "Native", "code": "AR" },
+    { "name": "German", "level": "B1", "code": "DE" },
+    { "name": "French", "level": "A2", "code": "FR" }
+  ],
   "links": [
     {
       "id": "linkedin",

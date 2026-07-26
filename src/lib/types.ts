@@ -59,6 +59,13 @@ export interface ProfileCta {
   url: string;
 }
 
+export interface ProfileLanguage {
+  name: string;
+  level: string;
+  /** Short badge, e.g. EN / AR / DE */
+  code: string;
+}
+
 export interface Profile {
   name: string;
   avatar: string;
@@ -66,8 +73,8 @@ export interface Profile {
   bio?: string;
   /** Awards / recognitions listed in the sidebar */
   awards?: string[];
-  /** One-line spoken-languages summary */
-  languages?: string;
+  /** Spoken languages shown under roles */
+  languages?: ProfileLanguage[];
   /** Primary call-to-action */
   cta?: ProfileCta;
   /** Secondary CTA (e.g. email) */
