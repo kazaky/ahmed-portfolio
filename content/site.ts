@@ -108,7 +108,6 @@ export const site: SiteConfig = {
     },
     ctaTertiary: me.ctaTertiary,
     roles: buildSidebarRoles(),
-    awards: me.awards,
     languages: me.languages,
   },
   sections: [
@@ -151,6 +150,19 @@ export const site: SiteConfig = {
       items: me.sections.experience.order.map((ref) =>
         workLink(ref as HomeCardRef),
       ),
+    },
+    {
+      id: "awards",
+      title: me.sections.awards.title,
+      items: me.awards.map((award) => ({
+        type: "award" as const,
+        id: award.id,
+        title: award.title,
+        org: award.org,
+        year: award.year,
+        place: award.place as "top100" | "2nd" | "3rd",
+        size: "full" as const,
+      })),
     },
     {
       id: "dribbble",

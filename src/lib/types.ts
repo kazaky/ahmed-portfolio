@@ -71,8 +71,6 @@ export interface Profile {
   avatar: string;
   /** Short one-line bio under the name */
   bio?: string;
-  /** Awards / recognitions listed in the sidebar */
-  awards?: string[];
   /** Spoken languages shown under roles */
   languages?: ProfileLanguage[];
   /** Primary call-to-action */
@@ -82,6 +80,16 @@ export interface Profile {
   /** Tertiary CTA (e.g. GitHub) */
   ctaTertiary?: ProfileCta;
   roles: ProfileRole[];
+}
+
+export interface AwardItem {
+  type: "award";
+  id: string;
+  title: string;
+  org: string;
+  year: string;
+  place: "top100" | "2nd" | "3rd";
+  size: CardSize;
 }
 
 export interface LinkItem {
@@ -143,7 +151,12 @@ export interface LocationItem {
   mapImage?: string;
 }
 
-export type SectionItem = LinkItem | PhotoItem | LocationItem | ShotItem;
+export type SectionItem =
+  | LinkItem
+  | PhotoItem
+  | LocationItem
+  | ShotItem
+  | AwardItem;
 
 export interface Section {
   id: string;

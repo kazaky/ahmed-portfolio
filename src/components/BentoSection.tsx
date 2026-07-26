@@ -1,6 +1,13 @@
 "use client";
 
-import type { LinkItem, PhotoItem, Section, SectionItem } from "@/lib/types";
+import type {
+  AwardItem,
+  LinkItem,
+  PhotoItem,
+  Section,
+  SectionItem,
+  ShotItem,
+} from "@/lib/types";
 import { BentoCard } from "@/components/BentoCard";
 import { LinkCard } from "@/components/blocks/LinkCard";
 import { LocationCard } from "@/components/blocks/LocationCard";
@@ -11,7 +18,7 @@ import { ShotGallery } from "@/components/ShotGallery";
 import { DribbbleWidget } from "@/components/DribbbleWidget";
 import { InstagramWidget } from "@/components/InstagramWidget";
 import { ExperienceTimeline } from "@/components/ExperienceTimeline";
-import type { ShotItem } from "@/lib/types";
+import { AwardsSection } from "@/components/AwardsSection";
 
 interface BentoSectionProps {
   section: Section;
@@ -53,6 +60,7 @@ export function BentoSection({ section, startIndex = 0 }: BentoSectionProps) {
   const isPhotoGallery = section.id === "photographs";
   const isDribbble = section.id === "dribbble";
   const isExperience = section.id === "experience";
+  const isAwards = section.id === "awards";
   const photos = isPhotoGallery
     ? (section.items.filter((i) => i.type === "photo") as PhotoItem[])
     : [];
@@ -61,6 +69,9 @@ export function BentoSection({ section, startIndex = 0 }: BentoSectionProps) {
     : [];
   const experienceItems = isExperience
     ? (section.items.filter((i) => i.type === "link") as LinkItem[])
+    : [];
+  const awardItems = isAwards
+    ? (section.items.filter((i) => i.type === "award") as AwardItem[])
     : [];
 
   return (
@@ -85,6 +96,8 @@ export function BentoSection({ section, startIndex = 0 }: BentoSectionProps) {
         </>
       ) : isExperience ? (
         <ExperienceTimeline items={experienceItems} startIndex={startIndex} />
+      ) : isAwards ? (
+        <AwardsSection items={awardItems} startIndex={startIndex} />
       ) : (
         <div
           className={[

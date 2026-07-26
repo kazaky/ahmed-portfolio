@@ -62,9 +62,27 @@
     }
   ],
   "awards": [
-    "Top 100 web app worldwide — Hacksummit.org Hackathon 2016",
-    "2nd prize — Baidu MoboMarket Apps competition, MENA 2016",
-    "3rd place — Samsung App Store competition, MENA 2014"
+    {
+      "id": "hacksummit",
+      "title": "Top 100 Web App worldwide",
+      "org": "Hacksummit.org Hackathon",
+      "year": "2016",
+      "place": "top100"
+    },
+    {
+      "id": "baidu",
+      "title": "2nd prize · MoboMarket Apps",
+      "org": "Baidu · MENA region",
+      "year": "2016",
+      "place": "2nd"
+    },
+    {
+      "id": "samsung",
+      "title": "3rd place · Samsung App Store",
+      "org": "Samsung · MENA region",
+      "year": "2014",
+      "place": "3rd"
+    }
   ],
   "languages": [
     { "name": "English", "level": "Fluent", "code": "EN" },
@@ -233,6 +251,9 @@
           ]
         }
       ]
+    },
+    "awards": {
+      "title": "Awards & recognition"
     },
     "dribbble": {
       "title": "Design work on Dribbble"

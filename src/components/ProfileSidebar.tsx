@@ -174,23 +174,6 @@ export function ProfileSidebar({ profile }: ProfileSidebarProps) {
           </ul>
         </div>
       ) : null}
-      {profile.awards?.length ? (
-        <div className="mt-8 max-w-[18rem]">
-          <h2 className="text-xs font-semibold uppercase tracking-[0.14em] text-neutral-400">
-            Awards
-          </h2>
-          <ul className="mt-2.5 space-y-1.5 text-[13px] leading-relaxed text-neutral-600">
-            {profile.awards.map((award) => (
-              <li key={award} className="flex gap-2">
-                <span className="text-neutral-400" aria-hidden>
-                  ◆
-                </span>
-                <span>{award}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      ) : null}
     </aside>
   );
 }
