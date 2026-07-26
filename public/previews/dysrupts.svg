@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#365314"/>
+      <stop offset="100%" stop-color="#1A2E05"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#g)"/>
+  <text x="80" y="240" font-family="system-ui, sans-serif" font-size="64" font-weight="700" fill="#ECFCCB">Dysrupts</text>
+  <text x="80" y="300" font-family="system-ui, sans-serif" font-size="28" fill="#BEF264">Wifi-Direct multi-hop networking</text>
+</svg>

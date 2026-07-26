@@ -49,8 +49,16 @@
           "url": "/work/yaoota"
         },
         {
+          "label": "@Felucca",
+          "url": "/work/felucca"
+        },
+        {
           "label": "@HitchHiker",
           "url": "/work/hitchhiker"
+        },
+        {
+          "label": "@ERUPT",
+          "url": "/work/erupt"
         }
       ]
     },
@@ -161,9 +169,24 @@
           "icon": "yaoota"
         },
         {
+          "slug": "felucca",
+          "size": "full",
+          "icon": "felucca"
+        },
+        {
           "slug": "hitchhiker",
           "size": "full",
           "icon": "hitchhiker"
+        },
+        {
+          "slug": "erupt",
+          "size": "full",
+          "icon": "erupt"
+        },
+        {
+          "slug": "dysrupts",
+          "size": "full",
+          "icon": "dysrupts"
         },
         {
           "slug": "zad",

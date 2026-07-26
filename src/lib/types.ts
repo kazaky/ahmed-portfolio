@@ -29,7 +29,10 @@ export type BrandIconId =
   | "arabic-watch"
   | "falah"
   | "basira"
-  | "ebay";
+  | "ebay"
+  | "felucca"
+  | "erupt"
+  | "dysrupts";
 
 export interface ProfileRoleLink {
   label: string;

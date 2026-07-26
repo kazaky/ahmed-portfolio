@@ -20,6 +20,9 @@ const FULL_BLEED_ICONS = new Set([
   "falah",
   "basira",
   "ebay",
+  "felucca",
+  "erupt",
+  "dysrupts",
 ]);
 
 const SOCIAL_ICONS = new Set([

@@ -100,6 +100,19 @@ export function WorkView({ work }: WorkViewProps) {
           ))}
         </div>
 
+        {work.highlights && work.highlights.length > 0 && (
+          <section className="mt-10">
+            <h2 className="text-sm font-semibold uppercase tracking-wide text-neutral-500">
+              Highlights
+            </h2>
+            <ul className="mt-3 list-disc space-y-2 ps-5 text-[15px] leading-relaxed text-neutral-700">
+              {work.highlights.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </section>
+        )}
+
         <div className="mt-12 flex flex-wrap gap-3">
           {!work.comingSoon && (
             <a

@@ -22,6 +22,8 @@ export interface WorkEntry {
   context: string;
   did: string;
   impact: string;
+  /** CV-style bullet points on the work detail page */
+  highlights?: string[];
 }
 
 import workData from "./work.json";
