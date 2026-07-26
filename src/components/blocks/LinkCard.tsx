@@ -29,6 +29,9 @@ const FULL_BLEED_ICONS = new Set([
   "egypt-startups",
   "focusmusic",
   "flashwatch",
+  "todo-little",
+  "photo-compare",
+  "qnpick",
 ]);
 
 const SOCIAL_ICONS = new Set([

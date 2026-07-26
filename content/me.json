@@ -63,21 +63,24 @@
       "title": "Top 100 Web App worldwide",
       "org": "Hacksummit.org Hackathon",
       "year": "2016",
-      "place": "top100"
+      "place": "top100",
+      "logo": "/icons/awards/hacksummit.svg"
     },
     {
       "id": "baidu",
-      "title": "2nd prize · MoboMarket Apps",
+      "title": "MoboMarket Apps competition",
       "org": "Baidu · MENA region",
       "year": "2016",
-      "place": "2nd"
+      "place": "2nd",
+      "logo": "/icons/awards/baidu.svg"
     },
     {
       "id": "samsung",
-      "title": "3rd place · Samsung App Store",
+      "title": "Samsung App Store competition",
       "org": "Samsung · MENA region",
       "year": "2014",
-      "place": "3rd"
+      "place": "3rd",
+      "logo": "/icons/awards/samsung.svg"
     }
   ],
   "languages": [
@@ -243,6 +246,21 @@
               "slug": "flashwatch",
               "size": "full",
               "icon": "flashwatch"
+            },
+            {
+              "slug": "todo-little",
+              "size": "full",
+              "icon": "todo-little"
+            },
+            {
+              "slug": "photo-compare",
+              "size": "full",
+              "icon": "photo-compare"
+            },
+            {
+              "slug": "qnpick",
+              "size": "full",
+              "icon": "qnpick"
             }
           ]
         }

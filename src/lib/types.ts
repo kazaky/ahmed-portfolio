@@ -39,7 +39,10 @@ export type BrandIconId =
   | "shahry"
   | "egypt-startups"
   | "focusmusic"
-  | "flashwatch";
+  | "flashwatch"
+  | "todo-little"
+  | "photo-compare"
+  | "qnpick";
 
 export interface ProfileRoleLink {
   label: string;
@@ -89,6 +92,8 @@ export interface AwardItem {
   org: string;
   year: string;
   place: "top100" | "2nd" | "3rd";
+  /** Company / event logo in /public */
+  logo?: string;
   size: CardSize;
 }
 

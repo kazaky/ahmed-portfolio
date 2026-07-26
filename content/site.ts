@@ -160,6 +160,7 @@ export const site: SiteConfig = {
         org: award.org,
         year: award.year,
         place: award.place as "top100" | "2nd" | "3rd",
+        logo: award.logo,
         size: "full" as const,
       })),
     },

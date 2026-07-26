@@ -31,4 +31,7 @@ export const iconSrc: Record<BrandIconId, string> = {
   "egypt-startups": "/icons/egypt-startups.svg",
   focusmusic: "/icons/focusmusic.svg",
   flashwatch: "/icons/flashwatch.svg",
+  "todo-little": "/icons/todo-little.svg",
+  "photo-compare": "/icons/photo-compare.svg",
+  qnpick: "/icons/qnpick.svg",
 };

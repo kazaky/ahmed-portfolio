@@ -268,10 +268,9 @@
     "did": "Junior Android Developer at various Egyptian startups (Jan 2014 – Jan 2016). Learned Android core components with seniors and shipped consumer products end to end — Zad, FocusMusic.fm, FlashWatch, a context-aware TODO app, and an OpenCV photo-comparison app.",
     "impact": "Zad reached ~250K MAU with a 4.7 rating — early proof of shipping culturally native Android products at scale.",
     "highlights": [
-      "Shipped **Zad: Emotion Assistant**, **FocusMusic.fm**, and **FlashWatch** across Egyptian startups",
-      "Collaborated on a context-aware **TODO Little** app based on user physical activity tracking",
-      "Built an on-device photo comparison app using **OpenCV** Java",
-      "Side work (2023): maintained **QnPick** on Android & iOS with **Flutter** — video features and a view-tracking algorithm"
+      "Shipped **six consumer products** across Egyptian startups — from mood content to radio, widgets, and computer vision",
+      "Learned **Android core components** hands-on with senior engineers",
+      "Zad reached **~250K MAU** at **4.7★** — the standout of the era"
     ]
   },
   {
@@ -333,6 +332,67 @@
     "highlights": [
       "Built **FlashWatch**, a customizable **TextWatch** Android widget",
       "Tailored the experience for the **Egyptian market**"
+    ]
+  },
+  {
+    "slug": "todo-little",
+    "kind": "role",
+    "title": "TODO Little",
+    "roleTitle": "Junior Android Developer",
+    "tagline": "A context-aware to-do app that adapts to what you're physically doing.",
+    "url": "https://www.linkedin.com/in/shahawi",
+    "domain": "linkedin.com",
+    "icon": "/icons/todo-little.svg",
+    "preview": "/previews/todo-little.svg",
+    "period": "Jan 2014 – Jan 2016",
+    "homeBlurb": "Context-aware TODO · activity tracking",
+    "context": "Static to-do lists ignore context — a reminder is only useful when it surfaces at the right moment.",
+    "did": "Collaborated on TODO Little, a context-aware to-do app that surfaced tasks based on the user's physical activity tracking.",
+    "impact": "An early experiment in context-aware, sensor-driven mobile UX.",
+    "highlights": [
+      "Collaborated on a **context-aware** to-do experience",
+      "Used **physical activity tracking** to surface the right task at the right time"
+    ]
+  },
+  {
+    "slug": "photo-compare",
+    "kind": "role",
+    "title": "Photo Compare",
+    "roleTitle": "Junior Android Developer",
+    "tagline": "On-device photo comparison powered by OpenCV computer vision.",
+    "url": "https://www.linkedin.com/in/shahawi",
+    "domain": "linkedin.com",
+    "icon": "/icons/photo-compare.svg",
+    "preview": "/previews/photo-compare.svg",
+    "period": "Jan 2014 – Jan 2016",
+    "homeBlurb": "On-device OpenCV photo matching",
+    "context": "Comparing photos on-device meant doing computer vision without a cloud backend or heavy dependencies.",
+    "did": "Built an Android app that compares photos using OpenCV (Java) for on-device machine learning — fully offline image analysis.",
+    "impact": "Hands-on computer-vision experience running entirely on-device, years before it was commonplace.",
+    "highlights": [
+      "Built photo comparison with **OpenCV** in Java",
+      "Ran **on-device**, offline computer vision"
+    ]
+  },
+  {
+    "slug": "qnpick",
+    "kind": "role",
+    "title": "QnPick",
+    "roleTitle": "Flutter Developer (Side work)",
+    "tagline": "Cross-platform social app — added video features and a view-tracking algorithm.",
+    "url": "https://www.linkedin.com/in/shahawi",
+    "domain": "linkedin.com",
+    "icon": "/icons/qnpick.svg",
+    "preview": "/previews/qnpick.svg",
+    "period": "2023",
+    "homeBlurb": "Flutter · Android & iOS · video + views",
+    "context": "A social platform needed richer media and reliable engagement metrics across both mobile platforms from a single codebase.",
+    "did": "Maintained QnPick on Android & iOS with Flutter (2023). Added video features to the social platform and built a view-tracking algorithm.",
+    "impact": "Shipped cross-platform features from one Flutter codebase — recent proof of range beyond native Android.",
+    "highlights": [
+      "Maintained **QnPick** on **Android & iOS** with **Flutter**",
+      "Added **video features** to the social platform",
+      "Built a **view-tracking algorithm** for engagement metrics"
     ]
   },
   {
