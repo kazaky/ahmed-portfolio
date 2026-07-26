@@ -28,6 +28,28 @@
     ]
   },
   {
+    "slug": "adevinta",
+    "kind": "role",
+    "title": "Adevinta",
+    "roleTitle": "Staff Android Engineer",
+    "tagline": "Parent company for European classifieds — Spark Design System, accessibility, and verticals across Kleinanzeigen and leboncoin.",
+    "url": "https://www.adevinta.com",
+    "domain": "adevinta.com",
+    "icon": "/icons/adevinta.svg",
+    "preview": "/previews/adevinta.svg",
+    "period": "Mar 2020 – Nov 2024",
+    "homeBlurb": "Parent · Kleinanzeigen + leboncoin",
+    "context": "Adevinta runs major European classifieds marketplaces. Staff Android work spanned a shared Compose design system and product delivery across brands including Kleinanzeigen and leboncoin.",
+    "did": "Staff Android Engineer within the Adevinta / eBay Kleinanzeigen organization (Mar 2020 – Nov 2024). Led Spark Design System Android development, founded an Accessibility Guild, and delivered across Verticals Markets while mentoring and joining hackathons.",
+    "impact": "Accelerated shared Spark Android components used across Europe; Pro work hit targets early and was recognized among Adevinta’s best projects worldwide.",
+    "highlights": [
+      "Led **Spark Design System** Android / Compose development shared across European classifieds brands",
+      "Created and led an **Accessibility Guild** with design partners",
+      "Delivered across **Verticals Markets** — C2B, Motors & Advertising, Real Estate, and Pro Subscription",
+      "Mentored teammates and presented in **Adevinta** demo tribe meetings"
+    ]
+  },
+  {
     "slug": "kleinanzeigen",
     "kind": "role",
     "title": "Kleinanzeigen",
@@ -85,25 +107,65 @@
     ]
   },
   {
+    "slug": "flying-elephant",
+    "kind": "role",
+    "title": "Flying Elephant Lab",
+    "roleTitle": "Senior Android Engineer",
+    "tagline": "TRU Finance / Flying Elephant Lab — parent for Yaoota search and Shahry installment payments.",
+    "url": "https://www.linkedin.com/in/shahawi",
+    "domain": "linkedin.com",
+    "icon": "/icons/flying-elephant.svg",
+    "preview": "/previews/flying-elephant.svg",
+    "period": "Jul 2018 – Feb 2020",
+    "homeBlurb": "Parent · Yaoota + Shahry / TRU Finance",
+    "context": "Flying Elephant Lab / TRU Finance in Cairo shipped shopping and fintech apps for the local market — price search at scale plus a new installment payment product.",
+    "did": "Senior Android Engineer at TRU Finance / Flying Elephant Lab LLC (Jul 2018 – Feb 2020). Built Shahry from scratch and maintained Yaoota’s shopping search app, introducing Jenkins CI across the stack.",
+    "impact": "Shahry shipped for the local market with automated quality gates; Yaoota search reached about a quarter million users.",
+    "highlights": [
+      "Owned Android delivery across **Yaoota** and **Shahry** under Flying Elephant Lab / TRU Finance",
+      "Introduced **Jenkins CI** with lint, unit/UI tests, and Play alpha deployment",
+      "Shipped fintech and shopping products for the Egyptian market"
+    ]
+  },
+  {
     "slug": "yaoota",
     "kind": "role",
     "title": "Yaoota",
     "roleTitle": "Senior Android Engineer",
-    "tagline": "TRU Finance / Flying Elephant Lab — built Shahry installments from scratch and scaled Yaoota search.",
+    "tagline": "Flying Elephant Lab — maintained and scaled Yaoota shopping search toward ~250K users.",
     "url": "https://play.google.com/store/apps/details?id=com.flyingelephantlab.yaoota",
     "domain": "play.google.com",
     "icon": "/icons/yaoota.png",
     "preview": "/previews/yaoota.jpg",
     "period": "Jul 2018 – Feb 2020",
-    "homeBlurb": "Shahry installments + Yaoota search ~250K users",
+    "homeBlurb": "Shopping search · ~250K users",
     "playStoreId": "yaoota",
-    "context": "TRU Finance / Flying Elephant Lab in Cairo shipped shopping and fintech apps for the local market — price search at scale plus a new installment payment product.",
-    "did": "Senior Android Engineer at TRU Finance / Flying Elephant Lab LLC (Jul 2018 – Feb 2020). Built Shahry, a secure payment-by-installment app from scratch in Kotlin (MVVM, Agile), introduced Jenkins CI, and maintained Yaoota’s Java shopping search app.",
-    "impact": "Shahry shipped for the local market with automated quality gates; Yaoota search reached about a quarter million users.",
+    "context": "Yaoota helped shoppers compare prices across stores. The Android search app needed to stay reliable while growing toward a large local user base.",
+    "did": "Senior Android Engineer on Yaoota at Flying Elephant Lab (Jul 2018 – Feb 2020). Maintained the Java shopping search engine app and helped scale it for the Egyptian market.",
+    "impact": "Yaoota search reached about a quarter million users.",
     "highlights": [
-      "Built **Shahry** from scratch in **Kotlin** — secure payment-by-installment app (**MVVM**, Agile) for the local market",
-      "Introduced **Jenkins CI**: lint, JUnit, Espresso UI tests, and auto **Google Play** alpha deployment",
-      "Maintained **Yaoota**’s shopping search engine app in Java and scaled it toward **~250K users**"
+      "Maintained **Yaoota**’s shopping search engine app in **Java**",
+      "Scaled the product toward **~250K users** in the local market"
+    ]
+  },
+  {
+    "slug": "shahry",
+    "kind": "role",
+    "title": "Shahry",
+    "roleTitle": "Senior Android Engineer",
+    "tagline": "TRU Finance — built Shahry installment payments from scratch in Kotlin.",
+    "url": "https://www.linkedin.com/in/shahawi",
+    "domain": "linkedin.com",
+    "icon": "/icons/shahry.svg",
+    "preview": "/previews/shahry.svg",
+    "period": "Jul 2018 – Feb 2020",
+    "homeBlurb": "TRU Finance · installments from scratch",
+    "context": "TRU Finance needed a secure payment-by-installment mobile app for the local market — greenfield Android with modern architecture and CI.",
+    "did": "Built Shahry from scratch in Kotlin (MVVM, Agile) and introduced Jenkins CI with lint, JUnit, Espresso, and auto Google Play alpha deployment.",
+    "impact": "Shahry shipped for the local market with automated quality gates.",
+    "highlights": [
+      "Built **Shahry** from scratch in **Kotlin** — secure payment-by-installment (**MVVM**, Agile)",
+      "Introduced **Jenkins CI**: lint, JUnit, Espresso, and auto **Google Play** alpha deployment"
     ]
   },
   {

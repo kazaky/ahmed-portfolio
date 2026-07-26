@@ -23,6 +23,9 @@ const FULL_BLEED_ICONS = new Set([
   "felucca",
   "erupt",
   "dysrupts",
+  "adevinta",
+  "flying-elephant",
+  "shahry",
 ]);
 
 const SOCIAL_ICONS = new Set([

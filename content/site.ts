@@ -40,6 +40,7 @@ type HomeCardRef = {
   slug: string;
   size: CardSize;
   icon: BrandIconId;
+  children?: HomeCardRef[];
 };
 
 function workLink(ref: HomeCardRef): LinkItem {
@@ -64,6 +65,7 @@ function workLink(ref: HomeCardRef): LinkItem {
     roleTitle: w.roleTitle,
     period: w.period,
     ...downloads,
+    children: ref.children?.map((child) => workLink(child)),
   };
 }
 

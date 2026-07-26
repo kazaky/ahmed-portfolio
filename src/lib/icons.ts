@@ -25,4 +25,7 @@ export const iconSrc: Record<BrandIconId, string> = {
   felucca: "/icons/felucca.svg",
   erupt: "/icons/erupt.svg",
   dysrupts: "/icons/dysrupts.svg",
+  adevinta: "/icons/adevinta.svg",
+  "flying-elephant": "/icons/flying-elephant.svg",
+  shahry: "/icons/shahry.svg",
 };

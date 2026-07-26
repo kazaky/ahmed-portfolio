@@ -33,7 +33,10 @@ export type BrandIconId =
   | "ebay"
   | "felucca"
   | "erupt"
-  | "dysrupts";
+  | "dysrupts"
+  | "adevinta"
+  | "flying-elephant"
+  | "shahry";
 
 export interface ProfileRoleLink {
   label: string;
@@ -90,6 +93,8 @@ export interface LinkItem {
   roleTitle?: string;
   /** Display period, e.g. "May 2018 – Present" */
   period?: string;
+  /** Nested brand / product roles under a parent company */
+  children?: LinkItem[];
 }
 
 export interface ShotItem {

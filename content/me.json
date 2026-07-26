@@ -34,19 +34,11 @@
       "previously": [
         {
           "label": "@Adevinta",
-          "url": "https://www.adevinta.com"
+          "url": "/work/adevinta"
         },
         {
-          "label": "@Kleinanzeigen",
-          "url": "/work/kleinanzeigen"
-        },
-        {
-          "label": "@leboncoin",
-          "url": "/work/leboncoin"
-        },
-        {
-          "label": "@Yaoota",
-          "url": "/work/yaoota"
+          "label": "@FlyingElephant",
+          "url": "/work/flying-elephant"
         },
         {
           "label": "@Felucca",
@@ -154,19 +146,38 @@
           "icon": "ebay"
         },
         {
-          "slug": "kleinanzeigen",
+          "slug": "adevinta",
           "size": "full",
-          "icon": "kleinanzeigen"
+          "icon": "adevinta",
+          "children": [
+            {
+              "slug": "kleinanzeigen",
+              "size": "full",
+              "icon": "kleinanzeigen"
+            },
+            {
+              "slug": "leboncoin",
+              "size": "full",
+              "icon": "leboncoin"
+            }
+          ]
         },
         {
-          "slug": "leboncoin",
+          "slug": "flying-elephant",
           "size": "full",
-          "icon": "leboncoin"
-        },
-        {
-          "slug": "yaoota",
-          "size": "full",
-          "icon": "yaoota"
+          "icon": "flying-elephant",
+          "children": [
+            {
+              "slug": "yaoota",
+              "size": "full",
+              "icon": "yaoota"
+            },
+            {
+              "slug": "shahry",
+              "size": "full",
+              "icon": "shahry"
+            }
+          ]
         },
         {
           "slug": "felucca",

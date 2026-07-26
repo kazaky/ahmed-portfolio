@@ -33,6 +33,8 @@ Open **`me.json`**:
 ### Reorder Work Experience or Products
 In **`me.json`** → `sections.experience.order` or `sections.products.order` — move the `{ "slug", "size", "icon" }` objects.
 
+Experience entries can nest brands/products under a parent company with a `children` array, e.g. Adevinta → Kleinanzeigen + leboncoin.
+
 ### Add a new role or product
 1. Add a full object to **`work.json`** (copy an existing one and change fields).
 2. Add its slug to the matching `order` array in **`me.json`**.
