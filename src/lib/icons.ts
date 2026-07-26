@@ -28,4 +28,7 @@ export const iconSrc: Record<BrandIconId, string> = {
   adevinta: "/icons/adevinta.svg",
   "flying-elephant": "/icons/flying-elephant.svg",
   shahry: "/icons/shahry.svg",
+  "egypt-startups": "/icons/egypt-startups.svg",
+  focusmusic: "/icons/focusmusic.svg",
+  flashwatch: "/icons/flashwatch.svg",
 };

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#334155"/>
+      <stop offset="100%" stop-color="#0F172A"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#g)"/>
+  <text x="80" y="240" font-family="system-ui, sans-serif" font-size="60" font-weight="700" fill="#F8FAFC">Various startups</text>
+  <text x="80" y="300" font-family="system-ui, sans-serif" font-size="28" fill="#94A3B8">Egypt · Zad · FocusMusic.fm · FlashWatch</text>
+</svg>

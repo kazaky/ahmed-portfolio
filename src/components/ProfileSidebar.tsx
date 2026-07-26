@@ -129,6 +129,33 @@ export function ProfileSidebar({ profile }: ProfileSidebarProps) {
           </li>
         ))}
       </ul>
+      {profile.awards?.length ? (
+        <div className="mt-8">
+          <h2 className="text-xs font-semibold uppercase tracking-[0.14em] text-neutral-400">
+            Awards
+          </h2>
+          <ul className="mt-2.5 space-y-1.5 text-[13px] leading-relaxed text-neutral-600">
+            {profile.awards.map((award) => (
+              <li key={award} className="flex gap-2">
+                <span className="text-neutral-400" aria-hidden>
+                  ◆
+                </span>
+                <span>{award}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ) : null}
+      {profile.languages ? (
+        <div className="mt-6">
+          <h2 className="text-xs font-semibold uppercase tracking-[0.14em] text-neutral-400">
+            Languages
+          </h2>
+          <p className="mt-2.5 text-[13px] leading-relaxed text-neutral-600">
+            {profile.languages}
+          </p>
+        </div>
+      ) : null}
     </aside>
   );
 }

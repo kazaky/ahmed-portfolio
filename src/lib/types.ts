@@ -36,7 +36,10 @@ export type BrandIconId =
   | "dysrupts"
   | "adevinta"
   | "flying-elephant"
-  | "shahry";
+  | "shahry"
+  | "egypt-startups"
+  | "focusmusic"
+  | "flashwatch";
 
 export interface ProfileRoleLink {
   label: string;
@@ -61,6 +64,10 @@ export interface Profile {
   avatar: string;
   /** Short one-line bio under the name */
   bio?: string;
+  /** Awards / recognitions listed in the sidebar */
+  awards?: string[];
+  /** One-line spoken-languages summary */
+  languages?: string;
   /** Primary call-to-action */
   cta?: ProfileCta;
   /** Secondary CTA (e.g. email) */

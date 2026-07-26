@@ -26,6 +26,9 @@ const FULL_BLEED_ICONS = new Set([
   "adevinta",
   "flying-elephant",
   "shahry",
+  "egypt-startups",
+  "focusmusic",
+  "flashwatch",
 ]);
 
 const SOCIAL_ICONS = new Set([

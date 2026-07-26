@@ -108,6 +108,8 @@ export const site: SiteConfig = {
     },
     ctaTertiary: me.ctaTertiary,
     roles: buildSidebarRoles(),
+    awards: me.awards,
+    languages: me.languages,
   },
   sections: [
     {

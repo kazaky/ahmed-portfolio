@@ -253,11 +253,33 @@
     ]
   },
   {
+    "slug": "egypt-startups",
+    "kind": "role",
+    "title": "Various startups",
+    "roleTitle": "Junior Android Developer",
+    "tagline": "Junior Android years across Egyptian startups — culturally native consumer apps from mood content to radio and widgets.",
+    "url": "https://www.linkedin.com/in/shahawi",
+    "domain": "linkedin.com",
+    "icon": "/icons/egypt-startups.svg",
+    "preview": "/previews/egypt-startups.svg",
+    "period": "Jan 2014 – Jan 2016",
+    "homeBlurb": "Parent · Zad + FocusMusic.fm + FlashWatch",
+    "context": "Arabic audiences wanted culturally native apps — mood content, radio, widgets — not thin localizations of Western products. Egyptian startups were the training ground.",
+    "did": "Junior Android Developer at various Egyptian startups (Jan 2014 – Jan 2016). Learned Android core components with seniors and shipped consumer products end to end — Zad, FocusMusic.fm, FlashWatch, a context-aware TODO app, and an OpenCV photo-comparison app.",
+    "impact": "Zad reached ~250K MAU with a 4.7 rating — early proof of shipping culturally native Android products at scale.",
+    "highlights": [
+      "Shipped **Zad: Emotion Assistant**, **FocusMusic.fm**, and **FlashWatch** across Egyptian startups",
+      "Collaborated on a context-aware **TODO Little** app based on user physical activity tracking",
+      "Built an on-device photo comparison app using **OpenCV** Java",
+      "Side work (2023): maintained **QnPick** on Android & iOS with **Flutter** — video features and a view-tracking algorithm"
+    ]
+  },
+  {
     "slug": "zad",
     "kind": "role",
     "title": "Zad",
     "roleTitle": "Junior Android Developer",
-    "tagline": "Junior Android across Egyptian startups — Zad Emotion Assistant hit ~250K MAU at 4.7★.",
+    "tagline": "Zad: Emotion Assistant — one of the most innovative Arabic-market apps, ~250K MAU at 4.7★.",
     "url": "https://play.google.com/store/apps/details?id=com.app.zad",
     "domain": "play.google.com",
     "icon": "/icons/zad.png",
@@ -265,16 +287,52 @@
     "period": "Jan 2014 – Jan 2016",
     "homeBlurb": "Emotion Assistant · ~250K MAU · 4.7★",
     "playStoreId": "zad",
-    "context": "Arabic audiences wanted culturally native apps — mood content, radio, widgets — not thin localizations of Western products.",
-    "did": "Junior Android Developer at various Egyptian startups (Jan 2014 – Jan 2016). Shipped Zad (Emotion Assistant), FocusMusic.fm, a context-aware TODO Little app, FlashWatch for Egypt, and an on-device OpenCV photo-comparison app.",
+    "context": "Arabic audiences wanted culturally native mood content — not a thin localization of a Western quotes app.",
+    "did": "Built Zad (Emotion Assistant) as Junior Android Developer — Android core components, culturally native content, and a consumer-grade experience for the Arabic market.",
     "impact": "Zad reached ~250K MAU with a 4.7 rating — early proof of shipping culturally native Android products at scale.",
     "highlights": [
-      "Built **Zad: Emotion Assistant** — one of the more innovative Arabic-market apps, **~250K MAU** at **4.7★**",
-      "Built **FocusMusic.fm**, a radio streaming music app, as a passion project",
-      "Collaborated on a context-aware **TODO Little** app based on user physical activity tracking",
-      "Built **FlashWatch**, a customizable Android widget for the Egyptian market",
-      "Built an on-device photo comparison app using **OpenCV** Java",
-      "Side work (2023): maintained **QnPick** on Android & iOS with **Flutter** — video features and a view-tracking algorithm"
+      "Built **Zad: Emotion Assistant** — one of the more innovative Arabic-market apps",
+      "Reached **~250K MAU** at a **4.7★** Play Store rating"
+    ]
+  },
+  {
+    "slug": "focusmusic",
+    "kind": "role",
+    "title": "FocusMusic.fm",
+    "roleTitle": "Junior Android Developer",
+    "tagline": "A fanatic radio streaming music app, built as a passion project.",
+    "url": "https://www.linkedin.com/in/shahawi",
+    "domain": "linkedin.com",
+    "icon": "/icons/focusmusic.svg",
+    "preview": "/previews/focusmusic.svg",
+    "period": "Jan 2014 – Jan 2016",
+    "homeBlurb": "Radio streaming · passion project",
+    "context": "Streaming radio on Android needed reliable playback and a simple, focused listening experience.",
+    "did": "Built FocusMusic.fm, a radio streaming music app, as a passion project during the junior Android years.",
+    "impact": "A shipped streaming product that sharpened media playback and Android fundamentals early on.",
+    "highlights": [
+      "Built **FocusMusic.fm**, a radio **streaming** music app, as a passion project",
+      "Handled Android **media playback** and background streaming"
+    ]
+  },
+  {
+    "slug": "flashwatch",
+    "kind": "role",
+    "title": "FlashWatch",
+    "roleTitle": "Junior Android Developer",
+    "tagline": "An entertaining, customizable TextWatch Android widget for the Egyptian market.",
+    "url": "https://www.linkedin.com/in/shahawi",
+    "domain": "linkedin.com",
+    "icon": "/icons/flashwatch.svg",
+    "preview": "/previews/flashwatch.svg",
+    "period": "Jan 2014 – Jan 2016",
+    "homeBlurb": "Customizable TextWatch widget for Egypt",
+    "context": "Home-screen widgets were a playful, high-visibility surface — and the Egyptian market wanted something localized and fun.",
+    "did": "Built FlashWatch, an entertaining TextWatch-style customizable Android widget tailored for the Egyptian market.",
+    "impact": "A localized widget product that stood out on Egyptian home screens.",
+    "highlights": [
+      "Built **FlashWatch**, a customizable **TextWatch** Android widget",
+      "Tailored the experience for the **Egyptian market**"
     ]
   },
   {

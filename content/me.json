@@ -61,6 +61,12 @@
       "label": "Street photographer"
     }
   ],
+  "awards": [
+    "Top 100 web app worldwide — Hacksummit.org Hackathon 2016",
+    "2nd prize — Baidu MoboMarket Apps competition, MENA 2016",
+    "3rd place — Samsung App Store competition, MENA 2014"
+  ],
+  "languages": "English (fluent) · Arabic (native) · German (B1) · French (A2)",
   "links": [
     {
       "id": "linkedin",
@@ -200,9 +206,26 @@
           "icon": "dysrupts"
         },
         {
-          "slug": "zad",
+          "slug": "egypt-startups",
           "size": "full",
-          "icon": "zad"
+          "icon": "egypt-startups",
+          "children": [
+            {
+              "slug": "zad",
+              "size": "full",
+              "icon": "zad"
+            },
+            {
+              "slug": "focusmusic",
+              "size": "full",
+              "icon": "focusmusic"
+            },
+            {
+              "slug": "flashwatch",
+              "size": "full",
+              "icon": "flashwatch"
+            }
+          ]
         }
       ]
     },
