@@ -22,6 +22,7 @@ Open **`work.json`**, find the entry by `"slug"` (e.g. `"ebay"`), edit:
 - `tagline` — one-liner under the title on the work page
 - `homeBlurb` — short line on the homepage card
 - `context` / `did` / `impact` — the three work-page paragraphs
+- `highlights` — bullet list on the work page; wrap key phrases in `**bold**` (e.g. `**Passkeys**`)
 
 ### Change your bio or email
 Open **`me.json`**:

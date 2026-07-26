@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import type { WorkEntry } from "@content/work";
 import { workEntries } from "@content/work";
 import { SiteFooter } from "@/components/SiteFooter";
+import { renderBoldText } from "@/lib/richText";
 
 interface WorkViewProps {
   work: WorkEntry;
@@ -11,6 +12,12 @@ interface WorkViewProps {
 
 const focusRing =
   "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-2";
+
+const summarySections = [
+  ["01", "Context", "context"],
+  ["02", "What I did", "did"],
+  ["03", "Impact", "impact"],
+] as const;
 
 export function WorkView({ work }: WorkViewProps) {
   const others = workEntries
@@ -42,33 +49,44 @@ export function WorkView({ work }: WorkViewProps) {
           {backLabel}
         </Link>
 
-        <div className="mt-8 flex items-center gap-3">
-          <span className="relative flex h-12 w-12 overflow-hidden rounded-xl bg-neutral-50 ring-1 ring-neutral-200">
-            <Image
-              src={work.icon}
-              alt=""
-              width={48}
-              height={48}
-              className="h-full w-full object-cover"
-            />
-          </span>
-          <div>
-            <p className="text-xs font-medium uppercase tracking-wide text-neutral-500">
-              {kindLabel}
-              {work.roleTitle ? ` · ${work.roleTitle}` : ""}
-              {work.comingSoon ? " · Coming Soon" : ""}
-            </p>
-            <h1 className="text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl">
-              {work.title}
-            </h1>
+        <header className="mt-8 sm:mt-10">
+          <div className="flex items-start gap-4 sm:gap-5">
+            <span className="relative mt-1 flex h-14 w-14 shrink-0 overflow-hidden rounded-2xl bg-neutral-50 ring-1 ring-neutral-200/80 sm:h-16 sm:w-16">
+              <Image
+                src={work.icon}
+                alt=""
+                width={64}
+                height={64}
+                className="h-full w-full object-cover"
+              />
+            </span>
+            <div className="min-w-0">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-neutral-500">
+                {kindLabel}
+                {work.comingSoon ? " · Coming Soon" : ""}
+              </p>
+              <h1 className="mt-1.5 text-4xl font-bold tracking-tight text-neutral-900 sm:text-5xl">
+                {work.title}
+              </h1>
+              {work.roleTitle && (
+                <p className="mt-2 text-lg font-semibold leading-snug text-neutral-800 sm:text-xl">
+                  {work.roleTitle}
+                </p>
+              )}
+              {work.period && (
+                <p className="mt-2 inline-flex items-center rounded-full border border-neutral-200/90 bg-white/70 px-3 py-1 text-xs font-medium text-neutral-600 sm:text-[13px]">
+                  {work.period}
+                </p>
+              )}
+            </div>
           </div>
-        </div>
 
-        <p className="mt-4 text-lg leading-relaxed text-neutral-600">
-          {work.tagline}
-        </p>
+          <p className="mt-6 max-w-2xl text-xl leading-relaxed text-neutral-600 sm:mt-7 sm:text-[1.35rem] sm:leading-relaxed">
+            {work.tagline}
+          </p>
+        </header>
 
-        <div className="mt-8 overflow-hidden rounded-3xl border border-neutral-200/70 bg-white shadow-sm">
+        <div className="mt-7 overflow-hidden rounded-3xl border border-neutral-200/70 bg-white shadow-sm sm:mt-8">
           <div className="relative aspect-[16/10] w-full bg-neutral-100">
             <Image
               src={work.preview}
@@ -81,39 +99,52 @@ export function WorkView({ work }: WorkViewProps) {
           </div>
         </div>
 
-        <div className="mt-10 grid gap-8 sm:grid-cols-3">
-          {(
-            [
-              ["Context", work.context],
-              ["What I did", work.did],
-              ["Impact", work.impact],
-            ] as const
-          ).map(([label, body]) => (
-            <section key={label}>
-              <h2 className="text-sm font-semibold uppercase tracking-wide text-neutral-500">
+        <div className="mt-12 grid gap-8 border-t border-neutral-200/80 pt-10 sm:mt-14 sm:grid-cols-3 sm:gap-0 sm:pt-12">
+          {summarySections.map(([num, label, key], index) => (
+            <section
+              key={key}
+              className={[
+                "sm:px-5",
+                index === 0 ? "sm:ps-0" : "sm:border-s sm:border-neutral-200/70",
+                index === summarySections.length - 1 ? "sm:pe-0" : "",
+              ].join(" ")}
+            >
+              <p className="text-[11px] font-semibold tabular-nums tracking-[0.14em] text-neutral-400">
+                {num}
+              </p>
+              <h2 className="mt-1 text-xs font-semibold uppercase tracking-[0.12em] text-neutral-500">
                 {label}
               </h2>
-              <p className="mt-2 text-[15px] leading-relaxed text-neutral-700">
-                {body}
+              <p className="mt-3 text-base leading-[1.7] text-neutral-700">
+                {work[key]}
               </p>
             </section>
           ))}
         </div>
 
         {work.highlights && work.highlights.length > 0 && (
-          <section className="mt-10">
-            <h2 className="text-sm font-semibold uppercase tracking-wide text-neutral-500">
+          <section className="mt-14 sm:mt-16">
+            <h2 className="text-base font-bold tracking-tight text-neutral-900 sm:text-lg">
               Highlights
             </h2>
-            <ul className="mt-3 list-disc space-y-2 ps-5 text-[15px] leading-relaxed text-neutral-700">
+            <ul className="mt-5 space-y-0 divide-y divide-neutral-200/80 border-y border-neutral-200/80">
               {work.highlights.map((item) => (
-                <li key={item}>{item}</li>
+                <li
+                  key={item}
+                  className="flex gap-3.5 py-3.5 text-[15px] leading-relaxed text-neutral-600 sm:gap-4 sm:py-4 sm:text-base sm:leading-relaxed"
+                >
+                  <span
+                    className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-neutral-900"
+                    aria-hidden
+                  />
+                  <span className="min-w-0">{renderBoldText(item)}</span>
+                </li>
               ))}
             </ul>
           </section>
         )}
 
-        <div className="mt-12 flex flex-wrap gap-3">
+        <div className="mt-12 flex flex-wrap gap-3 sm:mt-14">
           {!work.comingSoon && (
             <a
               href={work.url}
@@ -134,11 +165,11 @@ export function WorkView({ work }: WorkViewProps) {
         </div>
 
         {others.length > 0 && (
-          <section className="mt-16 border-t border-neutral-200/80 pt-10">
-            <h2 className="text-sm font-semibold uppercase tracking-wide text-neutral-500">
+          <section className="mt-16 border-t border-neutral-200/80 pt-10 sm:mt-20 sm:pt-12">
+            <h2 className="text-base font-bold tracking-tight text-neutral-900 sm:text-lg">
               More work
             </h2>
-            <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+            <ul className="mt-5 grid gap-3 sm:grid-cols-2">
               {others.map((w) => (
                 <li key={w.slug}>
                   <Link

@@ -15,16 +15,16 @@
     "did": "Staff Android Engineer on the Identity team (since Dec 2024). Lead architecture and delivery for authentication and session features on Android, partner across product, design, backend, security, and iOS, and raise the bar through reviews, mentoring, and modern auth migrations.",
     "impact": "Owning and evolving Identity on Android so millions of users get trusted, performant auth — including biometrics, Credential Manager, and Passkeys — without sacrificing maintainability.",
     "highlights": [
-      "Lead architecture, design, and development of secure, scalable Identity features (login, 2FA, biometric auth) on Android",
-      "Collaborate cross-functionally with product, design, backend, and security on Identity roadmaps",
-      "Ensure compliance with privacy regulations and standards (OAuth2, OpenID Connect, GDPR) in authentication flows",
-      "Own and evolve the Identity module with a focus on reliability, performance, and maintainability",
-      "Drive technical excellence through code reviews, mentoring, and sharing best practices",
-      "Partner with iOS and backend teams for consistent cross-platform Identity experiences",
-      "Lead investigations and resolve complex authentication and session-management issues",
-      "Integrate and optimize SDKs for biometric authentication and credential management (e.g. Android Credential Manager)",
-      "Establish testing strategies including unit, instrumentation, and end-to-end tests for Identity flows",
-      "Guide migration of legacy authentication flows to modern alternatives like Passkeys"
+      "Lead architecture, design, and development of secure, scalable **Identity** features (**login**, **2FA**, biometric auth) on Android",
+      "Collaborate cross-functionally with product, design, backend, and security on **Identity roadmaps**",
+      "Ensure compliance with privacy regulations and standards (**OAuth2**, **OpenID Connect**, **GDPR**) in authentication flows",
+      "Own and evolve the **Identity module** with a focus on reliability, performance, and maintainability",
+      "Drive technical excellence through **code reviews**, mentoring, and sharing best practices",
+      "Partner with **iOS** and **backend** teams for consistent cross-platform Identity experiences",
+      "Lead investigations and resolve complex **authentication** and **session-management** issues",
+      "Integrate and optimize SDKs for biometric authentication and credential management (e.g. **Android Credential Manager**)",
+      "Establish testing strategies including **unit**, **instrumentation**, and **end-to-end** tests for Identity flows",
+      "Guide migration of legacy authentication flows to modern alternatives like **Passkeys**"
     ]
   },
   {
@@ -46,16 +46,16 @@
     "did": "Staff Android Engineer at eBay Kleinanzeigen GmbH / Adevinta (Mar 2020 – Nov 2024). Led Spark Design System Android development, founded an Accessibility Guild, and delivered across Verticals Markets — C2B, Motors & Advertising, Real Estate, and Pro Subscription — while mentoring and joining hackathons.",
     "impact": "Accelerated Spark Android components used across Europe; Pro subscriptions hit yearly targets early and were recognized among Adevinta’s best projects worldwide; stronger accessibility and cross-tribe delivery on Germany’s go-to classifieds app.",
     "highlights": [
-      "Led Compose UI Spark Design System Android development for leboncoin.fr and European platforms",
-      "Accelerated Spark components with docs, UI testing, and showcase/configurators for designers and QA",
-      "Presented live demos in Adevinta demo tribe meetings; navigated cross-cultural Europe-wide collaboration",
-      "Created and led an Accessibility Guild with design partners to improve Android app accessibility",
-      "Verticals — C2B: backend support for outsourced teams and API feedback aligned to Kleinanzeigen patterns",
-      "Verticals — led mobile design decisions when designer headcount was short; ran A/B tests for Android features",
-      "Motors & Advertising: native-like ads in feed with mobile.de; resolved production incidents to protect revenue",
-      "Real Estate: VR tours during COVID-19; maps and video features for listings",
-      "Pro Subscription: packages that boosted profits, hit subscriber targets early, and were selected among Adevinta’s best worldwide",
-      "Onboarded and mentored new teammates; participated in company hackathons"
+      "Led Compose UI **Spark Design System** Android development for **leboncoin.fr** and European platforms",
+      "Accelerated **Spark** components with docs, UI testing, and showcase/configurators for designers and QA",
+      "Presented live demos in **Adevinta** demo tribe meetings; navigated cross-cultural Europe-wide collaboration",
+      "Created and led an **Accessibility Guild** with design partners to improve Android app accessibility",
+      "Verticals — **C2B**: backend support for outsourced teams and API feedback aligned to Kleinanzeigen patterns",
+      "Verticals — led mobile design decisions when designer headcount was short; ran **A/B tests** for Android features",
+      "Motors & Advertising: native-like ads in feed with **mobile.de**; resolved production incidents to protect revenue",
+      "Real Estate: **VR tours** during COVID-19; maps and video features for listings",
+      "**Pro Subscription**: packages that boosted profits, hit subscriber targets early, and were selected among **Adevinta’s best worldwide**",
+      "Onboarded and mentored new teammates; participated in company **hackathons**"
     ]
   },
   {
@@ -77,11 +77,11 @@
     "did": "As Staff Android on the Kleinanzeigen / Adevinta org (Mar 2020 – Nov 2024), built Spark Design System Android / Compose work used by leboncoin.fr — components, documentation, testing, and designer/QA showcase tooling across a Europe-wide team.",
     "impact": "Helped scale a shared Compose design system across Adevinta marketplaces — craft that carried into later Staff Identity work at eBay.",
     "highlights": [
-      "Built Spark design system Android components for leboncoin.fr, France’s leading marketplace",
-      "Ensured consistent UI elements across Adevinta platforms in Europe",
-      "Provided documentation, UI testing, and showcase/configurators for designers and QA",
-      "Collaborated across cultures in a Europe-wide engineering team",
-      "Presented progress in Adevinta demo tribe meetings"
+      "Built **Spark design system** Android components for **leboncoin.fr**, France’s leading marketplace",
+      "Ensured consistent UI elements across **Adevinta** platforms in Europe",
+      "Provided documentation, **UI testing**, and showcase/configurators for designers and QA",
+      "Collaborated across cultures in a **Europe-wide** engineering team",
+      "Presented progress in **Adevinta** demo tribe meetings"
     ]
   },
   {
@@ -101,9 +101,9 @@
     "did": "Senior Android Engineer at TRU Finance / Flying Elephant Lab LLC (Jul 2018 – Feb 2020). Built Shahry, a secure payment-by-installment app from scratch in Kotlin (MVVM, Agile), introduced Jenkins CI, and maintained Yaoota’s Java shopping search app.",
     "impact": "Shahry shipped for the local market with automated quality gates; Yaoota search reached about a quarter million users.",
     "highlights": [
-      "Built Shahry from scratch in Kotlin — secure payment-by-installment app (MVVM, Agile) for the local market",
-      "Introduced Jenkins CI: lint, JUnit, Espresso UI tests, and auto Google Play alpha deployment",
-      "Maintained Yaoota’s shopping search engine app in Java and scaled it toward ~250K users"
+      "Built **Shahry** from scratch in **Kotlin** — secure payment-by-installment app (**MVVM**, Agile) for the local market",
+      "Introduced **Jenkins CI**: lint, JUnit, Espresso UI tests, and auto **Google Play** alpha deployment",
+      "Maintained **Yaoota**’s shopping search engine app in Java and scaled it toward **~250K users**"
     ]
   },
   {
@@ -122,10 +122,10 @@
     "did": "Mobile Team Leader (Consulting) at Felucca Inc., Cairo (May 2018 – Feb 2020). Laid out the roadmap, code-style and review guidelines, deployment pipeline, architecture and Git flow choices, and mentored junior Android developers.",
     "impact": "A clearer engineering bar for the mobile team — architecture decisions, quality monitoring, and junior growth under consistent leadership.",
     "highlights": [
-      "Laid out the product/engineering roadmap for the mobile team",
-      "Added code style and review guidelines; monitored code quality and test coverage",
-      "Set up the deployment pipeline and assisted decisions on app architecture and Git flow",
-      "Mentored junior Android developers"
+      "Laid out the product/engineering **roadmap** for the mobile team",
+      "Added **code style** and review guidelines; monitored code quality and **test coverage**",
+      "Set up the **deployment pipeline** and assisted decisions on app architecture and **Git flow**",
+      "Mentored **junior Android** developers"
     ]
   },
   {
@@ -144,10 +144,10 @@
     "did": "Senior Android Engineer at HitchHiker Inc., Cairo (Sep 2017 – Jun 2018). Stabilized the app with LeakCanary and RxJava, shipped sockets chat with bot support, rebuilt toward offline-first Dagger2 MVVM in Kotlin, and revamped UX to Material Design.",
     "impact": "Community of travelers grew; monthly shipping deals hit a new 10× record — and the codebase moved onto a sustainable offline-first architecture.",
     "highlights": [
-      "Stabilized the travel/shipping app — memory leaks and threading with LeakCanary and RxJava; tighter MVP separation of concerns",
-      "Integrated sockets chat with bot support, helping grow the traveler community and hit a 10× record in monthly shipping deals",
-      "Built an offline-first, tested, Dagger2-modularized reactive MVVM stack with Data Binding, Kotlin, and automated deployment",
-      "Revamped the whole app UX to Material Design best practices"
+      "Stabilized the travel/shipping app — memory leaks and threading with **LeakCanary** and **RxJava**; tighter **MVP** separation of concerns",
+      "Integrated **sockets chat** with bot support, helping grow the traveler community and hit a **10×** record in monthly shipping deals",
+      "Built an **offline-first**, tested, **Dagger2**-modularized reactive **MVVM** stack with Data Binding, **Kotlin**, and automated deployment",
+      "Revamped the whole app UX to **Material Design** best practices"
     ]
   },
   {
@@ -166,8 +166,8 @@
     "did": "Software Engineer at ERUPT/Spectre Inc., San Francisco (Jun 2016 – Aug 2017). Built a fully custom keyboard on Android AOSP with NDK and core-framework work, plus a selfie camera app using gRPC/ProtoBuf with on-device offline ML detection.",
     "impact": "Shipped deep Android platform work — custom keyboard and ML-backed camera — at a US product company.",
     "highlights": [
-      "Built a fully custom keyboard with magic search using Android AOSP keyboard as a base, with NDK and Android core framework work",
-      "Built a selfie camera app with gRPC and ProtoBuf, backed by machine learning with on-device offline ML detection"
+      "Built a fully custom keyboard with magic search using **Android AOSP** keyboard as a base, with **NDK** and Android core framework work",
+      "Built a selfie camera app with **gRPC** and **ProtoBuf**, backed by machine learning with **on-device offline ML** detection"
     ]
   },
   {
@@ -186,8 +186,8 @@
     "did": "Software Engineer Intern at Dysrupts (Feb 2016 – May 2016). Collaborated with network engineers on a multi-hop network algorithm wrapping Android Wifi-Direct for a chat app with no network provider.",
     "impact": "Hands-on systems work at the Wifi-Direct layer — foundational networking experience early in the career.",
     "highlights": [
-      "Collaborated with network engineers to design a multi-hop network algorithm on top of Android Wifi-Direct",
-      "Enabled a chat experience that works with no network provider"
+      "Collaborated with network engineers to design a **multi-hop** network algorithm on top of **Android Wifi-Direct**",
+      "Enabled a chat experience that works with **no network provider**"
     ]
   },
   {
@@ -207,12 +207,12 @@
     "did": "Junior Android Developer at various Egyptian startups (Jan 2014 – Jan 2016). Shipped Zad (Emotion Assistant), FocusMusic.fm, a context-aware TODO Little app, FlashWatch for Egypt, and an on-device OpenCV photo-comparison app.",
     "impact": "Zad reached ~250K MAU with a 4.7 rating — early proof of shipping culturally native Android products at scale.",
     "highlights": [
-      "Built Zad: Emotion Assistant — one of the more innovative Arabic-market apps, ~250K MAU at 4.7★",
-      "Built FocusMusic.fm, a radio streaming music app, as a passion project",
-      "Collaborated on a context-aware TODO Little app based on user physical activity tracking",
-      "Built FlashWatch, a customizable Android widget for the Egyptian market",
-      "Built an on-device photo comparison app using OpenCV Java",
-      "Side work (2023): maintained QnPick on Android & iOS with Flutter — video features and a view-tracking algorithm"
+      "Built **Zad: Emotion Assistant** — one of the more innovative Arabic-market apps, **~250K MAU** at **4.7★**",
+      "Built **FocusMusic.fm**, a radio streaming music app, as a passion project",
+      "Collaborated on a context-aware **TODO Little** app based on user physical activity tracking",
+      "Built **FlashWatch**, a customizable Android widget for the Egyptian market",
+      "Built an on-device photo comparison app using **OpenCV** Java",
+      "Side work (2023): maintained **QnPick** on Android & iOS with **Flutter** — video features and a view-tracking algorithm"
     ]
   },
   {
