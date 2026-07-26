@@ -85,27 +85,27 @@ function LanguageRow({ language }: { language: ProfileLanguage }) {
   return (
     <li
       className={[
-        "flex items-center gap-1.5 rounded-lg px-1.5 py-1 ring-1",
+        "flex h-7 items-center gap-1.5 rounded-lg px-1.5 ring-1",
         meta.tint,
         meta.ring,
       ].join(" ")}
     >
       {meta.flag ? (
-        <span className="relative h-4 w-[1.35rem] shrink-0 overflow-hidden rounded-[3px] shadow-sm ring-1 ring-black/10">
+        <span className="relative block h-3.5 w-5 shrink-0 overflow-hidden rounded-[2.5px] shadow-sm ring-1 ring-black/10">
           <Image
             src={meta.flag}
             alt=""
-            width={22}
-            height={16}
-            className="h-full w-full object-cover"
+            width={20}
+            height={14}
+            className="block h-full w-full object-cover"
           />
         </span>
       ) : null}
-      <span className="min-w-0 flex-1 leading-tight">
-        <span className="text-[11px] font-semibold text-neutral-900">
+      <span className="flex min-w-0 translate-y-px items-center gap-1 text-[11px] leading-none [text-box-trim:trim-both] [text-box-edge:cap_alphabetic]">
+        <span className="truncate font-semibold text-neutral-900">
           {language.name}
         </span>
-        <span className="ml-1 text-[10px] text-neutral-500">
+        <span className="shrink-0 font-medium text-neutral-500">
           {language.level}
         </span>
       </span>
