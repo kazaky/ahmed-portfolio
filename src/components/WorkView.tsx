@@ -30,7 +30,7 @@ export function WorkView({ work }: WorkViewProps) {
   const kindLabel = work.kind === "role" ? "Role" : "Project";
 
   return (
-    <div className="page-atmosphere relative min-h-screen">
+    <div className="page-atmosphere studio-work relative min-h-screen">
       <a
         href="#main"
         className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-neutral-900 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white"
@@ -92,7 +92,11 @@ export function WorkView({ work }: WorkViewProps) {
               src={work.preview}
               alt={`${work.title} preview`}
               fill
-              className={work.preview.startsWith("/icons/") ? "object-contain p-12 sm:p-20" : "object-cover object-top"}
+              className={
+                work.preview.startsWith("/icons/")
+                  ? "object-contain p-12 sm:p-20"
+                  : "object-cover object-top"
+              }
               sizes="(max-width: 768px) 100vw, 768px"
               priority
             />
@@ -105,7 +109,9 @@ export function WorkView({ work }: WorkViewProps) {
               key={key}
               className={[
                 "sm:px-5",
-                index === 0 ? "sm:ps-0" : "sm:border-s sm:border-neutral-200/70 dark:border-neutral-700/70",
+                index === 0
+                  ? "sm:ps-0"
+                  : "sm:border-s sm:border-neutral-200/70 dark:border-neutral-700/70",
                 index === summarySections.length - 1 ? "sm:pe-0" : "",
               ].join(" ")}
             >
@@ -153,7 +159,11 @@ export function WorkView({ work }: WorkViewProps) {
               className={`inline-flex items-center gap-1.5 rounded-full bg-neutral-900 px-4 py-2.5 text-sm font-semibold text-white dark:bg-neutral-100 dark:text-neutral-900 ${focusRing}`}
             >
               Visit {work.domain}
-              <ArrowUpRight className="h-4 w-4" strokeWidth={2.25} aria-hidden />
+              <ArrowUpRight
+                className="h-4 w-4"
+                strokeWidth={2.25}
+                aria-hidden
+              />
             </a>
           )}
           <Link
