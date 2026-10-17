@@ -7,7 +7,7 @@ interface PhotoCardProps {
 
 export function PhotoCard({ item }: PhotoCardProps) {
   if (!item.image) {
-    return <div className="h-full bg-neutral-100" aria-hidden />;
+    return <div className="h-full bg-neutral-100 dark:bg-neutral-800" aria-hidden />;
   }
 
   return (

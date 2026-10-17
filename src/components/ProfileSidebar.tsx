@@ -6,6 +6,7 @@ import type {
   ProfileLanguage,
   ProfileRoleLink,
 } from "@/lib/types";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 interface ProfileSidebarProps {
   profile: Profile;
@@ -16,7 +17,7 @@ function isLink(part: string | ProfileRoleLink): part is ProfileRoleLink {
 }
 
 const focusRing =
-  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-2";
+  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-2 dark:focus-visible:ring-neutral-100 dark:focus-visible:ring-offset-neutral-950";
 
 const languageMeta: Record<
   string,
@@ -62,8 +63,8 @@ function CtaButton({
         "inline-flex items-center gap-1.5 rounded-full px-3.5 py-2 text-[13px] font-semibold transition-colors",
         focusRing,
         variant === "primary"
-          ? "bg-neutral-900 text-white shadow-sm hover:-translate-y-0.5 hover:bg-neutral-800 transition-transform"
-          : "border border-neutral-300 bg-white text-neutral-800 hover:bg-neutral-50",
+          ? "bg-neutral-900 text-white shadow-sm transition-transform hover:-translate-y-0.5 hover:bg-neutral-800 dark:bg-neutral-100 dark:text-neutral-900 dark:hover:bg-white"
+          : "border border-neutral-300 bg-white text-neutral-800 hover:bg-neutral-50 dark:border-neutral-600 dark:bg-neutral-900 dark:text-neutral-100 dark:hover:bg-neutral-800",
       ].join(" ")}
     >
       {isMail ? <Mail className="h-3.5 w-3.5" strokeWidth={2.25} aria-hidden /> : null}
@@ -78,8 +79,8 @@ function CtaButton({
 function LanguageRow({ language }: { language: ProfileLanguage }) {
   const meta = languageMeta[language.code] ?? {
     flag: "",
-    tint: "bg-neutral-100",
-    ring: "ring-neutral-200",
+    tint: "bg-neutral-100 dark:bg-neutral-800",
+    ring: "ring-neutral-200 dark:ring-neutral-700",
   };
 
   return (
@@ -102,10 +103,10 @@ function LanguageRow({ language }: { language: ProfileLanguage }) {
         </span>
       ) : null}
       <span className="flex min-w-0 translate-y-px items-center gap-1 text-[11px] leading-none [text-box-trim:trim-both] [text-box-edge:cap_alphabetic]">
-        <span className="truncate font-semibold text-neutral-900">
+        <span className="truncate font-semibold text-neutral-900 dark:text-neutral-100">
           {language.name}
         </span>
-        <span className="shrink-0 font-medium text-neutral-500">
+        <span className="shrink-0 font-medium text-neutral-500 dark:text-neutral-400">
           {language.level}
         </span>
       </span>
@@ -116,7 +117,7 @@ function LanguageRow({ language }: { language: ProfileLanguage }) {
 export function ProfileSidebar({ profile }: ProfileSidebarProps) {
   return (
     <aside className="lg:sticky lg:top-10 lg:self-start">
-      <div className="mb-4 h-24 w-24 overflow-hidden rounded-full bg-neutral-200 ring-1 ring-black/5 sm:mb-5 sm:h-28 sm:w-28">
+      <div className="mb-4 h-24 w-24 overflow-hidden rounded-full bg-neutral-200 ring-1 ring-black/5 dark:bg-neutral-800 dark:ring-white/10 sm:mb-5 sm:h-28 sm:w-28">
         <Image
           src={profile.avatar}
           alt={profile.name}
@@ -126,11 +127,11 @@ export function ProfileSidebar({ profile }: ProfileSidebarProps) {
           priority
         />
       </div>
-      <h1 className="text-3xl font-bold tracking-tight text-neutral-900 sm:text-[2rem] sm:leading-tight">
+      <h1 className="text-3xl font-bold tracking-tight text-neutral-900 dark:text-neutral-50 sm:text-[2rem] sm:leading-tight">
         {profile.name}
       </h1>
       {profile.bio && (
-        <p className="mt-2 max-w-[18rem] text-[14px] leading-snug text-neutral-600">
+        <p className="mt-2 max-w-[18rem] text-[14px] leading-snug text-neutral-600 dark:text-neutral-400">
           {profile.bio}
         </p>
       )}
@@ -140,17 +141,17 @@ export function ProfileSidebar({ profile }: ProfileSidebarProps) {
           <CtaButton cta={profile.ctaSecondary} variant="secondary" />
         )}
       </div>
-      <ul className="mt-5 space-y-2 text-[13px] leading-snug text-neutral-800 sm:text-[14px]">
+      <ul className="mt-5 space-y-2 text-[13px] leading-snug text-neutral-800 dark:text-neutral-200 sm:text-[14px]">
         {profile.roles.map((role, roleIndex) => (
           <li key={role.label}>
-            <span className="text-neutral-400" aria-hidden>
+            <span className="text-neutral-400 dark:text-neutral-500" aria-hidden>
               ✦
             </span>{" "}
             <span
               className={
                 roleIndex === 0
-                  ? "font-semibold text-neutral-900"
-                  : "text-neutral-800"
+                  ? "font-semibold text-neutral-900 dark:text-neutral-50"
+                  : "text-neutral-800 dark:text-neutral-200"
               }
             >
               {role.label}
@@ -158,7 +159,7 @@ export function ProfileSidebar({ profile }: ProfileSidebarProps) {
             {(role.detailParts?.length || role.detail) && (
               <>
                 <br />
-                <span className="text-[12px] text-neutral-500 sm:text-[13px]">
+                <span className="text-[12px] text-neutral-500 dark:text-neutral-400 sm:text-[13px]">
                   {role.detailParts?.length
                     ? role.detailParts.map((part, i) =>
                         isLink(part) ? (
@@ -173,7 +174,7 @@ export function ProfileSidebar({ profile }: ProfileSidebarProps) {
                                 ? undefined
                                 : "noopener noreferrer"
                             }
-                            className={`font-medium text-neutral-700 underline decoration-neutral-300 underline-offset-2 transition-colors hover:text-neutral-950 hover:decoration-neutral-500 ${focusRing} rounded-sm`}
+                            className={`rounded-sm font-medium text-neutral-700 underline decoration-neutral-300 underline-offset-2 transition-colors hover:text-neutral-950 hover:decoration-neutral-500 dark:text-neutral-300 dark:decoration-neutral-600 dark:hover:text-white dark:hover:decoration-neutral-400 ${focusRing}`}
                           >
                             {part.label}
                           </a>
@@ -197,7 +198,7 @@ export function ProfileSidebar({ profile }: ProfileSidebarProps) {
       </ul>
       {profile.languages?.length ? (
         <div className="mt-4 max-w-[16rem]">
-          <h2 className="mb-1.5 text-[9px] font-semibold uppercase tracking-[0.16em] text-neutral-400">
+          <h2 className="mb-1.5 text-[9px] font-semibold uppercase tracking-[0.16em] text-neutral-400 dark:text-neutral-500">
             Languages
           </h2>
           <ul className="grid grid-cols-2 gap-1">
@@ -205,8 +206,13 @@ export function ProfileSidebar({ profile }: ProfileSidebarProps) {
               <LanguageRow key={language.code} language={language} />
             ))}
           </ul>
+          <ThemeToggle />
         </div>
-      ) : null}
+      ) : (
+        <div className="mt-4 max-w-[16rem]">
+          <ThemeToggle />
+        </div>
+      )}
     </aside>
   );
 }

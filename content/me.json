@@ -1,6 +1,6 @@
 {
-  "siteUrl": "https://ahmed-portfolio-mmi.pages.dev",
-  "email": "shosho.super.star@gmail.com",
+  "siteUrl": "https://ahmed-elshahawy.com",
+  "email": "hello@ahmed-elshahawy.com",
   "name": "Ahmed Elshahawy",
   "avatar": "/avatar.jpg",
   "bio": "Staff engineer at eBay. Building Arabic & Islamic tools on the side.",
@@ -16,7 +16,7 @@
   },
   "ctaSecondary": {
     "label": "Email",
-    "url": "mailto:shosho.super.star@gmail.com"
+    "url": "mailto:hello@ahmed-elshahawy.com"
   },
   "sidebarRoles": [
     {
@@ -64,7 +64,7 @@
       "org": "Hacksummit.org Hackathon",
       "year": "2016",
       "place": "top100",
-      "logo": "/icons/awards/hacksummit.svg"
+      "logo": "/icons/awards/hacksummit.png"
     },
     {
       "id": "baidu",
@@ -80,14 +80,30 @@
       "org": "Samsung · MENA region",
       "year": "2014",
       "place": "3rd",
-      "logo": "/icons/awards/samsung.svg"
+      "logo": "/icons/awards/samsung.png"
     }
   ],
   "languages": [
-    { "name": "English", "level": "Fluent", "code": "EN" },
-    { "name": "Arabic", "level": "Native", "code": "AR" },
-    { "name": "German", "level": "B1", "code": "DE" },
-    { "name": "French", "level": "A2", "code": "FR" }
+    {
+      "name": "English",
+      "level": "Fluent",
+      "code": "EN"
+    },
+    {
+      "name": "Arabic",
+      "level": "Native",
+      "code": "AR"
+    },
+    {
+      "name": "German",
+      "level": "B1",
+      "code": "DE"
+    },
+    {
+      "name": "French",
+      "level": "A2",
+      "code": "FR"
+    }
   ],
   "links": [
     {
@@ -152,16 +168,6 @@
           "slug": "arabic-watch",
           "size": "halfTall",
           "icon": "arabic-watch"
-        },
-        {
-          "slug": "falah",
-          "size": "halfTall",
-          "icon": "falah"
-        },
-        {
-          "slug": "basira",
-          "size": "halfTall",
-          "icon": "basira"
         }
       ]
     },
@@ -172,6 +178,11 @@
           "slug": "ebay",
           "size": "full",
           "icon": "ebay"
+        },
+        {
+          "slug": "qnpick",
+          "size": "full",
+          "icon": "qnpick"
         },
         {
           "slug": "adevinta",
@@ -243,9 +254,9 @@
               "icon": "focusmusic"
             },
             {
-              "slug": "flashwatch",
+              "slug": "eleven",
               "size": "full",
-              "icon": "flashwatch"
+              "icon": "eleven"
             },
             {
               "slug": "todo-little",
@@ -253,14 +264,9 @@
               "icon": "todo-little"
             },
             {
-              "slug": "photo-compare",
+              "slug": "fotofights",
               "size": "full",
-              "icon": "photo-compare"
-            },
-            {
-              "slug": "qnpick",
-              "size": "full",
-              "icon": "qnpick"
+              "icon": "fotofights"
             }
           ]
         }

@@ -28,9 +28,9 @@ const FULL_BLEED_ICONS = new Set([
   "shahry",
   "egypt-startups",
   "focusmusic",
-  "flashwatch",
+  "eleven",
   "todo-little",
-  "photo-compare",
+  "fotofights",
   "qnpick",
 ]);
 
@@ -53,7 +53,7 @@ function ActionRow({ item }: { item: LinkItem }) {
     <span className="relative z-20 mt-2 flex flex-wrap items-center gap-x-3 gap-y-1">
       <Link
         href={item.work}
-        className="text-xs font-semibold text-neutral-800 underline decoration-neutral-300 underline-offset-2 transition-colors hover:decoration-neutral-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-2 rounded-sm"
+        className="text-xs font-semibold text-neutral-800 dark:text-neutral-200 underline decoration-neutral-300 dark:decoration-neutral-600 underline-offset-2 transition-colors hover:decoration-neutral-600 dark:hover:decoration-neutral-400 dark:hover:decoration-neutral-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-2 dark:focus-visible:ring-neutral-100 dark:focus-visible:ring-offset-neutral-950 rounded-sm"
         onClick={(e) => e.stopPropagation()}
       >
         View work
@@ -63,7 +63,7 @@ function ActionRow({ item }: { item: LinkItem }) {
           href={item.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-xs font-medium text-neutral-500 underline decoration-neutral-200 underline-offset-2 transition-colors hover:text-neutral-800 hover:decoration-neutral-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-2 rounded-sm"
+          className="text-xs font-medium text-neutral-500 dark:text-neutral-400 underline decoration-neutral-200 dark:decoration-neutral-700 underline-offset-2 transition-colors hover:text-neutral-800 dark:hover:text-neutral-200 dark:text-neutral-200 hover:decoration-neutral-400 dark:hover:decoration-neutral-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-2 dark:focus-visible:ring-neutral-100 dark:focus-visible:ring-offset-neutral-950 rounded-sm"
           onClick={(e) => e.stopPropagation()}
         >
           Visit site
@@ -99,7 +99,7 @@ export function LinkCard({ item }: LinkCardProps) {
   const badges = (
     <div className="pointer-events-none flex shrink-0 flex-wrap items-center justify-end gap-1.5">
       {item.comingSoon && (
-        <span className="rounded-full bg-neutral-200/70 px-2 py-0.5 text-[10px] font-medium text-neutral-500 sm:text-[11px]">
+        <span className="rounded-full bg-neutral-200/70 dark:bg-neutral-700/70 px-2 py-0.5 text-[10px] font-medium text-neutral-500 dark:text-neutral-400 sm:text-[11px]">
           Coming Soon
         </span>
       )}
@@ -108,7 +108,7 @@ export function LinkCard({ item }: LinkCardProps) {
           className={[
             "inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-semibold sm:text-[11px]",
             isDelisted
-              ? "bg-neutral-100 text-neutral-500"
+              ? "bg-neutral-100 dark:bg-neutral-800 text-neutral-500 dark:text-neutral-400"
               : "bg-emerald-50 text-emerald-700 ring-1 ring-emerald-100",
           ].join(" ")}
           title={item.downloadsLabel ?? item.downloads}
@@ -120,7 +120,7 @@ export function LinkCard({ item }: LinkCardProps) {
         </span>
       )}
       {item.follow && !item.comingSoon && (
-        <span className="rounded-full border border-neutral-200 bg-white px-2 py-0.5 text-[10px] font-medium text-neutral-700 sm:text-[11px]">
+        <span className="rounded-full border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 px-2 py-0.5 text-[10px] font-medium text-neutral-700 dark:text-neutral-300 sm:text-[11px]">
           Follow
         </span>
       )}
@@ -143,7 +143,7 @@ export function LinkCard({ item }: LinkCardProps) {
         <div className="flex shrink-0 items-start gap-3">
           <div
             className={[
-              "relative flex shrink-0 items-center justify-center overflow-hidden bg-neutral-50 ring-1 ring-neutral-200/80",
+              "relative flex shrink-0 items-center justify-center overflow-hidden bg-neutral-50 dark:bg-neutral-800/80 ring-1 ring-neutral-200/80 dark:ring-neutral-700/80",
               iconBox,
             ].join(" ")}
           >
@@ -161,7 +161,7 @@ export function LinkCard({ item }: LinkCardProps) {
               />
             ) : (
               <Link2
-                className="h-5 w-5 text-neutral-500"
+                className="h-5 w-5 text-neutral-500 dark:text-neutral-400"
                 strokeWidth={2}
                 aria-hidden
               />
@@ -172,7 +172,7 @@ export function LinkCard({ item }: LinkCardProps) {
               <div className="min-w-0">
                 <p
                   className={[
-                    "font-semibold leading-snug text-neutral-900 line-clamp-2",
+                    "font-semibold leading-snug text-neutral-900 dark:text-neutral-50 line-clamp-2",
                     isFeatured
                       ? "text-base sm:text-lg"
                       : "text-sm sm:text-[15px]",
@@ -182,7 +182,7 @@ export function LinkCard({ item }: LinkCardProps) {
                 </p>
                 <p
                   className={[
-                    "mt-0.5 leading-snug text-neutral-500 line-clamp-2",
+                    "mt-0.5 leading-snug text-neutral-500 dark:text-neutral-400 line-clamp-2",
                     isFeatured
                       ? "text-xs sm:text-sm"
                       : "text-[11px] sm:text-xs",
@@ -199,7 +199,7 @@ export function LinkCard({ item }: LinkCardProps) {
             <ActionRow item={item} />
           </div>
         </div>
-        <div className="relative min-h-0 w-full flex-1 overflow-hidden rounded-2xl bg-neutral-100 ring-1 ring-neutral-200/60">
+        <div className="relative min-h-0 w-full flex-1 overflow-hidden rounded-2xl bg-neutral-100 dark:bg-neutral-800 ring-1 ring-neutral-200/60 dark:ring-neutral-700/60">
           <Image
             src={item.preview}
             alt={`${item.title} preview`}
@@ -221,7 +221,7 @@ export function LinkCard({ item }: LinkCardProps) {
         ].join(" ")}
       >
         <div className="flex shrink-0 items-start justify-between gap-2">
-          <div className="relative flex h-7 w-7 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-neutral-50 ring-1 ring-neutral-200/80">
+          <div className="relative flex h-7 w-7 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-neutral-50 dark:bg-neutral-800/80 ring-1 ring-neutral-200/80 dark:ring-neutral-700/80">
             {src ? (
               <Image
                 src={src}
@@ -236,7 +236,7 @@ export function LinkCard({ item }: LinkCardProps) {
               />
             ) : (
               <Link2
-                className="h-3 w-3 text-neutral-500"
+                className="h-3 w-3 text-neutral-500 dark:text-neutral-400"
                 strokeWidth={2}
                 aria-hidden
               />
@@ -245,10 +245,10 @@ export function LinkCard({ item }: LinkCardProps) {
           {badges}
         </div>
         <div className="min-w-0">
-          <p className="text-xs font-semibold leading-snug text-neutral-900 line-clamp-2 sm:text-[13px]">
+          <p className="text-xs font-semibold leading-snug text-neutral-900 dark:text-neutral-50 line-clamp-2 sm:text-[13px]">
             {item.title}
           </p>
-          <p className="mt-0.5 text-[10px] leading-snug text-neutral-400 line-clamp-2">
+          <p className="mt-0.5 text-[10px] leading-snug text-neutral-400 dark:text-neutral-500 line-clamp-2">
             {item.blurb ??
               (item.comingSoon
                 ? "Coming soon"
@@ -275,7 +275,7 @@ export function LinkCard({ item }: LinkCardProps) {
       <div className="flex items-start gap-3">
         <div
           className={[
-            "relative flex shrink-0 items-center justify-center overflow-hidden bg-neutral-50 ring-1 ring-neutral-200/80",
+            "relative flex shrink-0 items-center justify-center overflow-hidden bg-neutral-50 dark:bg-neutral-800/80 ring-1 ring-neutral-200/80 dark:ring-neutral-700/80",
             defaultIconBox,
           ].join(" ")}
         >
@@ -293,7 +293,7 @@ export function LinkCard({ item }: LinkCardProps) {
             />
           ) : (
             <Link2
-              className="h-4 w-4 text-neutral-500"
+              className="h-4 w-4 text-neutral-500 dark:text-neutral-400"
               strokeWidth={2}
               aria-hidden
             />
@@ -304,7 +304,7 @@ export function LinkCard({ item }: LinkCardProps) {
             <div className="min-w-0">
               <p
                 className={[
-                  "font-semibold leading-snug text-neutral-900 line-clamp-2",
+                  "font-semibold leading-snug text-neutral-900 dark:text-neutral-50 line-clamp-2",
                   isFeatured
                     ? "text-base sm:text-lg"
                     : "text-sm sm:text-[15px]",
@@ -316,9 +316,9 @@ export function LinkCard({ item }: LinkCardProps) {
                 className={[
                   "mt-0.5 leading-snug line-clamp-2",
                   isFeatured
-                    ? "text-xs text-neutral-500 sm:text-sm"
-                    : "text-[11px] text-neutral-500 sm:text-xs",
-                  isSocial && !item.blurb ? "text-neutral-400" : "",
+                    ? "text-xs text-neutral-500 dark:text-neutral-400 sm:text-sm"
+                    : "text-[11px] text-neutral-500 dark:text-neutral-400 sm:text-xs",
+                  isSocial && !item.blurb ? "text-neutral-400 dark:text-neutral-500" : "",
                 ].join(" ")}
               >
                 {item.blurb ??

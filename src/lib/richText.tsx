@@ -12,7 +12,7 @@ export function renderBoldText(text: string): ReactNode {
       return (
         <strong
           key={index}
-          className="font-semibold text-neutral-900"
+          className="font-semibold text-neutral-900 dark:text-neutral-50"
         >
           {part.slice(2, -2)}
         </strong>

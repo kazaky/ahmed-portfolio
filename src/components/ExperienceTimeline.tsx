@@ -13,7 +13,7 @@ interface ExperienceTimelineProps {
 }
 
 const focusRing =
-  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-2";
+  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-2 dark:focus-visible:ring-neutral-100 dark:focus-visible:ring-offset-neutral-950";
 
 function splitPeriod(period?: string): { start: string; end: string } | null {
   if (!period) return null;
@@ -42,14 +42,14 @@ function ExperienceCard({
   return (
     <article
       className={[
-        "group overflow-hidden border bg-white transition-shadow hover:shadow-md",
+        "group overflow-hidden border bg-white dark:bg-neutral-900 transition-shadow hover:shadow-md",
         nested
-          ? "rounded-2xl border-neutral-200/70"
+          ? "rounded-2xl border-neutral-200/70 dark:border-neutral-700/70"
           : "rounded-3xl",
         !nested && isEbay
           ? "border-[#0064D2]/25 shadow-[inset_3px_0_0_0_#E53238]"
           : !nested
-            ? "border-neutral-200/80"
+            ? "border-neutral-200/80 dark:border-neutral-700/80"
             : "",
       ].join(" ")}
     >
@@ -81,7 +81,7 @@ function ExperienceCard({
               src && (
                 <span
                   className={[
-                    "relative flex shrink-0 overflow-hidden bg-neutral-50 ring-1 ring-neutral-200/80",
+                    "relative flex shrink-0 overflow-hidden bg-neutral-50 dark:bg-neutral-800/80 ring-1 ring-neutral-200/80 dark:ring-neutral-700/80",
                     nested
                       ? "h-9 w-9 rounded-lg"
                       : "h-11 w-11 rounded-xl",
@@ -105,7 +105,7 @@ function ExperienceCard({
                 ) : (
                   <h3
                     className={[
-                      "font-semibold tracking-tight text-neutral-900",
+                      "font-semibold tracking-tight text-neutral-900 dark:text-neutral-50",
                       nested
                         ? "text-sm sm:text-base"
                         : "text-base sm:text-lg",
@@ -115,7 +115,7 @@ function ExperienceCard({
                   </h3>
                 )}
                 {isCurrent && !nested && (
-                  <span className="rounded-full bg-neutral-900 px-2 py-0.5 text-[10px] font-semibold tracking-wide text-white">
+                  <span className="rounded-full bg-neutral-900 px-2 py-0.5 text-[10px] font-semibold tracking-wide text-white dark:bg-neutral-100 dark:text-neutral-900">
                     Now
                   </span>
                 )}
@@ -124,7 +124,7 @@ function ExperienceCard({
                     className={[
                       "inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-semibold",
                       isDelisted
-                        ? "bg-neutral-100 text-neutral-500"
+                        ? "bg-neutral-100 dark:bg-neutral-800 text-neutral-500 dark:text-neutral-400"
                         : "bg-emerald-50 text-emerald-700 ring-1 ring-emerald-100",
                     ].join(" ")}
                     title={item.downloadsLabel ?? item.downloads}
@@ -144,7 +144,7 @@ function ExperienceCard({
               {item.roleTitle && (
                 <p
                   className={[
-                    "font-medium text-neutral-600",
+                    "font-medium text-neutral-600 dark:text-neutral-400",
                     nested ? "mt-0.5 text-xs sm:text-sm" : "text-sm",
                     isEbay && !nested ? "mt-0" : "mt-0.5",
                   ].join(" ")}
@@ -156,7 +156,7 @@ function ExperienceCard({
               {item.blurb && (
                 <p
                   className={[
-                    "mt-1.5 max-w-md leading-relaxed text-neutral-500",
+                    "mt-1.5 max-w-md leading-relaxed text-neutral-500 dark:text-neutral-400",
                     nested ? "text-xs sm:text-sm" : "mt-2 text-sm",
                   ].join(" ")}
                 >
@@ -168,7 +168,7 @@ function ExperienceCard({
                 {item.work && (
                   <Link
                     href={item.work}
-                    className={`text-sm font-semibold text-neutral-900 underline decoration-neutral-300 underline-offset-2 hover:decoration-neutral-600 ${focusRing} rounded-sm`}
+                    className={`text-sm font-semibold text-neutral-900 dark:text-neutral-50 underline decoration-neutral-300 dark:decoration-neutral-600 underline-offset-2 hover:decoration-neutral-600 dark:hover:decoration-neutral-400 dark:hover:decoration-neutral-500 ${focusRing} rounded-sm`}
                   >
                     View work
                   </Link>
@@ -177,7 +177,7 @@ function ExperienceCard({
                   href={item.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`inline-flex items-center gap-1 text-sm font-medium text-neutral-500 hover:text-neutral-800 ${focusRing} rounded-sm`}
+                  className={`inline-flex items-center gap-1 text-sm font-medium text-neutral-500 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200 dark:text-neutral-200 ${focusRing} rounded-sm`}
                 >
                   Visit
                   <ArrowUpRight
@@ -194,7 +194,7 @@ function ExperienceCard({
         {item.preview && !nested && (
           <div
             className={[
-              "relative mx-4 mb-4 h-36 overflow-hidden rounded-2xl bg-neutral-100 ring-1 ring-neutral-200/50 lg:mx-0 lg:mb-0 lg:h-auto lg:w-[38%] lg:min-h-[140px] lg:rounded-none lg:border-s lg:border-neutral-100 lg:ring-0",
+              "relative mx-4 mb-4 h-36 overflow-hidden rounded-2xl bg-neutral-100 dark:bg-neutral-800 ring-1 ring-neutral-200/50 dark:ring-neutral-700/50 lg:mx-0 lg:mb-0 lg:h-auto lg:w-[38%] lg:min-h-[140px] lg:rounded-none lg:border-s lg:border-neutral-100 dark:border-neutral-800 lg:ring-0",
               isEbay ? "bg-[#f7f7f7]" : "",
             ].join(" ")}
           >
@@ -202,7 +202,7 @@ function ExperienceCard({
               src={item.preview}
               alt={`${item.title} preview`}
               fill
-              className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+              className={`${item.preview.startsWith("/icons/") ? "object-contain p-8 lg:p-10" : "object-cover object-top"} transition-transform duration-500 group-hover:scale-[1.02]`}
               sizes="(max-width: 1024px) 100vw, 280px"
             />
           </div>
@@ -221,7 +221,7 @@ export function ExperienceTimeline({
   return (
     <ol className="relative">
       <div
-        className="pointer-events-none absolute bottom-8 start-[0.85rem] top-6 w-px bg-neutral-200 sm:start-[calc(7.5rem+0.5rem+0.375rem)] sm:bottom-10 sm:top-8"
+        className="pointer-events-none absolute bottom-8 start-[0.85rem] top-6 w-px bg-neutral-200 dark:bg-neutral-700 sm:start-[calc(7.5rem+0.5rem+0.375rem)] sm:bottom-10 sm:top-8"
         aria-hidden
       />
 
@@ -248,13 +248,13 @@ export function ExperienceTimeline({
                   <span
                     className={[
                       "block text-[15px] font-semibold tracking-tight",
-                      isCurrent ? "text-neutral-900" : "text-neutral-800",
+                      isCurrent ? "text-neutral-900 dark:text-neutral-50" : "text-neutral-800 dark:text-neutral-200",
                     ].join(" ")}
                   >
                     {dates.end || dates.start}
                   </span>
                   {dates.end ? (
-                    <span className="mt-1 block text-xs font-medium text-neutral-400">
+                    <span className="mt-1 block text-xs font-medium text-neutral-400 dark:text-neutral-500">
                       {dates.start}
                     </span>
                   ) : null}
@@ -267,8 +267,8 @@ export function ExperienceTimeline({
                 className={[
                   "relative z-[1] h-3.5 w-3.5 rounded-full border-[2.5px] bg-[var(--background)]",
                   isCurrent
-                    ? "border-neutral-900 ring-4 ring-neutral-900/10"
-                    : "border-neutral-400",
+                    ? "border-neutral-900 ring-4 ring-neutral-900/10 dark:border-neutral-100 dark:ring-neutral-100/15"
+                    : "border-neutral-400 dark:border-neutral-500",
                 ].join(" ")}
                 aria-hidden
               />
@@ -278,11 +278,11 @@ export function ExperienceTimeline({
               {dates && (
                 <time
                   dateTime={item.period}
-                  className="mb-2 flex items-baseline gap-1.5 text-xs font-semibold text-neutral-500 sm:hidden"
+                  className="mb-2 flex items-baseline gap-1.5 text-xs font-semibold text-neutral-500 dark:text-neutral-400 sm:hidden"
                 >
                   <span>{dates.start}</span>
-                  <span className="font-normal text-neutral-300">→</span>
-                  <span className={isCurrent ? "text-neutral-900" : undefined}>
+                  <span className="font-normal text-neutral-300 dark:text-neutral-600">→</span>
+                  <span className={isCurrent ? "text-neutral-900 dark:text-neutral-50" : undefined}>
                     {dates.end || dates.start}
                   </span>
                 </time>
@@ -291,8 +291,8 @@ export function ExperienceTimeline({
               <ExperienceCard item={item} index={startIndex + index} />
 
               {children.length > 0 && (
-                <div className="relative mt-3 ms-2 border-s-2 border-neutral-200/90 ps-3 sm:ms-3 sm:mt-4 sm:ps-4">
-                  <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.12em] text-neutral-400">
+                <div className="relative mt-3 ms-2 border-s-2 border-neutral-200/90 dark:border-neutral-700/90 ps-3 sm:ms-3 sm:mt-4 sm:ps-4">
+                  <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.12em] text-neutral-400 dark:text-neutral-500">
                     Brands & products
                   </p>
                   <ul className="space-y-2.5 sm:space-y-3">

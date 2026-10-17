@@ -79,7 +79,7 @@ export function BentoSection({ section, startIndex = 0 }: BentoSectionProps) {
       {section.title && (
         <h2
           id={section.id}
-          className="mb-3 scroll-mt-8 text-lg font-bold tracking-tight text-neutral-900 sm:mb-4 sm:text-xl"
+          className="mb-3 scroll-mt-8 text-lg font-bold tracking-tight text-neutral-900 dark:text-neutral-50 sm:mb-4 sm:text-xl"
         >
           {section.title}
         </h2>

@@ -81,7 +81,7 @@ export function GithubActivity({ profileUrl, onTotal }: GithubActivityProps) {
 
   if (failed) {
     return (
-      <p className="self-end text-[11px] text-neutral-400">
+      <p className="self-end text-[11px] text-neutral-400 dark:text-neutral-500">
         Activity unavailable
       </p>
     );
@@ -93,7 +93,7 @@ export function GithubActivity({ profileUrl, onTotal }: GithubActivityProps) {
         {Array.from({ length: 52 }, (_, i) => (
           <div
             key={i}
-            className="min-w-0 flex-1 animate-pulse rounded-sm bg-neutral-100"
+            className="min-w-0 flex-1 animate-pulse rounded-sm bg-neutral-100 dark:bg-neutral-800"
             style={{ height: `${20 + ((i * 17) % 60)}%` }}
           />
         ))}
@@ -119,8 +119,8 @@ export function GithubActivity({ profileUrl, onTotal }: GithubActivityProps) {
             className={[
               "min-w-0 flex-1 rounded-[2px] sm:rounded-[3px]",
               count === 0
-                ? "bg-neutral-100"
-                : "bg-neutral-800/85",
+                ? "bg-neutral-100 dark:bg-neutral-800"
+                : "bg-neutral-800/85 dark:bg-neutral-200/75",
             ].join(" ")}
             style={{ height: `${height}%` }}
           />

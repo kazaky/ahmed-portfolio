@@ -42,7 +42,7 @@ export function ShotGallery({ shots, startIndex = 0 }: ShotGalleryProps) {
               delay: reduceMotion ? 0 : (startIndex + index) * 0.04,
               ease: [0.22, 1, 0.36, 1],
             }}
-            className="group relative aspect-[4/3] overflow-hidden rounded-3xl border border-neutral-200/70 bg-neutral-100 text-left shadow-sm transition-shadow hover:shadow-md"
+            className="group relative aspect-[4/3] overflow-hidden rounded-3xl border border-neutral-200/70 dark:border-neutral-700/70 bg-neutral-100 dark:bg-neutral-800 text-left shadow-sm transition-shadow hover:shadow-md"
             aria-label={shot.title}
           >
             <Image
@@ -53,7 +53,7 @@ export function ShotGallery({ shots, startIndex = 0 }: ShotGalleryProps) {
               sizes="(max-width: 640px) 50vw, 33vw"
             />
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80 transition-opacity duration-300 group-hover:opacity-100" />
-            <div className="absolute right-2.5 top-2.5 flex h-7 w-7 items-center justify-center rounded-full bg-white/95 shadow-sm backdrop-blur-sm">
+            <div className="absolute right-2.5 top-2.5 flex h-7 w-7 items-center justify-center rounded-full bg-white/95 dark:bg-neutral-900/95 shadow-sm backdrop-blur-sm">
               <Image
                 src="/icons/dribbble.svg"
                 alt=""

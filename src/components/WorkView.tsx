@@ -11,7 +11,7 @@ interface WorkViewProps {
 }
 
 const focusRing =
-  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-2";
+  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-2 dark:focus-visible:ring-neutral-100 dark:focus-visible:ring-offset-neutral-950";
 
 const summarySections = [
   ["01", "Context", "context"],
@@ -43,7 +43,7 @@ export function WorkView({ work }: WorkViewProps) {
       >
         <Link
           href={backHref}
-          className={`inline-flex items-center gap-1.5 text-sm font-medium text-neutral-600 transition-colors hover:text-neutral-900 ${focusRing} rounded-sm`}
+          className={`inline-flex items-center gap-1.5 rounded-sm text-sm font-medium text-neutral-600 transition-colors hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-50 ${focusRing}`}
         >
           <ArrowLeft className="h-4 w-4" strokeWidth={2.25} aria-hidden />
           {backLabel}
@@ -51,7 +51,7 @@ export function WorkView({ work }: WorkViewProps) {
 
         <header className="mt-8 sm:mt-10">
           <div className="flex items-start gap-4 sm:gap-5">
-            <span className="relative mt-1 flex h-14 w-14 shrink-0 overflow-hidden rounded-2xl bg-neutral-50 ring-1 ring-neutral-200/80 sm:h-16 sm:w-16">
+            <span className="relative mt-1 flex h-14 w-14 shrink-0 overflow-hidden rounded-2xl bg-neutral-50 dark:bg-neutral-800/80 ring-1 ring-neutral-200/80 dark:ring-neutral-700/80 sm:h-16 sm:w-16">
               <Image
                 src={work.icon}
                 alt=""
@@ -61,61 +61,61 @@ export function WorkView({ work }: WorkViewProps) {
               />
             </span>
             <div className="min-w-0">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-neutral-500">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-neutral-500 dark:text-neutral-400">
                 {kindLabel}
                 {work.comingSoon ? " · Coming Soon" : ""}
               </p>
-              <h1 className="mt-1.5 text-4xl font-bold tracking-tight text-neutral-900 sm:text-5xl">
+              <h1 className="mt-1.5 text-4xl font-bold tracking-tight text-neutral-900 dark:text-neutral-50 sm:text-5xl">
                 {work.title}
               </h1>
               {work.roleTitle && (
-                <p className="mt-2 text-lg font-semibold leading-snug text-neutral-800 sm:text-xl">
+                <p className="mt-2 text-lg font-semibold leading-snug text-neutral-800 dark:text-neutral-200 sm:text-xl">
                   {work.roleTitle}
                 </p>
               )}
               {work.period && (
-                <p className="mt-2 inline-flex items-center rounded-full border border-neutral-200/90 bg-white/70 px-3 py-1 text-xs font-medium text-neutral-600 sm:text-[13px]">
+                <p className="mt-2 inline-flex items-center rounded-full border border-neutral-200/90 dark:border-neutral-700/90 bg-white/70 dark:bg-neutral-900/70 px-3 py-1 text-xs font-medium text-neutral-600 dark:text-neutral-400 sm:text-[13px]">
                   {work.period}
                 </p>
               )}
             </div>
           </div>
 
-          <p className="mt-6 max-w-2xl text-xl leading-relaxed text-neutral-600 sm:mt-7 sm:text-[1.35rem] sm:leading-relaxed">
+          <p className="mt-6 max-w-2xl text-xl leading-relaxed text-neutral-600 dark:text-neutral-400 sm:mt-7 sm:text-[1.35rem] sm:leading-relaxed">
             {work.tagline}
           </p>
         </header>
 
-        <div className="mt-7 overflow-hidden rounded-3xl border border-neutral-200/70 bg-white shadow-sm sm:mt-8">
-          <div className="relative aspect-[16/10] w-full bg-neutral-100">
+        <div className="mt-7 overflow-hidden rounded-3xl border border-neutral-200/70 dark:border-neutral-700/70 bg-white dark:bg-neutral-900 shadow-sm sm:mt-8">
+          <div className="relative aspect-[16/10] w-full bg-neutral-100 dark:bg-neutral-800">
             <Image
               src={work.preview}
               alt={`${work.title} preview`}
               fill
-              className="object-cover object-top"
+              className={work.preview.startsWith("/icons/") ? "object-contain p-12 sm:p-20" : "object-cover object-top"}
               sizes="(max-width: 768px) 100vw, 768px"
               priority
             />
           </div>
         </div>
 
-        <div className="mt-12 grid gap-8 border-t border-neutral-200/80 pt-10 sm:mt-14 sm:grid-cols-3 sm:gap-0 sm:pt-12">
+        <div className="mt-12 grid gap-8 border-t border-neutral-200/80 dark:border-neutral-700/80 pt-10 sm:mt-14 sm:grid-cols-3 sm:gap-0 sm:pt-12">
           {summarySections.map(([num, label, key], index) => (
             <section
               key={key}
               className={[
                 "sm:px-5",
-                index === 0 ? "sm:ps-0" : "sm:border-s sm:border-neutral-200/70",
+                index === 0 ? "sm:ps-0" : "sm:border-s sm:border-neutral-200/70 dark:border-neutral-700/70",
                 index === summarySections.length - 1 ? "sm:pe-0" : "",
               ].join(" ")}
             >
-              <p className="text-[11px] font-semibold tabular-nums tracking-[0.14em] text-neutral-400">
+              <p className="text-[11px] font-semibold tabular-nums tracking-[0.14em] text-neutral-400 dark:text-neutral-500">
                 {num}
               </p>
-              <h2 className="mt-1 text-xs font-semibold uppercase tracking-[0.12em] text-neutral-500">
+              <h2 className="mt-1 text-xs font-semibold uppercase tracking-[0.12em] text-neutral-500 dark:text-neutral-400">
                 {label}
               </h2>
-              <p className="mt-3 text-base leading-[1.7] text-neutral-700">
+              <p className="mt-3 text-base leading-[1.7] text-neutral-700 dark:text-neutral-300">
                 {work[key]}
               </p>
             </section>
@@ -124,17 +124,17 @@ export function WorkView({ work }: WorkViewProps) {
 
         {work.highlights && work.highlights.length > 0 && (
           <section className="mt-14 sm:mt-16">
-            <h2 className="text-base font-bold tracking-tight text-neutral-900 sm:text-lg">
+            <h2 className="text-base font-bold tracking-tight text-neutral-900 dark:text-neutral-50 sm:text-lg">
               Highlights
             </h2>
-            <ul className="mt-5 space-y-0 divide-y divide-neutral-200/80 border-y border-neutral-200/80">
+            <ul className="mt-5 space-y-0 divide-y divide-neutral-200/80 dark:divide-neutral-700/80 border-y border-neutral-200/80 dark:border-neutral-700/80">
               {work.highlights.map((item) => (
                 <li
                   key={item}
-                  className="flex gap-3.5 py-3.5 text-[15px] leading-relaxed text-neutral-600 sm:gap-4 sm:py-4 sm:text-base sm:leading-relaxed"
+                  className="flex gap-3.5 py-3.5 text-[15px] leading-relaxed text-neutral-600 dark:text-neutral-400 sm:gap-4 sm:py-4 sm:text-base sm:leading-relaxed"
                 >
                   <span
-                    className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-neutral-900"
+                    className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-neutral-900 dark:bg-neutral-100"
                     aria-hidden
                   />
                   <span className="min-w-0">{renderBoldText(item)}</span>
@@ -150,7 +150,7 @@ export function WorkView({ work }: WorkViewProps) {
               href={work.url}
               target="_blank"
               rel="noopener noreferrer"
-              className={`inline-flex items-center gap-1.5 rounded-full bg-neutral-900 px-4 py-2.5 text-sm font-semibold text-white ${focusRing}`}
+              className={`inline-flex items-center gap-1.5 rounded-full bg-neutral-900 px-4 py-2.5 text-sm font-semibold text-white dark:bg-neutral-100 dark:text-neutral-900 ${focusRing}`}
             >
               Visit {work.domain}
               <ArrowUpRight className="h-4 w-4" strokeWidth={2.25} aria-hidden />
@@ -158,15 +158,15 @@ export function WorkView({ work }: WorkViewProps) {
           )}
           <Link
             href={backHref}
-            className={`inline-flex items-center gap-1.5 rounded-full border border-neutral-300 bg-white px-4 py-2.5 text-sm font-semibold text-neutral-800 ${focusRing}`}
+            className={`inline-flex items-center gap-1.5 rounded-full border border-neutral-300 dark:border-neutral-600 bg-white dark:bg-neutral-900 px-4 py-2.5 text-sm font-semibold text-neutral-800 dark:text-neutral-200 ${focusRing}`}
           >
             More {work.kind === "role" ? "roles" : "projects"}
           </Link>
         </div>
 
         {others.length > 0 && (
-          <section className="mt-16 border-t border-neutral-200/80 pt-10 sm:mt-20 sm:pt-12">
-            <h2 className="text-base font-bold tracking-tight text-neutral-900 sm:text-lg">
+          <section className="mt-16 border-t border-neutral-200/80 dark:border-neutral-700/80 pt-10 sm:mt-20 sm:pt-12">
+            <h2 className="text-base font-bold tracking-tight text-neutral-900 dark:text-neutral-50 sm:text-lg">
               More work
             </h2>
             <ul className="mt-5 grid gap-3 sm:grid-cols-2">
@@ -174,9 +174,9 @@ export function WorkView({ work }: WorkViewProps) {
                 <li key={w.slug}>
                   <Link
                     href={`/work/${w.slug}`}
-                    className={`flex items-center gap-3 rounded-2xl border border-neutral-200/80 bg-white px-3 py-3 transition-shadow hover:shadow-md ${focusRing}`}
+                    className={`flex items-center gap-3 rounded-2xl border border-neutral-200/80 dark:border-neutral-700/80 bg-white dark:bg-neutral-900 px-3 py-3 transition-shadow hover:shadow-md ${focusRing}`}
                   >
-                    <span className="relative flex h-9 w-9 overflow-hidden rounded-lg bg-neutral-50 ring-1 ring-neutral-200">
+                    <span className="relative flex h-9 w-9 overflow-hidden rounded-lg bg-neutral-50 dark:bg-neutral-800/80 ring-1 ring-neutral-200 dark:ring-neutral-700">
                       <Image
                         src={w.icon}
                         alt=""
@@ -186,10 +186,10 @@ export function WorkView({ work }: WorkViewProps) {
                       />
                     </span>
                     <span className="min-w-0">
-                      <span className="block truncate text-sm font-semibold text-neutral-900">
+                      <span className="block truncate text-sm font-semibold text-neutral-900 dark:text-neutral-50">
                         {w.title}
                       </span>
-                      <span className="block truncate text-xs text-neutral-500">
+                      <span className="block truncate text-xs text-neutral-500 dark:text-neutral-400">
                         {w.comingSoon
                           ? "Coming Soon"
                           : (w.roleTitle ??

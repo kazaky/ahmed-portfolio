@@ -39,9 +39,9 @@ export type BrandIconId =
   | "shahry"
   | "egypt-startups"
   | "focusmusic"
-  | "flashwatch"
+  | "eleven"
   | "todo-little"
-  | "photo-compare"
+  | "fotofights"
   | "qnpick";
 
 export interface ProfileRoleLink {

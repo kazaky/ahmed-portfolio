@@ -33,8 +33,8 @@ export function LocationCard({ item }: LocationCardProps) {
       </div>
 
       <div className="absolute bottom-2 left-2 z-10 sm:bottom-2.5 sm:left-2.5">
-        <div className="rounded-xl bg-white/95 px-2.5 py-1.5 shadow-md shadow-black/10 backdrop-blur-md ring-1 ring-black/5">
-          <p className="text-xs font-semibold leading-tight text-neutral-900 sm:text-sm">
+        <div className="rounded-xl bg-white/95 dark:bg-neutral-900/95 px-2.5 py-1.5 shadow-md shadow-black/10 backdrop-blur-md ring-1 ring-black/5 dark:ring-white/10">
+          <p className="text-xs font-semibold leading-tight text-neutral-900 dark:text-neutral-50 sm:text-sm">
             {item.title}
           </p>
         </div>

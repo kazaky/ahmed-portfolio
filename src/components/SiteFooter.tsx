@@ -1,12 +1,12 @@
 import { contactEmail } from "@content/site-url";
 
 const linkClass =
-  "hover:text-neutral-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-2 rounded-sm";
+  "rounded-sm hover:text-neutral-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-2 dark:hover:text-neutral-200 dark:focus-visible:ring-neutral-100 dark:focus-visible:ring-offset-neutral-950";
 
 export function SiteFooter() {
   return (
-    <footer className="relative z-[1] border-t border-neutral-200/80 px-4 py-8 sm:px-6 lg:px-8">
-      <div className="mx-auto flex max-w-6xl flex-col gap-3 text-sm text-neutral-500 sm:flex-row sm:items-center sm:justify-between">
+    <footer className="relative z-[1] border-t border-neutral-200/80 px-4 py-8 dark:border-neutral-800 sm:px-6 lg:px-8">
+      <div className="mx-auto flex max-w-6xl flex-col gap-3 text-sm text-neutral-500 dark:text-neutral-400 sm:flex-row sm:items-center sm:justify-between">
         <p>© {new Date().getFullYear()} Ahmed Elshahawy · Berlin</p>
         <div className="flex flex-wrap gap-4">
           <a href={`mailto:${contactEmail}`} className={linkClass}>

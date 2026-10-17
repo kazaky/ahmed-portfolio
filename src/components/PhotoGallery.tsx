@@ -50,7 +50,7 @@ export function PhotoGallery({ photos, startIndex = 0 }: PhotoGalleryProps) {
                 delay: reduceMotion ? 0 : (startIndex + index) * 0.04,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="group relative mb-2.5 block w-full break-inside-avoid overflow-hidden rounded-3xl border border-neutral-200/70 bg-neutral-100 text-left shadow-sm transition-shadow hover:shadow-md sm:mb-3"
+              className="group relative mb-2.5 block w-full break-inside-avoid overflow-hidden rounded-3xl border border-neutral-200/70 dark:border-neutral-700/70 bg-neutral-100 dark:bg-neutral-800 text-left shadow-sm transition-shadow hover:shadow-md sm:mb-3"
               style={{ aspectRatio: `${aspect}` }}
               aria-label={photo.alt ?? "View photograph"}
             >

@@ -1,4 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
-  <rect width="120" height="120" rx="28" fill="#0B3B5C"/>
-  <text x="60" y="72" text-anchor="middle" font-family="system-ui, sans-serif" font-size="36" font-weight="700" fill="#E6F4FF">A</text>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><rect width="120" height="120" rx="28" fill="#0069FF"/><path fill="#fff" fill-rule="evenodd" d="M60 26L94 98H78.5L60 56.5 41.5 98H26L60 26zm-10 58h20v10H50V84z"/></svg>

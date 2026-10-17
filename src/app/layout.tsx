@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, DM_Sans } from "next/font/google";
 import { siteUrl, contactEmail } from "@content/site-url";
+import { themeInitScript } from "@/lib/theme";
 import "./globals.css";
 
 const dmSans = DM_Sans({
@@ -98,7 +99,11 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${dmSans.variable} ${awardSerif.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
       <body className="min-h-full font-sans">
         <script
           type="application/ld+json"

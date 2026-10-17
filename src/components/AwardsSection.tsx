@@ -49,7 +49,7 @@ export function AwardsSection({ items, startIndex = 0 }: AwardsSectionProps) {
               delay: reduceMotion ? 0 : (startIndex + index) * 0.07,
               ease: [0.22, 1, 0.36, 1],
             }}
-            className="group relative flex flex-col overflow-hidden rounded-3xl border border-neutral-200/80 bg-white p-5 shadow-[0_1px_2px_rgba(0,0,0,0.04)] transition-shadow hover:shadow-md"
+            className="group relative flex flex-col overflow-hidden rounded-3xl border border-neutral-200/80 bg-white p-5 shadow-[0_1px_2px_rgba(0,0,0,0.04)] transition-shadow hover:shadow-md dark:border-neutral-700/80 dark:bg-neutral-900 dark:shadow-[0_1px_2px_rgba(0,0,0,0.35)]"
           >
             <span
               className="pointer-events-none absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-transparent via-[#d4af69]/60 to-transparent"
@@ -58,7 +58,7 @@ export function AwardsSection({ items, startIndex = 0 }: AwardsSectionProps) {
 
             <div className="flex items-center justify-between">
               {award.logo ? (
-                <span className="relative h-12 w-12 shrink-0 overflow-hidden rounded-2xl ring-1 ring-black/5">
+                <span className="relative h-12 w-12 shrink-0 overflow-hidden rounded-2xl ring-1 ring-black/5 dark:ring-white/10">
                   <Image
                     src={award.logo}
                     alt={award.org}
@@ -79,17 +79,17 @@ export function AwardsSection({ items, startIndex = 0 }: AwardsSectionProps) {
               </span>
             </div>
 
-            <h3 className="font-award mt-4 text-[1.4rem] leading-[1.15] tracking-tight text-neutral-900">
+            <h3 className="font-award mt-4 text-[1.4rem] leading-[1.15] tracking-tight text-neutral-900 dark:text-neutral-50">
               {award.title}
             </h3>
 
             <div className="mt-auto flex items-center justify-between pt-4">
-              <p className="text-[12.5px] font-medium text-neutral-500">
+              <p className="text-[12.5px] font-medium text-neutral-500 dark:text-neutral-400">
                 {award.org}
               </p>
               <time
                 dateTime={award.year}
-                className="text-[12px] font-semibold tabular-nums tracking-wide text-neutral-400"
+                className="text-[12px] font-semibold tabular-nums tracking-wide text-neutral-400 dark:text-neutral-500"
               >
                 {award.year}
               </time>
