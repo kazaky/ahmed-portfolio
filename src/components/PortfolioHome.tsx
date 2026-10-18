@@ -116,13 +116,7 @@ function CareerRow({
     <details className={`career-row ${current ? "career-featured" : ""}`} open>
       <summary>
         <span className="career-logo">
-          {work && ["felucca", "hitchhiker"].includes(work.slug) ? (
-            <span className="career-logo-placeholder" aria-hidden="true">
-              {work.title.slice(0, 1)}
-            </span>
-          ) : (
-            work && <Image src={work.icon} alt="" width={48} height={48} />
-          )}
+          {work && <Image src={work.icon} alt="" width={48} height={48} />}
         </span>
         <span className="career-name">
           <strong>
