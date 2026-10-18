@@ -13,6 +13,16 @@ import {
   Code2,
   PenTool,
   MapPin,
+  Layers3,
+  BriefcaseBusiness,
+  Aperture,
+  Send,
+  Trophy,
+  Medal,
+  Award,
+  Fingerprint,
+  KeyRound,
+  ShieldCheck,
 } from "lucide-react";
 import type {
   SiteConfig,
@@ -22,6 +32,7 @@ import type {
   AwardItem,
 } from "@/lib/types";
 import type { WorkEntry } from "@content/work";
+import { ProductPromo } from "@/components/ProductPromo";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { PhotoGallery } from "@/components/PhotoGallery";
 import { ShotGallery } from "@/components/ShotGallery";
@@ -57,13 +68,6 @@ const perspectives = [
     text: "Away from the screen, I explore with a camera. Street photography is another way to be curious about people, places, and the ordinary moments worth noticing.",
   },
 ];
-const productLabels: Record<string, string> = {
-  misho: "Faith & daily rhythm",
-  tawazun: "Ideas & perspective",
-  "iqrar-dayn": "Clarity & trust",
-  loqmaan: "Arabic wisdom",
-  "arabic-watch": "Language & time",
-};
 
 function Chapter({
   number,
@@ -99,7 +103,10 @@ function CareerRow({
   current?: boolean;
 }) {
   return (
-    <details className="career-row" open={current || undefined}>
+    <details
+      className={`career-row ${current ? "career-featured" : ""}`}
+      open={current || undefined}
+    >
       <summary>
         <span className="career-logo">
           {work && <Image src={work.icon} alt="" width={48} height={48} />}
@@ -119,27 +126,53 @@ function CareerRow({
         <Plus className="career-plus" size={20} aria-hidden />
       </summary>
       <div className="career-body">
-        <p>{work?.did ?? item.blurb}</p>
-        {work?.highlights && (
-          <ul>
-            {work.highlights.slice(0, 3).map((h) => (
-              <li key={h}>{renderBoldText(h)}</li>
-            ))}
-          </ul>
-        )}
-        {item.children && (
-          <div className="career-brands">
-            {item.children.map((child) => (
-              <Link key={child.id} href={child.work ?? "#experience"}>
-                {child.title}
-                <ArrowUpRight size={13} />
-              </Link>
-            ))}
+        <div className="career-detail-copy">
+          <p>{work?.did ?? item.blurb}</p>
+          {work?.highlights && (
+            <ul>
+              {work.highlights.slice(0, 3).map((h) => (
+                <li key={h}>{renderBoldText(h)}</li>
+              ))}
+            </ul>
+          )}
+          {item.children && (
+            <div className="career-brands">
+              {item.children.map((child) => (
+                <Link key={child.id} href={child.work ?? "#experience"}>
+                  {child.title}
+                  <ArrowUpRight size={13} />
+                </Link>
+              ))}
+            </div>
+          )}
+          <Link className="text-link" href={item.work ?? "#experience"}>
+            Explore the work <ArrowUpRight size={15} />
+          </Link>
+        </div>
+        {current && (
+          <div className="identity-visual">
+            <Image src="/icons/ebay.svg" alt="eBay" width={160} height={70} />
+            <span>ANDROID IDENTITY</span>
+            <div className="identity-core">
+              <Fingerprint size={66} strokeWidth={1} />
+            </div>
+            <div className="identity-features">
+              <span>
+                <KeyRound size={20} />
+                Sign-in
+              </span>
+              <span>
+                <ShieldCheck size={20} />
+                2FA
+              </span>
+              <span>
+                <Fingerprint size={20} />
+                Passkeys
+              </span>
+            </div>
+            <p>Trust begins with the first interaction.</p>
           </div>
         )}
-        <Link className="text-link" href={item.work ?? "#experience"}>
-          Explore the work <ArrowUpRight size={15} />
-        </Link>
       </div>
     </details>
   );
@@ -177,18 +210,35 @@ export function PortfolioHome({
           href="#top"
           aria-label="Ahmed Elshahawy, home"
         >
-          ahmed
-          <span className="signature-star" aria-hidden>
-            ✳
-          </span>
+          <span className="signature-wordmark" aria-hidden />
         </a>
         <nav aria-label="Main navigation">
-          <a href="#products">Selected work</a>
-          <a href="#experience">The journey</a>
-          <a href="#photographs">Off-screen</a>
+          <a href="#products">
+            <Layers3 size={16} />
+            <span>Products</span>
+            <i>01</i>
+          </a>
+          <a href="#experience">
+            <BriefcaseBusiness size={16} />
+            <span>Experience</span>
+            <i>02</i>
+          </a>
+          <a href="#photographs">
+            <Aperture size={16} />
+            <span>Through my lens</span>
+            <i>03</i>
+          </a>
         </nav>
-        <a className="nav-hello" href={`mailto:${contactEmail}`}>
-          Say hello <ArrowUpRight size={16} />
+        <a
+          className="nav-hello"
+          href={`mailto:${contactEmail}`}
+          aria-label="Email Ahmed Elshahawy"
+        >
+          <span className="hello-icon">
+            <Send size={17} />
+          </span>
+          <span>Let’s talk</span>
+          <ArrowUpRight className="hello-arrow" size={16} />
         </a>
       </header>
       <main id="main">
@@ -204,8 +254,9 @@ export function PortfolioHome({
               I’m Ahmed Elshahawy
             </p>
             <h1 id="hero-title">
-              A curious mind.
-              <br />A maker’s <em>heart.</em>
+              Code with purpose.
+              <br />
+              Create with <em>feeling.</em>
               <svg className="hero-underline" viewBox="0 0 240 18" aria-hidden>
                 <path d="M3 12 Q100 0 232 8 M25 17 Q125 6 215 12" />
               </svg>
@@ -216,6 +267,39 @@ export function PortfolioHome({
             <a className="studio-button" href="#products">
               Explore what I make <ArrowDown size={17} />
             </a>
+          </div>
+          <div className="hero-portrait-column">
+            <div className={`hero-art perspective-${perspective}`}>
+              <span className="orbit-line" aria-hidden />
+              <span className="art-cross" aria-hidden>
+                +
+              </span>
+              <span className="art-dot" aria-hidden />
+              <div className="portrait-paper">
+                <div className="portrait-window" key={active.image}>
+                  <Image
+                    src={active.image}
+                    alt={active.alt}
+                    fill
+                    sizes="(max-width: 760px) 76vw, 390px"
+                    preload={perspective === 0}
+                  />
+                </div>
+                <div className="portrait-caption">
+                  <span>{active.caption}</span>
+                  <span>0{perspective + 1} / 03</span>
+                </div>
+              </div>
+              <div className="curiosity-seal" aria-hidden>
+                <span>STAY</span>
+                <span className="seal-star">✳</span>
+                <span>CURIOUS</span>
+              </div>
+              <span className="art-note">{active.note}</span>
+              <span className="hero-coordinates">
+                <MapPin size={12} /> Based in Berlin · Rooted in Arabic
+              </span>
+            </div>
             <div
               className="perspective-switch"
               aria-label="Explore my perspectives"
@@ -231,37 +315,6 @@ export function PortfolioHome({
                 </button>
               ))}
             </div>
-          </div>
-          <div className={`hero-art perspective-${perspective}`}>
-            <span className="orbit-line" aria-hidden />
-            <span className="art-cross" aria-hidden>
-              +
-            </span>
-            <span className="art-dot" aria-hidden />
-            <div className="portrait-paper">
-              <div className="portrait-window" key={active.image}>
-                <Image
-                  src={active.image}
-                  alt={active.alt}
-                  fill
-                  sizes="(max-width: 760px) 76vw, 390px"
-                  preload={perspective === 0}
-                />
-              </div>
-              <div className="portrait-caption">
-                <span>{active.caption}</span>
-                <span>0{perspective + 1} / 03</span>
-              </div>
-            </div>
-            <div className="curiosity-seal" aria-hidden>
-              <span>STAY</span>
-              <span className="seal-star">✳</span>
-              <span>CURIOUS</span>
-            </div>
-            <span className="art-note">{active.note}</span>
-            <span className="hero-coordinates">
-              <MapPin size={12} /> Based in Berlin · Rooted in Arabic
-            </span>
           </div>
         </section>
         <div className="studio-wrap">
@@ -279,74 +332,52 @@ export function PortfolioHome({
             label="Independent creations"
             title={
               <>
-                Small ideas.
+                Built from belief.
                 <br />
-                <em>Meaningful worlds.</em>
+                <em>Made for real life.</em>
               </>
             }
-            note="Things I’ve built for the way we plan, read, reflect, and connect. A little of me lives in each one."
+            note="Independent products shaped by my faith, language, and everyday life. Built end to end, from the first idea to the experience you use."
           />
           <div className="product-gallery">
-            {products.map((item, index) => {
-              const entry = work.find((w) => w.slug === item.id)!;
-              return (
-                <article
-                  className={`product-project project-${item.id}`}
-                  key={item.id}
-                >
-                  <Link
-                    className="project-stage"
-                    href={item.work!}
-                    aria-label={`Explore ${item.title}`}
+            {products
+              .filter((item) => item.id !== "arabic-watch")
+              .map((item) => {
+                const entry = work.find((w) => w.slug === item.id)!;
+                return (
+                  <article
+                    className={`product-project project-${item.id}`}
+                    key={item.id}
                   >
-                    <div className="stage-label">
-                      <span>{productLabels[item.id]}</span>
-                      <span>0{index + 1}</span>
-                    </div>
-                    <div className="browser-sheet">
-                      <div className="browser-chrome" aria-hidden>
-                        <i />
-                        <i />
-                        <i />
-                        <span>{item.domain}</span>
+                    <ProductPromo
+                      slug={item.id}
+                      title={item.title}
+                      description={entry.did}
+                      href={item.work!}
+                    />
+                    <div className="project-info">
+                      <div className="project-name">
+                        <Image src={entry.icon} alt="" width={36} height={36} />
+                        <div>
+                          <h3>
+                            <Link href={item.work!}>{item.title}</Link>
+                          </h3>
+                          <p>{item.blurb}</p>
+                        </div>
                       </div>
-                      <div className="project-image">
-                        <Image
-                          src={item.preview!}
-                          alt={`${item.title} website screenshot`}
-                          width={1280}
-                          height={720}
-                          sizes="(max-width: 700px) 100vw, 650px"
-                        />
-                      </div>
+                      <a
+                        href={item.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="project-visit"
+                        aria-label={`Visit ${item.title}`}
+                      >
+                        <ArrowUpRight size={21} />
+                      </a>
                     </div>
-                    <span className="project-open">
-                      <ArrowUpRight size={20} />
-                    </span>
-                  </Link>
-                  <div className="project-info">
-                    <div className="project-name">
-                      <Image src={entry.icon} alt="" width={36} height={36} />
-                      <div>
-                        <h3>
-                          <Link href={item.work!}>{item.title}</Link>
-                        </h3>
-                        <p>{item.blurb}</p>
-                      </div>
-                    </div>
-                    <a
-                      href={item.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="project-visit"
-                      aria-label={`Visit ${item.title}`}
-                    >
-                      <ArrowUpRight size={21} />
-                    </a>
-                  </div>
-                </article>
-              );
-            })}
+                  </article>
+                );
+              })}
           </div>
         </section>
 
@@ -357,9 +388,9 @@ export function PortfolioHome({
                 <span>02</span> The professional chapters
               </p>
               <h2>
-                Good work.
+                Engineering at scale.
                 <br />
-                <em>Good company.</em>
+                <em>Impact through craft.</em>
               </h2>
               <p>
                 From early Android experiments to the systems people rely on
@@ -374,12 +405,19 @@ export function PortfolioHome({
               >
                 Connect on LinkedIn <ArrowUpRight size={16} />
               </a>
-              <div className="career-doodle" aria-hidden>
-                <span>learn</span>
-                <svg viewBox="0 0 150 70">
-                  <path d="M10 42 C35 -10 90 5 95 35 S45 85 48 35 S115 5 140 39 M128 31 L141 40 L143 24" />
-                </svg>
-                <span>make. repeat.</span>
+              <div className="career-disciplines">
+                <span>
+                  <Code2 size={18} />
+                  Android engineering
+                </span>
+                <span>
+                  <Layers3 size={18} />
+                  Design systems
+                </span>
+                <span>
+                  <ShieldCheck size={18} />
+                  Identity & trust
+                </span>
               </div>
             </div>
             <div className="career-list">
@@ -423,8 +461,17 @@ export function PortfolioHome({
           <div className="honors-grid">
             {awards.map((award) => (
               <div key={award.id} className="honor">
-                <span className="honor-star" aria-hidden>
-                  ✺
+                <span
+                  className={`honor-medallion award-${award.place}`}
+                  aria-hidden
+                >
+                  {award.place === "top100" ? (
+                    <Trophy size={29} strokeWidth={1.5} />
+                  ) : award.place === "2nd" ? (
+                    <Medal size={29} strokeWidth={1.5} />
+                  ) : (
+                    <Award size={29} strokeWidth={1.5} />
+                  )}
                 </span>
                 <div>
                   <span>
@@ -446,15 +493,15 @@ export function PortfolioHome({
         >
           <Chapter
             number="03"
-            label="The visual playground"
+            label="Selected design work"
             title={
               <>
-                Always exploring
+                Interfaces, icons,
                 <br />
-                <em>another possibility.</em>
+                <em>and a point of view.</em>
               </>
             }
-            note="Interfaces, icons, and experiments from my design sketchbook. Some ideas begin with a line of code. Others begin with a shape."
+            note="My work in interface and visual design: expressive identities, considered interactions, and details that make a product feel like itself."
           />
           <ShotGallery shots={shots} />
           <a
@@ -496,6 +543,41 @@ export function PortfolioHome({
               </a>
             </div>
           </div>
+        </section>
+
+        <section
+          className="studio-wrap watch-footer-project"
+          aria-label="Arabic Watch project"
+        >
+          <div>
+            <p className="eyebrow">One more creation</p>
+            <h2>
+              Another way
+              <br />
+              to <em>tell time.</em>
+            </h2>
+            <p>
+              A live exploration of traditional Arabic hour names, across day
+              and night.
+            </p>
+            <Link className="text-link" href="/work/arabic-watch">
+              Explore Arabic Watch <ArrowUpRight size={16} />
+            </Link>
+          </div>
+          <a
+            href="https://arabic-watch.pages.dev"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Visit Arabic Watch"
+          >
+            <Image
+              src="/previews/products/arabic-watch.jpg"
+              alt="Arabic Watch website"
+              width={1280}
+              height={720}
+              sizes="(max-width:760px) 100vw, 600px"
+            />
+          </a>
         </section>
 
         <section className="studio-wrap studio-contact" id="contact">

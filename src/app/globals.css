@@ -1366,3 +1366,697 @@ html {
     gap: 10px;
   }
 }
+
+/* Signature, motion-led product films, and a larger career canvas. */
+.studio-nav {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 24px;
+  padding-block: 15px;
+}
+.studio-signature {
+  display: block;
+  width: 260px;
+}
+.signature-wordmark {
+  display: block;
+  width: 100%;
+  height: 60px;
+  background: var(--studio-ink);
+  mask: url("/brand/ahmed-elshahawy.svg") center / contain no-repeat;
+  transition:
+    background 0.3s,
+    transform 0.4s;
+}
+.studio-signature:hover .signature-wordmark {
+  background: var(--studio-accent);
+  transform: rotate(-2deg);
+}
+.studio-nav nav {
+  gap: 5px;
+  border: 1px solid var(--studio-rule);
+  padding: 5px;
+  border-radius: 50px;
+}
+.studio-nav nav a {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 11px 13px;
+  border-radius: 30px;
+  font-size: 11px;
+  transition:
+    background 0.25s,
+    color 0.25s,
+    transform 0.25s;
+  white-space: nowrap;
+}
+.studio-nav nav a:after {
+  display: none;
+}
+.studio-nav nav a i {
+  font-style: normal;
+  font-size: 7px;
+  opacity: 0.45;
+  margin-left: 3px;
+}
+.studio-nav nav a svg {
+  color: var(--studio-accent);
+  transition: transform 0.4s;
+}
+.studio-nav nav a:hover {
+  background: var(--studio-panel);
+  transform: translateY(-2px);
+}
+.studio-nav nav a:hover svg {
+  transform: rotate(-12deg);
+}
+.studio-nav nav a:last-child:hover svg {
+  transform: rotate(90deg);
+}
+.nav-hello {
+  justify-self: end;
+  gap: 10px;
+  padding: 7px 15px 7px 7px;
+  border: 1px solid var(--studio-rule);
+  border-radius: 40px;
+  transition:
+    background 0.3s,
+    transform 0.3s;
+}
+.hello-icon {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  background: var(--studio-accent);
+  color: var(--studio-paper);
+  border-radius: 50%;
+}
+.hello-icon svg {
+  animation: hello-drift 3.5s ease-in-out infinite;
+}
+.hello-arrow {
+  transition: transform 0.3s;
+}
+.nav-hello:hover {
+  background: var(--studio-panel);
+  transform: translateY(-2px);
+}
+.nav-hello:hover .hello-arrow {
+  transform: translate(3px, -3px);
+}
+.hero-copy h1 {
+  font-size: clamp(54px, 5.6vw, 80px);
+  letter-spacing: -3.5px;
+  line-height: 1.06;
+}
+.hero-underline {
+  right: 5%;
+  width: 44%;
+}
+.hero-portrait-column {
+  min-width: 0;
+}
+.hero-portrait-column .perspective-switch {
+  margin-top: 32px;
+  justify-content: center;
+  gap: 6px;
+}
+.hero-portrait-column .perspective-switch button {
+  font-size: 11px;
+  padding: 11px 13px;
+  border: 1px solid transparent;
+  border-radius: 25px;
+  transition:
+    background 0.25s,
+    border-color 0.25s;
+}
+.hero-portrait-column .perspective-switch button[aria-pressed="true"] {
+  border-color: var(--studio-rule);
+  background: var(--studio-panel);
+}
+.hero-description {
+  min-height: 120px;
+}
+.product-gallery .product-project {
+  grid-column: span 6;
+}
+.product-gallery .product-project:last-child {
+  grid-column: span 6;
+}
+.product-promo {
+  border: 1px solid var(--studio-rule);
+  position: relative;
+  border-radius: 9px;
+  overflow: hidden;
+  background: var(--studio-panel);
+}
+.product-promo video {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 8/5;
+  display: block;
+  object-fit: cover;
+}
+.promo-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 15px;
+  border-top: 1px solid var(--studio-rule);
+  background: var(--studio-panel);
+}
+.promo-controls > span {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 9px;
+  letter-spacing: 0.5px;
+}
+.promo-controls > span > i {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--studio-muted);
+}
+.promo-controls > span > i.is-playing {
+  background: var(--studio-accent);
+  box-shadow: 0 0 0 3px
+    color-mix(in srgb, var(--studio-accent) 12%, transparent);
+}
+.promo-duration {
+  font-family: monospace;
+  color: var(--studio-muted);
+  margin-left: 7px;
+}
+.promo-controls > div {
+  display: flex;
+  gap: 8px;
+}
+.promo-controls button,
+.promo-controls a {
+  width: 32px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--studio-rule);
+  border-radius: 50%;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    color 0.2s;
+}
+.promo-controls button:hover,
+.promo-controls a:hover {
+  background: var(--studio-ink);
+  color: var(--studio-paper);
+}
+.career-section {
+  padding-block: 100px;
+}
+.career-layout {
+  display: block;
+}
+.career-intro {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  column-gap: 70px;
+  margin-bottom: 42px;
+}
+.career-intro > .eyebrow {
+  grid-column: 1/-1;
+  margin-bottom: 15px;
+}
+.career-intro h2 {
+  grid-column: 1;
+  grid-row: 2/4;
+  font-size: clamp(48px, 5.5vw, 72px);
+  margin-top: 0;
+}
+.career-intro > p:not(.eyebrow) {
+  grid-column: 2;
+  grid-row: 2;
+  max-width: 440px;
+  font-size: 15px;
+  margin: 5px 0 20px;
+}
+.career-intro > .text-link {
+  grid-column: 2;
+  grid-row: 3;
+  justify-self: start;
+  align-self: start;
+}
+.career-disciplines {
+  grid-column: 1/-1;
+  display: flex;
+  gap: 32px;
+  border-top: 1px solid var(--studio-rule);
+  padding-top: 25px;
+  margin-top: 35px;
+}
+.career-disciplines span {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  color: var(--studio-muted);
+}
+.career-disciplines svg {
+  color: var(--studio-accent);
+}
+.career-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+.career-row {
+  align-self: start;
+  border: 1px solid var(--studio-rule);
+  border-radius: 10px;
+  background: var(--studio-paper);
+  overflow: hidden;
+}
+.career-row summary {
+  padding: 24px;
+}
+.career-name strong {
+  font-size: 20px;
+}
+.career-name > span {
+  font-size: 12px;
+}
+.career-date {
+  font-size: 11px;
+}
+.career-logo {
+  width: 54px;
+  height: 54px;
+}
+.career-featured {
+  grid-column: 1/-1;
+}
+.career-featured summary {
+  padding: 30px;
+}
+.career-featured .career-logo {
+  width: 64px;
+  height: 64px;
+}
+.career-featured .career-name strong {
+  font-size: 29px;
+}
+.career-featured .career-name > span {
+  font-size: 14px;
+}
+.career-featured .career-date {
+  font-size: 12px;
+}
+.career-featured .career-body {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 45px;
+  padding: 0 30px 30px;
+}
+.career-body {
+  padding: 0 24px 24px;
+  font-size: 14px;
+}
+.career-body ul {
+  margin-block: 22px;
+}
+.career-body .text-link {
+  font-size: 12px;
+}
+.identity-visual {
+  min-height: 330px;
+  border-radius: 7px;
+  padding: 26px;
+  background: #eef1e5;
+  color: #344331;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.identity-visual > img {
+  width: 105px;
+  height: 46px;
+  object-fit: contain;
+}
+.identity-visual > span {
+  font-size: 9px;
+  letter-spacing: 2.3px;
+  margin-top: 7px;
+}
+.identity-core {
+  width: 110px;
+  height: 110px;
+  margin-block: 22px;
+  border-radius: 50%;
+  border: 1px solid #bac6ad;
+  display: grid;
+  place-items: center;
+  position: relative;
+  color: #52704c;
+}
+.identity-core:after {
+  content: "";
+  position: absolute;
+  inset: -9px;
+  border: 1px dashed #bac6ad;
+  border-radius: 50%;
+  animation: slow-turn 40s linear infinite;
+}
+.identity-features {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  gap: 25px;
+}
+.identity-features > span {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  font-size: 10px;
+}
+.identity-visual > p {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-style: italic;
+  font-size: 20px;
+  margin-top: 23px;
+}
+#earlier-chapters {
+  grid-column: 1/-1;
+}
+#earlier-chapters:not([hidden]) {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+.career-list > .earlier-button {
+  grid-column: 1/-1;
+  font-size: 13px;
+  padding: 20px 4px 0;
+}
+.honors-section {
+  padding-block: 55px;
+}
+.honor {
+  gap: 18px;
+}
+.honor-medallion {
+  display: grid;
+  place-items: center;
+  width: 62px;
+  height: 70px;
+  flex-shrink: 0;
+  color: #9e7b30;
+  background: linear-gradient(145deg, #f3e8be, #ddd2a3);
+  border: 1px solid #bca76d;
+  clip-path: polygon(12% 0, 88% 0, 100% 12%, 100% 78%, 50% 100%, 0 78%, 0 12%);
+}
+.honor-medallion.award-2nd {
+  color: #5d6e7a;
+  background: linear-gradient(145deg, #edf2f5, #bbc8d1);
+  border-color: #a7b8c3;
+}
+.honor-medallion.award-3rd {
+  color: #8c593a;
+  background: linear-gradient(145deg, #f1d8c5, #c9a086);
+  border-color: #b8947a;
+}
+.honor h3 {
+  font-size: 13px;
+  line-height: 1.6;
+}
+.honor div > span {
+  font-size: 9px;
+}
+.watch-footer-project {
+  display: grid;
+  grid-template-columns: 0.75fr 1.25fr;
+  gap: 60px;
+  align-items: center;
+  padding-block: 80px;
+  border-bottom: 1px solid var(--studio-rule);
+}
+.watch-footer-project h2 {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 52px;
+  line-height: 1.05;
+  letter-spacing: -1.7px;
+  margin: 17px 0;
+}
+.watch-footer-project p:not(.eyebrow) {
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--studio-muted);
+  margin: 20px 0;
+  max-width: 320px;
+}
+.watch-footer-project > a {
+  border-radius: 7px;
+  overflow: hidden;
+  border: 1px solid var(--studio-rule);
+  box-shadow: 0 10px 30px #0000000a;
+  transform: rotate(2deg);
+  transition: transform 0.4s;
+}
+.watch-footer-project > a:hover {
+  transform: rotate(0);
+}
+.watch-footer-project img {
+  width: 100%;
+  height: auto;
+}
+@keyframes hello-drift {
+  0%,
+  80%,
+  100% {
+    transform: translate(0, 0);
+  }
+  40% {
+    transform: translate(2px, -2px) rotate(-8deg);
+  }
+}
+@media (max-width: 1100px) {
+  .studio-signature {
+    width: 215px;
+  }
+  .studio-nav {
+    gap: 12px;
+  }
+  .studio-nav nav a {
+    padding: 10px;
+    font-size: 10px;
+    gap: 6px;
+  }
+  .studio-nav nav a i {
+    display: none;
+  }
+  .hero-copy h1 {
+    font-size: 62px;
+    letter-spacing: -2.5px;
+  }
+  .hero-portrait-column .perspective-switch button {
+    padding: 9px;
+    font-size: 10px;
+  }
+  .career-featured .career-body {
+    gap: 25px;
+  }
+  .career-date {
+    max-width: 80px;
+  }
+  .career-intro {
+    column-gap: 35px;
+  }
+  .career-intro h2 {
+    font-size: 57px;
+  }
+}
+@media (max-width: 760px) {
+  .studio-nav {
+    grid-template-columns: 1fr auto;
+    row-gap: 13px;
+    padding-top: 10px;
+  }
+  .studio-signature {
+    width: 225px;
+  }
+  .signature-wordmark {
+    height: 49px;
+  }
+  .studio-nav nav {
+    grid-column: 1/-1;
+    grid-row: 2;
+    justify-content: space-between;
+    padding: 4px;
+  }
+  .studio-nav nav a {
+    font-size: 11px;
+    padding: 10px 12px;
+  }
+  .nav-hello {
+    display: flex;
+    width: 40px;
+    height: 40px;
+    padding: 3px;
+    justify-content: center;
+  }
+  .nav-hello > span:not(.hello-icon),
+  .nav-hello > .hello-arrow {
+    display: none;
+  }
+  .hello-icon {
+    width: 31px;
+    height: 31px;
+  }
+  .studio-hero {
+    gap: 25px;
+  }
+  .hero-copy h1 {
+    font-size: clamp(47px, 8.8vw, 66px);
+    letter-spacing: -2px;
+    line-height: 1.07;
+  }
+  .hero-description {
+    min-height: 0;
+  }
+  .hero-portrait-column {
+    margin-top: 25px;
+  }
+  .hero-portrait-column .perspective-switch {
+    margin-top: 25px;
+    gap: 5px;
+  }
+  .hero-portrait-column .perspective-switch button {
+    font-size: 11px;
+    padding: 11px 12px;
+  }
+  .product-gallery .product-project,
+  .product-gallery .product-project:last-child {
+    grid-column: 1/-1;
+  }
+  .career-section {
+    padding-block: 60px;
+  }
+  .career-intro {
+    display: block;
+  }
+  .career-intro h2 {
+    font-size: 48px;
+    margin-bottom: 23px;
+  }
+  .career-intro > p:not(.eyebrow) {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+  .career-disciplines {
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+  .career-disciplines span {
+    font-size: 10px;
+  }
+  .career-list {
+    grid-template-columns: 1fr;
+  }
+  .career-row summary,
+  .career-featured summary {
+    padding: 20px;
+    gap: 12px;
+  }
+  .career-featured .career-body {
+    grid-template-columns: 1fr;
+    padding: 0 20px 20px;
+    gap: 25px;
+  }
+  .career-featured .career-name strong {
+    font-size: 24px;
+  }
+  .career-featured .career-name > span {
+    font-size: 11px;
+  }
+  .career-featured .career-logo {
+    width: 50px;
+    height: 50px;
+  }
+  .career-featured .career-date {
+    max-width: 65px;
+    font-size: 10px;
+  }
+  .career-name strong {
+    font-size: 18px;
+  }
+  .career-name > span {
+    font-size: 11px;
+  }
+  .career-logo {
+    width: 43px;
+    height: 43px;
+  }
+  .career-body {
+    font-size: 13px;
+  }
+  .career-date {
+    font-size: 9px;
+    max-width: 65px;
+  }
+  .identity-visual {
+    min-height: 320px;
+  }
+  #earlier-chapters:not([hidden]) {
+    grid-template-columns: 1fr;
+  }
+  .watch-footer-project {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    padding-block: 55px;
+  }
+  .watch-footer-project h2 {
+    font-size: 46px;
+  }
+  .watch-footer-project > a {
+    transform: none;
+  }
+  .honor-medallion {
+    width: 52px;
+    height: 59px;
+  }
+  .hero-underline {
+    right: 1%;
+    width: 45%;
+  }
+}
+@media (max-width: 400px) {
+  .studio-nav nav a {
+    font-size: 10px;
+    padding-inline: 8px;
+    gap: 5px;
+  }
+  .studio-nav nav a svg {
+    width: 14px;
+  }
+  .hero-copy h1 {
+    font-size: 47px;
+  }
+  .hero-portrait-column .perspective-switch button {
+    font-size: 10px;
+    padding-inline: 10px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .studio-home .hello-icon svg,
+  .identity-core:after {
+    animation: none;
+  }
+}
+.promo-controls button,
+.promo-controls a {
+  width: 44px;
+  height: 44px;
+}
