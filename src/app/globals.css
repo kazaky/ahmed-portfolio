@@ -2060,3 +2060,283 @@ html {
   width: 44px;
   height: 44px;
 }
+
+/* Personal details and the complete professional timeline. */
+.personal-atlas {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr 1fr;
+  gap: 24px;
+  padding-top: 48px;
+  padding-bottom: 32px;
+}
+.personal-atlas > div {
+  min-width: 0;
+  border: 1px solid var(--studio-rule);
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--studio-panel);
+}
+.atlas-label {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 18px 20px;
+  font-size: 12px;
+  color: var(--studio-muted);
+}
+.atlas-map-image {
+  height: 270px;
+  position: relative;
+}
+.atlas-languages,
+.atlas-connections {
+  padding: 24px;
+}
+.atlas-languages h2 {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 28px;
+  margin: 16px 0;
+}
+.atlas-languages dl > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--studio-rule);
+  font-size: 14px;
+}
+.atlas-languages dl > div:last-child {
+  border: 0;
+}
+.atlas-languages dt {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.atlas-languages dt span {
+  font-size: 10px;
+  color: var(--studio-accent);
+  letter-spacing: 0.08em;
+}
+.atlas-languages dd {
+  font-size: 12px;
+  color: var(--studio-muted);
+}
+.atlas-socials {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 10px;
+  margin: 23px 0;
+}
+.atlas-socials a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+}
+.atlas-socials img {
+  object-fit: contain;
+}
+.atlas-socials a:hover {
+  color: var(--studio-accent);
+}
+.atlas-activity {
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.atlas-activity > span {
+  font-size: 10px;
+  color: var(--studio-muted);
+}
+.career-list.experience-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  list-style: none;
+  margin: 45px 0 0;
+  padding: 0;
+}
+.timeline-entry {
+  display: grid;
+  grid-template-columns: 155px minmax(0, 1fr);
+  gap: 30px;
+  position: relative;
+  padding-bottom: 32px;
+}
+.timeline-entry::before {
+  content: "";
+  position: absolute;
+  left: 19px;
+  top: 40px;
+  bottom: 0;
+  width: 1px;
+  background: var(--studio-rule);
+}
+.timeline-entry:last-child::before {
+  display: none;
+}
+.timeline-marker {
+  padding-top: 2px;
+  position: relative;
+}
+.timeline-marker > span {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--studio-rule);
+  border-radius: 50%;
+  font-size: 11px;
+  color: var(--studio-accent);
+  background: var(--studio-panel);
+}
+.timeline-marker p {
+  margin: 15px 0 0 51px;
+  font-size: 11px;
+  line-height: 1.7;
+  color: var(--studio-muted);
+}
+.experience-timeline .career-row {
+  grid-column: auto;
+  width: 100%;
+  box-shadow: 0 10px 35px #00000004;
+}
+.experience-timeline .career-row summary {
+  padding: 28px;
+}
+.experience-timeline .career-featured {
+  border-color: var(--studio-accent);
+}
+.experience-timeline .career-body {
+  padding: 0 28px 30px;
+  font-size: 14px;
+}
+.experience-timeline .career-name strong {
+  font-size: 24px;
+}
+.experience-timeline .career-detail-copy > p {
+  max-width: 75ch;
+}
+.career-projects {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 24px 0;
+}
+.career-project {
+  display: block;
+  padding: 18px;
+  border: 1px solid var(--studio-rule);
+  border-radius: 8px;
+  transition: border-color 0.2s;
+}
+.career-project:hover {
+  border-color: var(--studio-accent);
+}
+.career-project-heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.career-project-heading img {
+  width: 32px;
+  height: 32px;
+  border-radius: 7px;
+  object-fit: contain;
+}
+.career-project-heading svg {
+  margin-left: auto;
+  flex-shrink: 0;
+}
+.career-project > span,
+.career-project small {
+  font-size: 11px;
+  color: var(--studio-accent);
+}
+.career-project p {
+  font-size: 12px;
+  line-height: 1.7;
+  margin: 8px 0;
+  color: var(--studio-muted);
+}
+@media (max-width: 1050px) {
+  .personal-atlas {
+    grid-template-columns: 1fr 1fr;
+  }
+  .atlas-connections {
+    grid-column: 1/-1;
+  }
+  .atlas-socials {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .timeline-entry {
+    grid-template-columns: 110px minmax(0, 1fr);
+    gap: 18px;
+  }
+  .experience-timeline .career-featured .career-body {
+    grid-template-columns: 1fr;
+  }
+  .experience-timeline .identity-visual {
+    max-width: 440px;
+  }
+}
+@media (max-width: 760px) {
+  .personal-atlas {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding-top: 28px;
+  }
+  .atlas-connections {
+    grid-column: auto;
+  }
+  .atlas-map-image {
+    height: 230px;
+  }
+  .atlas-socials {
+    grid-template-columns: 1fr 1fr;
+  }
+  .timeline-entry {
+    grid-template-columns: minmax(0, 1fr);
+    padding-left: 22px;
+    gap: 12px;
+  }
+  .timeline-entry::before {
+    left: 0;
+    top: 18px;
+  }
+  .timeline-marker {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .timeline-marker > span {
+    width: 30px;
+    height: 30px;
+  }
+  .timeline-marker p {
+    margin: 0;
+  }
+  .experience-timeline .career-row summary {
+    padding: 18px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .experience-timeline .career-name {
+    flex: 1;
+  }
+  .experience-timeline .career-name strong {
+    font-size: 21px;
+  }
+  .experience-timeline .career-date {
+    display: none;
+  }
+  .experience-timeline .career-body {
+    padding: 0 18px 22px;
+  }
+  .career-projects {
+    grid-template-columns: 1fr;
+  }
+}

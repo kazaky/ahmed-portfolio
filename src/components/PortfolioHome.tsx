@@ -8,7 +8,6 @@ import {
   ArrowUpRight,
   ArrowRight,
   Plus,
-  Minus,
   Camera,
   Code2,
   PenTool,
@@ -25,6 +24,7 @@ import {
   ShieldCheck,
 } from "lucide-react";
 import type {
+  LocationItem,
   SiteConfig,
   LinkItem,
   PhotoItem,
@@ -38,6 +38,10 @@ import { PhotoGallery } from "@/components/PhotoGallery";
 import { ShotGallery } from "@/components/ShotGallery";
 import { renderBoldText } from "@/lib/richText";
 import { contactEmail } from "@content/site-url";
+
+import { LocationCard } from "@/components/blocks/LocationCard";
+import { GithubActivity } from "@/components/blocks/GithubActivity";
+import { iconSrc } from "@/lib/icons";
 
 const perspectives = [
   {
@@ -103,10 +107,7 @@ function CareerRow({
   current?: boolean;
 }) {
   return (
-    <details
-      className={`career-row ${current ? "career-featured" : ""}`}
-      open={current || undefined}
-    >
+    <details className={`career-row ${current ? "career-featured" : ""}`} open>
       <summary>
         <span className="career-logo">
           {work && <Image src={work.icon} alt="" width={48} height={48} />}
@@ -130,17 +131,38 @@ function CareerRow({
           <p>{work?.did ?? item.blurb}</p>
           {work?.highlights && (
             <ul>
-              {work.highlights.slice(0, 3).map((h) => (
+              {work.highlights.map((h) => (
                 <li key={h}>{renderBoldText(h)}</li>
               ))}
             </ul>
           )}
           {item.children && (
-            <div className="career-brands">
+            <div className="career-projects">
               {item.children.map((child) => (
-                <Link key={child.id} href={child.work ?? "#experience"}>
-                  {child.title}
-                  <ArrowUpRight size={13} />
+                <Link
+                  key={child.id}
+                  href={child.work ?? child.url}
+                  className="career-project"
+                >
+                  <div className="career-project-heading">
+                    {child.icon && (
+                      <Image
+                        src={iconSrc[child.icon]}
+                        alt=""
+                        width={32}
+                        height={32}
+                      />
+                    )}
+                    <strong>{child.title}</strong>
+                    <ArrowUpRight size={16} />
+                  </div>
+                  {child.roleTitle && <span>{child.roleTitle}</span>}
+                  {child.blurb && <p>{child.blurb}</p>}
+                  {child.downloads && (
+                    <small>
+                      {child.downloads} {child.downloadsLabel ?? "downloads"}
+                    </small>
+                  )}
                 </Link>
               ))}
             </div>
@@ -186,7 +208,14 @@ export function PortfolioHome({
   work: WorkEntry[];
 }) {
   const [perspective, setPerspective] = useState(0);
-  const [showEarlier, setShowEarlier] = useState(false);
+  const profileItems = site.sections.find((s) => s.id === "links")?.items ?? [];
+  const location = profileItems.find(
+    (item): item is LocationItem => item.type === "location",
+  );
+  const socialLinks = profileItems.filter(
+    (item): item is LinkItem => item.type === "link",
+  );
+  const github = socialLinks.find((item) => item.id === "github");
   const active = perspectives[perspective];
   const products = site.sections.find((s) => s.id === "products")!
     .items as LinkItem[];
@@ -326,6 +355,68 @@ export function PortfolioHome({
           </div>
         </div>
 
+        <section
+          className="studio-wrap personal-atlas"
+          aria-label="About Ahmed"
+        >
+          <div className="atlas-map">
+            <div className="atlas-label">
+              <MapPin size={16} />
+              <span>Where I call home</span>
+            </div>
+            {location && (
+              <div className="atlas-map-image">
+                <LocationCard item={location} />
+              </div>
+            )}
+          </div>
+          <div className="atlas-languages">
+            <p className="eyebrow">A few ways to say hello</p>
+            <h2>Languages I speak</h2>
+            <dl>
+              {site.profile.languages?.map((language) => (
+                <div key={language.code}>
+                  <dt>
+                    <span>{language.code}</span>
+                    {language.name}
+                  </dt>
+                  <dd>{language.level}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+          <div className="atlas-connections">
+            <p className="eyebrow">Elsewhere on the internet</p>
+            <div className="atlas-socials">
+              {socialLinks.map((item) => (
+                <a
+                  key={item.id}
+                  href={item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {item.icon && (
+                    <Image
+                      src={iconSrc[item.icon]}
+                      alt=""
+                      width={22}
+                      height={22}
+                    />
+                  )}
+                  {item.title}
+                  <ArrowUpRight size={15} />
+                </a>
+              ))}
+            </div>
+            {github && (
+              <div className="atlas-activity">
+                <span>A year of making · GitHub activity</span>
+                <GithubActivity profileUrl={github.url} />
+              </div>
+            )}
+          </div>
+        </section>
+
         <section id="products" className="studio-wrap studio-section">
           <Chapter
             number="01"
@@ -420,36 +511,21 @@ export function PortfolioHome({
                 </span>
               </div>
             </div>
-            <div className="career-list">
-              {career.slice(0, 3).map((item) => (
-                <CareerRow
-                  key={item.id}
-                  item={item}
-                  work={work.find((w) => w.slug === item.id)}
-                  current={item.id === "ebay"}
-                />
-              ))}
-              <div id="earlier-chapters" hidden={!showEarlier}>
-                {career.slice(3).map((item) => (
+            <ol className="career-list experience-timeline">
+              {career.map((item, index) => (
+                <li key={item.id} className="timeline-entry">
+                  <div className="timeline-marker">
+                    <span>{String(index + 1).padStart(2, "0")}</span>
+                    <p>{item.period}</p>
+                  </div>
                   <CareerRow
-                    key={item.id}
                     item={item}
                     work={work.find((w) => w.slug === item.id)}
+                    current={item.id === "ebay"}
                   />
-                ))}
-              </div>
-              <button
-                className="earlier-button"
-                aria-expanded={showEarlier}
-                aria-controls="earlier-chapters"
-                onClick={() => setShowEarlier(!showEarlier)}
-              >
-                {showEarlier
-                  ? "Close earlier chapters"
-                  : `Explore earlier chapters (${career.length - 3})`}
-                {showEarlier ? <Minus size={17} /> : <Plus size={17} />}
-              </button>
-            </div>
+                </li>
+              ))}
+            </ol>
           </div>
         </section>
 
