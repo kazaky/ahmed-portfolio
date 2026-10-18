@@ -40,8 +40,14 @@ import { renderBoldText } from "@/lib/richText";
 import { contactEmail } from "@content/site-url";
 
 import { LocationCard } from "@/components/blocks/LocationCard";
-import { GithubActivity } from "@/components/blocks/GithubActivity";
 import { iconSrc } from "@/lib/icons";
+
+const languageFlags: Record<string, { file: string; country: string }> = {
+  EN: { file: "gb", country: "United Kingdom" },
+  AR: { file: "eg", country: "Egypt" },
+  DE: { file: "de", country: "Germany" },
+  FR: { file: "fr", country: "France" },
+};
 
 const perspectives = [
   {
@@ -51,7 +57,7 @@ const perspectives = [
     alt: "Ahmed Elshahawy",
     caption: "Ahmed, usually making something.",
     note: "Care in every detail.",
-    text: "Staff Software Engineer at eBay. I build thoughtful digital experiences—and Arabic & Islamic tools that bring a little more meaning to everyday life.",
+    text: "At eBay and in my own products, I turn complex ideas into clear, reliable experiences people can use with confidence.",
   },
   {
     name: "Designer",
@@ -60,7 +66,7 @@ const perspectives = [
     alt: "Eleven, Ahmed’s Arabic clock widget design",
     caption: "Eleven / an Arabic take on time",
     note: "What if it felt different?",
-    text: "I like the space where engineering meets design. A small interaction, a familiar word, a well-placed detail: that’s where a useful thing starts to feel personal.",
+    text: "I care how an idea feels in the hand: clear hierarchy, a useful detail, and a visual identity that feels like itself.",
   },
   {
     name: "Photographer",
@@ -69,7 +75,7 @@ const perspectives = [
     alt: "Ahmed’s street photograph in London",
     caption: "London / through my lens",
     note: "Look a little closer.",
-    text: "Away from the screen, I explore with a camera. Street photography is another way to be curious about people, places, and the ordinary moments worth noticing.",
+    text: "I look for the human moment in the everyday—in a city street and in the details we nearly miss.",
   },
 ];
 
@@ -110,7 +116,13 @@ function CareerRow({
     <details className={`career-row ${current ? "career-featured" : ""}`} open>
       <summary>
         <span className="career-logo">
-          {work && <Image src={work.icon} alt="" width={48} height={48} />}
+          {work && ["felucca", "hitchhiker"].includes(work.slug) ? (
+            <span className="career-logo-placeholder" aria-hidden="true">
+              {work.title.slice(0, 1)}
+            </span>
+          ) : (
+            work && <Image src={work.icon} alt="" width={48} height={48} />
+          )}
         </span>
         <span className="career-name">
           <strong>
@@ -215,7 +227,6 @@ export function PortfolioHome({
   const socialLinks = profileItems.filter(
     (item): item is LinkItem => item.type === "link",
   );
-  const github = socialLinks.find((item) => item.id === "github");
   const active = perspectives[perspective];
   const products = site.sections.find((s) => s.id === "products")!
     .items as LinkItem[];
@@ -239,7 +250,9 @@ export function PortfolioHome({
           href="#top"
           aria-label="Ahmed Elshahawy, home"
         >
-          <span className="signature-wordmark" aria-hidden />
+          <span className="signature-wordmark" aria-hidden="true">
+            Ahmed Elshahawy
+          </span>
         </a>
         <nav aria-label="Main navigation">
           <a href="#products">
@@ -276,16 +289,12 @@ export function PortfolioHome({
           aria-labelledby="hero-title"
         >
           <div className="hero-copy">
-            <p className="eyebrow">
-              <span className="hello-arabic" lang="ar" dir="rtl">
-                أهلًا
-              </span>{" "}
-              I’m Ahmed Elshahawy
-            </p>
             <h1 id="hero-title">
-              Code with purpose.
+              I create <em>wonderful</em>
               <br />
-              Create with <em>feeling.</em>
+              digital experiences
+              <br />
+              with purpose.
               <svg className="hero-underline" viewBox="0 0 240 18" aria-hidden>
                 <path d="M3 12 Q100 0 232 8 M25 17 Q125 6 215 12" />
               </svg>
@@ -377,7 +386,15 @@ export function PortfolioHome({
               {site.profile.languages?.map((language) => (
                 <div key={language.code}>
                   <dt>
-                    <span>{language.code}</span>
+                    {languageFlags[language.code] && (
+                      <Image
+                        className="language-flag"
+                        src={`/icons/flags/${languageFlags[language.code].file}.svg`}
+                        alt={`${languageFlags[language.code].country} flag`}
+                        width={22}
+                        height={15}
+                      />
+                    )}
                     {language.name}
                   </dt>
                   <dd>{language.level}</dd>
@@ -408,12 +425,6 @@ export function PortfolioHome({
                 </a>
               ))}
             </div>
-            {github && (
-              <div className="atlas-activity">
-                <span>A year of making · GitHub activity</span>
-                <GithubActivity profileUrl={github.url} />
-              </div>
-            )}
           </div>
         </section>
 
@@ -432,7 +443,9 @@ export function PortfolioHome({
           />
           <div className="product-gallery">
             {products
-              .filter((item) => item.id !== "arabic-watch")
+              .filter(
+                (item) => item.id !== "arabic-watch" && item.id !== "firdawsi",
+              )
               .map((item) => {
                 const entry = work.find((w) => w.slug === item.id)!;
                 return (
@@ -471,6 +484,69 @@ export function PortfolioHome({
               })}
           </div>
         </section>
+
+        {(() => {
+          const firdawsi = work.find((entry) => entry.slug === "firdawsi");
+          if (!firdawsi) return null;
+          return (
+            <section
+              className="studio-wrap firdawsi-feature"
+              id="firdawsi"
+              aria-labelledby="firdawsi-title"
+            >
+              <div className="firdawsi-copy">
+                <p className="eyebrow">A design language with intention</p>
+                <h2 id="firdawsi-title">
+                  Firdawsi
+                  <br />
+                  <em>Gardens of light.</em>
+                </h2>
+                <p>{firdawsi.did}</p>
+                <div className="firdawsi-tools">
+                  <span>Specification</span>
+                  <span>Design tokens</span>
+                  <span>React components</span>
+                  <span>Arabic + English</span>
+                </div>
+                <div className="firdawsi-links">
+                  <a
+                    className="text-link"
+                    href={firdawsi.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Explore Firdawsi.org <ArrowUpRight size={16} />
+                  </a>
+                  <Link className="text-link" href="/work/firdawsi">
+                    Read the project <ArrowRight size={16} />
+                  </Link>
+                  <a
+                    className="text-link"
+                    href="https://github.com/kazaky/firdawsi"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Source on GitHub <ArrowUpRight size={16} />
+                  </a>
+                </div>
+              </div>
+              <a
+                className="firdawsi-preview"
+                href={firdawsi.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit Firdawsi.org"
+              >
+                <Image
+                  src={firdawsi.preview}
+                  alt="Firdawsi design system preview: Gardens of light, seven principles, three themes, and two text directions."
+                  fill
+                  sizes="(max-width: 760px) 100vw, 55vw"
+                />
+              </a>
+            </section>
+          );
+        })()}
 
         <section id="experience" className="career-section">
           <div className="studio-wrap career-layout">
@@ -619,41 +695,6 @@ export function PortfolioHome({
               </a>
             </div>
           </div>
-        </section>
-
-        <section
-          className="studio-wrap watch-footer-project"
-          aria-label="Arabic Watch project"
-        >
-          <div>
-            <p className="eyebrow">One more creation</p>
-            <h2>
-              Another way
-              <br />
-              to <em>tell time.</em>
-            </h2>
-            <p>
-              A live exploration of traditional Arabic hour names, across day
-              and night.
-            </p>
-            <Link className="text-link" href="/work/arabic-watch">
-              Explore Arabic Watch <ArrowUpRight size={16} />
-            </Link>
-          </div>
-          <a
-            href="https://arabic-watch.pages.dev"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Visit Arabic Watch"
-          >
-            <Image
-              src="/previews/products/arabic-watch.jpg"
-              alt="Arabic Watch website"
-              width={1280}
-              height={720}
-              sizes="(max-width:760px) 100vw, 600px"
-            />
-          </a>
         </section>
 
         <section className="studio-wrap studio-contact" id="contact">

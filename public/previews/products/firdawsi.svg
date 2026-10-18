@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Firdawsi — Gardens of light</title>
+  <desc id="desc">A preview of Firdawsi's Qur'an-guided design language, with its original geometric mark and design system overview.</desc>
+  <defs>
+    <linearGradient id="paper" x2="1" y2="1"><stop stop-color="#faf8f2"/><stop offset="1" stop-color="#e8e3da"/></linearGradient>
+    <linearGradient id="blue" x2="1" y2="1"><stop stop-color="#3451d1"/><stop offset="1" stop-color="#6b7ee8"/></linearGradient>
+    <pattern id="grid" width="44" height="44" patternUnits="userSpaceOnUse"><path d="M44 0H0v44" fill="none" stroke="#3451d1" stroke-opacity=".08"/></pattern>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="180%"><feDropShadow dx="0" dy="22" stdDeviation="20" flood-color="#202346" flood-opacity=".14"/></filter>
+  </defs>
+  <rect width="1200" height="760" fill="url(#paper)"/>
+  <rect width="1200" height="760" fill="url(#grid)"/>
+  <circle cx="1015" cy="250" r="195" fill="#bcacfa" fill-opacity=".18"/>
+  <g transform="translate(1000 240)" fill="none" stroke="#3451d1" stroke-opacity=".19" stroke-width="2">
+    <circle r="158"/><circle r="132"/><circle r="92"/>
+    <path d="M0-158 61-61 158 0 61 61 0 158-61 61-158 0-61-61Z"/>
+    <path d="m-112-112 112 49 112-49-49 112 49 112-112-49-112 49 49-112z"/>
+    <path d="M0-158V158M-158 0H158M-112-112l224 224m0-224L-112 112"/>
+  </g>
+  <rect x="34" y="30" width="1132" height="700" rx="18" fill="none" stroke="#2a2c3c" stroke-opacity=".12"/>
+  <g transform="translate(68 62)">
+    <svg x="0" y="0" width="46" height="46" viewBox="500 35 535 520"><path fill="#3451d1" d="M766 55 693 126Q735 126 766 165Z"/>
+<path fill="#bcacfa" d="m766 55 65 60q15 13 15 34v60q0 19-16 29l-32 3-19-44q-1-19-13-32Z"/>
+<path fill="#3451d1" d="m603 140 90-2q28 0 49 20l18 18q10 10 4 21l-25 43-34-3q-23-29-61-29h-41Z"/>
+<path fill="#ffad91" d="m857 140 75-2v70q0 18-14 33l-38 39q-5 6-12 2l-36-16 16-28q9-16 9-35Z"/>
+<path fill="#3451d1" d="m945 222 70 73H880l45-47q14-14 20-26Z"/>
+<path fill="#bcacfa" d="M880 295h135l-62 62q-15 16-36 16h-26q-45 0-58-45Z"/>
+<path fill="#3451d1" d="m797 360 35 1q24 24 59 24h42v68l-86 1q-39 0-61-32-13-17-7-29Z"/>
+<path fill="#3451d1" d="M768 418q22 44 74 47l-74 69Z"/>
+<path fill="#bcacfa" d="m735 357 26 40q7 11 7 28v109l-61-54q-18-15-18-38v-59q0-22 17-25Z"/>
+<path fill="#3451d1" d="m660 292 40 30-16 36q-6 13-6 31v64h-76v-82q0-34 26-58l17-16q7-7 15-5Z"/>
+<path fill="#3451d1" d="M520 299h105q-31 29-35 72Z"/>
+<path fill="#bcacfa" d="m520 299 60-59q20-20 42-20h24q43 0 58 46l-43 13q-18 0-36 20Z"/></svg>
+    <text x="60" y="19" fill="#1e2130" font-family="Arial,sans-serif" font-size="16" font-weight="700" letter-spacing="2">FIRDAWSI</text>
+    <text x="60" y="39" fill="#77798b" font-family="Arial,sans-serif" font-size="11" letter-spacing="1.4">A QUR’AN-GUIDED DESIGN LANGUAGE</text>
+  </g>
+  <g font-family="Georgia,'Times New Roman',serif">
+    <text x="76" y="228" fill="#3451d1" font-family="Arial,sans-serif" font-size="12" font-weight="700" letter-spacing="3">INTENTION · DIGNITY · GENTLENESS</text>
+    <text x="72" y="320" fill="#1e2130" font-size="76" letter-spacing="-3">Gardens of light.</text>
+    <text x="76" y="369" fill="#575a69" font-size="20">A thoughtful design language for everyday interfaces.</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="686" y="450" width="420" height="174" rx="16" fill="#fffefa"/>
+    <rect x="710" y="476" width="44" height="44" rx="12" fill="url(#blue)"/>
+    <path d="m732 482 12 11-12 11-12-11z" fill="none" stroke="#fff" stroke-width="2"/>
+    <text x="770" y="490" fill="#272a3b" font-family="Arial,sans-serif" font-size="12" font-weight="700" letter-spacing="1.5">DESIGN PRINCIPLES</text>
+    <text x="770" y="510" fill="#8b8c98" font-family="Arial,sans-serif" font-size="12">A system that starts with people.</text>
+    <g font-family="Arial,sans-serif" text-anchor="middle">
+      <text x="745" y="574" fill="#3451d1" font-size="25" font-weight="700">07</text><text x="745" y="595" fill="#77798b" font-size="9" letter-spacing=".7">PRINCIPLES</text>
+      <text x="850" y="574" fill="#3451d1" font-size="25" font-weight="700">06</text><text x="850" y="595" fill="#77798b" font-size="9" letter-spacing=".7">STAGES</text>
+      <text x="955" y="574" fill="#3451d1" font-size="25" font-weight="700">03</text><text x="955" y="595" fill="#77798b" font-size="9" letter-spacing=".7">THEMES</text>
+      <text x="1060" y="574" fill="#3451d1" font-size="25" font-weight="700">02</text><text x="1060" y="595" fill="#77798b" font-size="9" letter-spacing=".7">DIRECTIONS</text>
+    </g>
+    <path d="M797 542v67M902 542v67M1007 542v67" stroke="#e8e7eb"/>
+  </g>
+  <g font-family="Arial,sans-serif" font-size="11" letter-spacing=".8">
+    <rect x="76" y="424" width="144" height="36" rx="18" fill="#3451d1"/><text x="99" y="447" fill="#fff">OPEN SPECIFICATION</text>
+    <text x="76" y="686" fill="#77798b">SPECIFICATION</text><circle cx="204" cy="681" r="3" fill="#ffad91"/>
+    <text x="224" y="686" fill="#77798b">TOKENS</text><circle cx="293" cy="681" r="3" fill="#ffad91"/>
+    <text x="313" y="686" fill="#77798b">CODE-ONLY GEOMETRY</text><circle cx="470" cy="681" r="3" fill="#ffad91"/>
+    <text x="490" y="686" fill="#77798b">ACCESSIBLE COMPONENTS</text>
+  </g>
+</svg>

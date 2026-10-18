@@ -24,9 +24,14 @@ export function WorkView({ work }: WorkViewProps) {
     .filter((w) => w.slug !== work.slug && w.kind === work.kind)
     .slice(0, 4);
 
-  const backHref = work.kind === "role" ? "/#experience" : "/#products";
+  const backHref =
+    work.kind === "role" || work.slug === "arabic-watch"
+      ? "/#experience"
+      : "/#products";
   const backLabel =
-    work.kind === "role" ? "Back to experience" : "Back to products";
+    work.kind === "role" || work.slug === "arabic-watch"
+      ? "Back to experience"
+      : "Back to products";
   const kindLabel = work.kind === "role" ? "Role" : "Project";
 
   return (

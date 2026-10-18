@@ -42,7 +42,8 @@ export type BrandIconId =
   | "eleven"
   | "todo-little"
   | "fotofights"
-  | "qnpick";
+  | "qnpick"
+  | "firdawsi";
 
 export interface ProfileRoleLink {
   label: string;
@@ -157,11 +158,7 @@ export interface LocationItem {
 }
 
 export type SectionItem =
-  | LinkItem
-  | PhotoItem
-  | LocationItem
-  | ShotItem
-  | AwardItem;
+  LinkItem | PhotoItem | LocationItem | ShotItem | AwardItem;
 
 export interface Section {
   id: string;

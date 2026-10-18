@@ -454,5 +454,24 @@
     "context": "Arabic hour names describe changes in light from sunrise through night to dawn. Arabic Watch places the 24 traditional periods on a live, visual dial.",
     "did": "Researched the traditional hour names and built a live guide showing how they map across the day and night.",
     "impact": "A compact heritage tool connecting Arabic time vocabulary with a living clock and source notes."
+  },
+  {
+    "slug": "firdawsi",
+    "kind": "project",
+    "title": "Firdawsi",
+    "tagline": "A Qur’an-guided design language for peaceful, secure, effortless interaction.",
+    "url": "https://firdawsi.org",
+    "domain": "firdawsi.org",
+    "icon": "/icons/firdawsi.svg",
+    "preview": "/previews/products/firdawsi.svg",
+    "homeBlurb": "A modern Islamic design system, grounded in intention and dignity.",
+    "context": "Firdawsi translates Qur’anic qualities associated with Jannah into contemporary digital interfaces. The system documents its design inferences and keeps sacred text out of decoration and interface feedback.",
+    "did": "Built a portable design system spanning a written specification, design tokens, code-only geometry, accessible React components, and an interactive Arabic-and-English showcase.",
+    "impact": "A practical reference for shaping interfaces around intention, dignity, trust, and gentleness.",
+    "highlights": [
+      "Created a **portable design specification** and design-token model",
+      "Built a deterministic, **code-only geometry engine** and accessible React reference library",
+      "Published an **interactive bilingual showcase** with a task experience lab and component guidance"
+    ]
   }
 ]

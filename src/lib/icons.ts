@@ -34,4 +34,5 @@ export const iconSrc: Record<BrandIconId, string> = {
   "todo-little": "/icons/todo-little.png",
   fotofights: "/icons/fotofights.png",
   qnpick: "/icons/qnpick.png",
+  firdawsi: "/icons/firdawsi.svg",
 };

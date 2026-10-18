@@ -165,9 +165,9 @@
           "icon": "loqmaan"
         },
         {
-          "slug": "arabic-watch",
-          "size": "halfTall",
-          "icon": "arabic-watch"
+          "slug": "firdawsi",
+          "size": "full",
+          "icon": "firdawsi"
         }
       ]
     },
@@ -178,11 +178,6 @@
           "slug": "ebay",
           "size": "full",
           "icon": "ebay"
-        },
-        {
-          "slug": "qnpick",
-          "size": "full",
-          "icon": "qnpick"
         },
         {
           "slug": "adevinta",
@@ -267,6 +262,16 @@
               "slug": "fotofights",
               "size": "full",
               "icon": "fotofights"
+            },
+            {
+              "slug": "qnpick",
+              "size": "full",
+              "icon": "qnpick"
+            },
+            {
+              "slug": "arabic-watch",
+              "size": "full",
+              "icon": "arabic-watch"
             }
           ]
         }
