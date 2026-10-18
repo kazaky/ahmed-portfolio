@@ -168,7 +168,13 @@ function CareerRow({
                     <strong>{child.title}</strong>
                     <ArrowUpRight size={16} />
                   </div>
-                  {child.roleTitle && <span>{child.roleTitle}</span>}
+                  {(child.roleTitle || child.period) && (
+                    <span>
+                      {[child.roleTitle, child.period]
+                        .filter(Boolean)
+                        .join(" · ")}
+                    </span>
+                  )}
                   {child.blurb && <p>{child.blurb}</p>}
                   {child.downloads && (
                     <small>
