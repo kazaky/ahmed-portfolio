@@ -334,9 +334,6 @@ export function PortfolioHome({
                 <span>CURIOUS</span>
               </div>
               <span className="art-note">{active.note}</span>
-              <span className="hero-coordinates">
-                <MapPin size={12} /> Based in Berlin · Rooted in Arabic
-              </span>
             </div>
             <div
               className="perspective-switch"

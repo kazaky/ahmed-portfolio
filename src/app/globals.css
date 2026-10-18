@@ -446,19 +446,6 @@ html {
   border: 1px solid var(--studio-accent);
   border-radius: 50%;
 }
-.hero-coordinates {
-  position: absolute;
-  bottom: -12px;
-  left: 50%;
-  transform: translateX(-50%);
-  white-space: nowrap;
-  font-size: 9px;
-  color: var(--studio-muted);
-  display: flex;
-  gap: 6px;
-  align-items: center;
-  letter-spacing: 0.3px;
-}
 .chapter-divider {
   border-top: 1px solid var(--studio-rule);
   padding-block: 20px;
@@ -1142,9 +1129,6 @@ html {
   }
   .art-dot {
     right: 0;
-  }
-  .hero-coordinates {
-    bottom: 0;
   }
   .chapter-divider {
     font-size: 8px;
