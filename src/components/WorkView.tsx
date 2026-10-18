@@ -33,6 +33,7 @@ export function WorkView({ work }: WorkViewProps) {
       ? "Back to experience"
       : "Back to products";
   const kindLabel = work.kind === "role" ? "Role" : "Project";
+  const brandMarkPending = ["felucca", "hitchhiker"].includes(work.slug);
 
   return (
     <div className="page-atmosphere studio-work relative min-h-screen">
@@ -57,13 +58,19 @@ export function WorkView({ work }: WorkViewProps) {
         <header className="mt-8 sm:mt-10">
           <div className="flex items-start gap-4 sm:gap-5">
             <span className="relative mt-1 flex h-14 w-14 shrink-0 overflow-hidden rounded-2xl bg-neutral-50 dark:bg-neutral-800/80 ring-1 ring-neutral-200/80 dark:ring-neutral-700/80 sm:h-16 sm:w-16">
-              <Image
-                src={work.icon}
-                alt=""
-                width={64}
-                height={64}
-                className="h-full w-full object-cover"
-              />
+              {brandMarkPending ? (
+                <span className="work-brand-initial" aria-hidden="true">
+                  {work.title.slice(0, 1)}
+                </span>
+              ) : (
+                <Image
+                  src={work.icon}
+                  alt=""
+                  width={64}
+                  height={64}
+                  className="h-full w-full object-cover"
+                />
+              )}
             </span>
             <div className="min-w-0">
               <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-neutral-500 dark:text-neutral-400">
@@ -93,18 +100,29 @@ export function WorkView({ work }: WorkViewProps) {
 
         <div className="mt-7 overflow-hidden rounded-3xl border border-neutral-200/70 dark:border-neutral-700/70 bg-white dark:bg-neutral-900 shadow-sm sm:mt-8">
           <div className="relative aspect-[16/10] w-full bg-neutral-100 dark:bg-neutral-800">
-            <Image
-              src={work.preview}
-              alt={`${work.title} preview`}
-              fill
-              className={
-                work.preview.startsWith("/icons/")
-                  ? "object-contain p-12 sm:p-20"
-                  : "object-cover object-top"
-              }
-              sizes="(max-width: 768px) 100vw, 768px"
-              priority
-            />
+            {brandMarkPending ? (
+              <div
+                className="work-brand-cover"
+                role="img"
+                aria-label={`A typographic preview for ${work.title}`}
+              >
+                <span>{work.title.slice(0, 1)}</span>
+                <strong>{work.title}</strong>
+              </div>
+            ) : (
+              <Image
+                src={work.preview}
+                alt={`${work.title} preview`}
+                fill
+                className={
+                  work.preview.startsWith("/icons/")
+                    ? "object-contain p-12 sm:p-20"
+                    : "object-cover object-top"
+                }
+                sizes="(max-width: 768px) 100vw, 768px"
+                priority
+              />
+            )}
           </div>
         </div>
 
