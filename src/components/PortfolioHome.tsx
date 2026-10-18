@@ -425,6 +425,18 @@ export function PortfolioHome({
                 </a>
               ))}
             </div>
+            <div className="atlas-role-list" aria-label="My roles">
+              <span>Across work and life</span>
+              {site.profile.roles.map((role, index) => {
+                const RoleIcon = [Code2, PenTool, Camera][index];
+                return (
+                  <p key={role.label}>
+                    {RoleIcon && <RoleIcon size={15} aria-hidden="true" />}
+                    {role.label}
+                  </p>
+                );
+              })}
+            </div>
           </div>
         </section>
 

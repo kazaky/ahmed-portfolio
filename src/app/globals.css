@@ -2498,3 +2498,26 @@ html {
 .firdawsi-links .text-link {
   font-size: 12px;
 }
+.atlas-role-list {
+  margin-top: 18px;
+  padding-top: 15px;
+  border-top: 1px solid var(--studio-rule);
+}
+.atlas-role-list > span {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--studio-muted);
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.atlas-role-list p {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 7px 0;
+  font-size: 12px;
+}
+.atlas-role-list svg {
+  color: var(--studio-accent);
+}
